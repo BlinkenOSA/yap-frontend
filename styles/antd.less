@@ -1,0 +1,51 @@
+@import "~antd/dist/antd.less";
+
+@primary-color: #F45844; // primary color for all components
+@font-family: 'Open Sans', sans-serif;
+@body-background: #F9F9F9;
+@layout-body-background: #F9F9F9;
+@link-color: #647B9E;
+@text-color: #647B9E;
+@font-size-base: 16px;
+@line-height-base: 150%;
+
+/* Menu */
+@menu-item-font-size: 18px;
+@menu-item-color: @primary-color;
+
+/* Collapse */
+@collapse-panel-border-radius: 0;
+
+/* Container concept */
+.container {
+  width: 100%;
+  align-self: center;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fresnel-container {
+  width: 100%;
+}
+
+@media (max-width: @screen-md) {
+  .container {
+    margin-top: 90px;
+  }
+}
+
+.make-container(@minWidth, @breakpoint) {
+  @media (min-width: @minWidth) {
+    .container {
+      max-width: @breakpoint - 50;
+    }
+  }
+}
+
+.make-container(@screen-xs-min, @screen-xs);
+.make-container(@screen-sm-min, @screen-sm);
+.make-container(@screen-md-min, @screen-md);
+.make-container(@screen-lg-min, @screen-lg);
+.make-container(@screen-xl-min, @screen-xl);
+.make-container(@screen-xxl-min, @screen-xxl); // Optional

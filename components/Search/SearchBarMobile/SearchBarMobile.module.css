@@ -1,0 +1,21 @@
+.SearchInput {
+    border: none;
+    height: 40px;
+    font-size: 20px;
+}
+
+.SearchInput:focus {
+    box-shadow: none;
+}
+
+.SearchButton {
+    color: #F45844;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.SearchButton:hover {
+    background-color: #F45844;
+    color: #F9F9F9;
+}

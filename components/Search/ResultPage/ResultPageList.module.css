@@ -1,0 +1,18 @@
+.ResultItem {
+    margin-bottom: 20px;
+}
+
+.ResultItemData {
+    margin-left: 30px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.Title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.Label {
+    font-weight: 400;
+}

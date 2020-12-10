@@ -1,0 +1,11 @@
+.Pagination {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.Pagination :global .ant-pagination-item {
+    border: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+
+}

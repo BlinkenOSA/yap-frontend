@@ -1,0 +1,36 @@
+.Facets :global .ant-collapse-header{
+    background-color: #EEE;
+    line-height: 100% !important;
+    font-weight: 700;
+    font-size: 16px;
+    color: #F45844 !important;
+    text-align: right;
+}
+
+.Facets :global .ant-collapse-item-active .ant-collapse-header {
+    background-color: #F45844;
+    color: #F9F9F9 !important;
+}
+
+.Facets :global .ant-collapse-item {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.Facets :global .ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow {
+    top: 15px;
+}
+
+.Facets :global .ant-collapse-content-box {
+    padding: 0;
+}
+
+.FilterText {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    color: #F45844;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}
