@@ -6,6 +6,10 @@ import style from "./SearchBarMobile.module.css";
 import {Formik} from "formik";
 
 const SearchBarMobile = ({onSearch, initialValues={}, ...props}) => {
+  const onChange = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <Formik
       onSubmit={onSearch}
@@ -23,6 +27,8 @@ const SearchBarMobile = ({onSearch, initialValues={}, ...props}) => {
                 name={'query'}
                 size="large"
                 style={{width: "100%"}}
+                allowClear={true}
+                onChange={onChange}
               />
             </Col>
             <Col xs={2}>

@@ -9,8 +9,11 @@ import {API, fetcher} from "../utils/api";
 import {Col, Pagination, Row} from "antd";
 import ResultCounter from "../components/Search/ResultCounter/ResultCounter";
 import ResultPage from "../components/Search/ResultPage/ResultPage";
-import ResultPageFacets from "../components/Search/ResultPage/ResultPageFacets";
+import ResultPageFacetsDesktop from "../components/Search/ResultPageFacets/ResultPageFacetsDesktop";
 import SelectedFacets from "../components/Search/SelectedFacets/SelectedFacets";
+import ResultPageFacetsMobile from "../components/Search/ResultPageFacets/ResultPageFacetsMobile";
+import Image from "next/image";
+import Head from "next/head";
 
 const Search = () => {
   const [view, setView] = useState('list');
@@ -36,13 +39,13 @@ const Search = () => {
     })
   };
 
-  const onPageChange = (page) => {
+  const onPageChange = (page, pageSize) => {
     router.push({
       pathname: '/search',
       query: {
         query: query,
-        limit: limit,
-        offset: (page * limit) - limit,
+        limit: pageSize,
+        offset: (page * pageSize) - pageSize,
         ...selectedFacets
       }
     })
@@ -114,9 +117,10 @@ const Search = () => {
   };
 
   const renderResults = () => (
+    data.count > 0 ?
     <React.Fragment>
       <Row>
-        <Col md={24}>
+        <Col xs={24}>
           <ResultCounter count={data.count} limit={limit} offset={offset}/>
         </Col>
       </Row>
@@ -127,11 +131,33 @@ const Search = () => {
         onPageChange={onPageChange}
         onRecordsPerPageChange={onRecordsPerPageChange}
       />
-    </React.Fragment>
+    </React.Fragment> :
+    <Row>
+      <Col xs={24}>
+        <div style={{textAlign: 'center', marginTop: '20px', fontWeight: '700', color: '#CCC'}}>
+          There are no records with the defined search criteria!<br/>
+          Please try again with a different search term.
+        </div>
+      </Col>
+      <Col xs={24}>
+        <div style={{textAlign: 'center'}}>
+          <Image
+            width={400}
+            height={400}
+            objectFit={'contain'}
+            objectPosition={'center center'}
+            src={'/images/emptyPage.svg'}
+          />
+        </div>
+      </Col>
+    </Row>
   );
 
   return (
     <AppLayout>
+      <Head>
+        <title>YAP (Yugoslavia Archive Project) - Search</title>
+      </Head>
       <div className="container">
         <Media at="xs">
           <SearchBarMobile onSearch={onSearch} initialValues={params}/>
@@ -143,14 +169,26 @@ const Search = () => {
       </div>
       <Row>
         <Col xs={24} md={6}>
-          <ResultPageFacets
-            selectedFacets={selectedFacets}
-            onFacetSelect={onFacetSelect}
-            onDateRangeFacetSelect={onDateRangeFacetSelect}
-            onFacetRemove={onFacetRemove}
-            onDateRangeFacetRemove={onDateRangeFacetRemove}
-            facets={data ? data.facets : {}}
-          />
+          <Media at="xs">
+            <ResultPageFacetsMobile
+              selectedFacets={selectedFacets}
+              onFacetSelect={onFacetSelect}
+              onDateRangeFacetSelect={onDateRangeFacetSelect}
+              onFacetRemove={onFacetRemove}
+              onDateRangeFacetRemove={onDateRangeFacetRemove}
+              facets={data ? data.facets : {}}
+            />
+          </Media>
+          <Media greaterThan="xs">
+            <ResultPageFacetsDesktop
+              selectedFacets={selectedFacets}
+              onFacetSelect={onFacetSelect}
+              onDateRangeFacetSelect={onDateRangeFacetSelect}
+              onFacetRemove={onFacetRemove}
+              onDateRangeFacetRemove={onDateRangeFacetRemove}
+              facets={data ? data.facets : {}}
+            />
+          </Media>
         </Col>
         <Col xs={24} md={18}>
           { data ? renderResults() : <div>Loading...</div>}

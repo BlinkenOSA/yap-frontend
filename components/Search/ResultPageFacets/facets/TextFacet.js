@@ -5,6 +5,7 @@ import facetStyle from "./TextFacet.module.css";
 const { Paragraph } = Typography;
 import { Input } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
+import EmptyFacet from "./EmptyFacet";
 
 const { Search } = Input;
 
@@ -112,11 +113,7 @@ const TextFacet = ({facets, selectedFacets, search=false, onSelect, onRemove}) =
     )
   } else {
     return (
-      <div style={{marginLeft: '10px', marginTop: '10px'}}>
-        <Spin>
-          <Skeleton paragraph={{rows: 4, width: ['100%', '100%', '100%', '100%']}}/>
-        </Spin>
-      </div>
+      <EmptyFacet />
     )
   }
 };

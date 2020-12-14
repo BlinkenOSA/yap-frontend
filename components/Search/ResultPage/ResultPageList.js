@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Row} from "antd";
+import {Carousel, Col, Row} from "antd";
 import style from "./ResultPageList.module.css"
 import Image from "next/image";
 
@@ -18,14 +18,41 @@ const ResultPageList = ({data}) => {
 
   const renderThumbnail = (d) => {
     if (d.hasOwnProperty('thumbnails')) {
-
+      if (d.length > 1) {
+        return (
+          <a href={`/record/${d.id}`}>
+            <Image
+              layout={'fill'}
+              objectFit={'none'}
+              objectPosition={'top left'}
+              src={d.thumbnails[0]}/>
+          </a>
+        )
+      } else {
+        return (
+          <a key={d.id} href={`/record/${d.id}`}>
+            <Carousel dots={false} effect={'fade'} autoplay>
+              {d.thumbnails.map(thmb =>
+                <div key={thmb}>
+                  <Image
+                    width={180}
+                    height={150}
+                    objectFit={'contain'}
+                    objectPosition={'center center'}
+                    src={thmb}/>
+                </div>
+              )}
+            </Carousel>
+          </a>
+        )
+      }
     } else {
       return (
         <a href={`/record/${d.id}`}>
           <Image
             layout={'fill'}
             objectFit={'none'}
-            objectPosition={'right top'}
+            objectPosition={'top left'}
             src='/images/recordEmpty.png'/>
         </a>
       )

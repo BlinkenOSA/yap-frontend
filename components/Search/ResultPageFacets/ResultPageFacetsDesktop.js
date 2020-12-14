@@ -7,14 +7,15 @@ import DateRangeFacet from "./facets/DateRangeFacet";
 
 const { Panel } = Collapse;
 
-const ResultPageFacets = ({ facets, selectedFacets, onFacetSelect, onDateRangeFacetSelect,
+const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDateRangeFacetSelect,
                             onFacetRemove, onDateRangeFacetRemove }) => {
-  const [selectedFacetsValues, setSelectedFacetsValues] = useState(['creator', 'type']);
+  const [selectedFacetsValues, setSelectedFacetsValues] = useState(['type', 'creator']);
 
   useEffect(() => {
     if (selectedFacets && Object.keys(selectedFacets).length > 0) {
       setSelectedFacetsValues(Object.keys(selectedFacets))
-    }}, [selectedFacets]);
+    }
+  }, [selectedFacets]);
 
   const getDateRangeSelectedFacets = (startField, endField) => {
     let startDate;
@@ -29,15 +30,9 @@ const ResultPageFacets = ({ facets, selectedFacets, onFacetSelect, onDateRangeFa
     return [startDate, endDate]
   };
 
-  return (
-    <div className={style.Facets}>
-      <div className={style.FilterText}>Advanced Filters</div>
-      <Collapse
-        bordered={false}
-        defaultActiveKey={selectedFacetsValues}
-        expandIconPosition={'right'}
-        expandIcon={(panelProps) => (panelProps.isActive ? <PlusOutlined /> : <MinusOutlined/>)}
-      >
+  const renderPanels = () => {
+    return (
+      <React.Fragment>
         <Panel header="Type" key="type">
           <TextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('type') ? selectedFacets['type'] : []}
@@ -104,9 +99,24 @@ const ResultPageFacets = ({ facets, selectedFacets, onFacetSelect, onDateRangeFa
             search={true}
           />
         </Panel>
+      </React.Fragment>
+    )
+  };
+
+  return (
+    <div className={style.Facets}>
+      <div className={style.FilterText}>Advanced Filters</div>
+      <Collapse
+        bordered={false}
+        defaultActiveKey={selectedFacetsValues}
+        expandIconPosition={'right'}
+        expandIcon={(panelProps) => (panelProps.isActive ? <PlusOutlined /> : <MinusOutlined/>)}
+        collapsible={Object.keys(facets).length > 0 ? 'header' : 'disabled'}
+      >
+        {renderPanels()}
       </Collapse>
     </div>
   )
 };
 
-export default ResultPageFacets;
+export default ResultPageFacetsDesktop;

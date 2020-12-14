@@ -4,6 +4,10 @@
     font-size: 24px;
 }
 
+.SearchInput :global .ant-input-clear-icon {
+    font-size: 24px;
+}
+
 .SearchInput:focus {
     box-shadow: none;
 }

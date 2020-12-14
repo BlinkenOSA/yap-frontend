@@ -1,0 +1,34 @@
+.MediaPlayIcon {
+    color: #F45844;
+    cursor: pointer;
+    padding: 20px 25px;
+    font-weight: 700;
+    font-size: 30px;
+    border: none;
+    border-radius: 80px;
+    background-color: #FFFFFF;
+}
+
+:global .ant-modal-body {
+    padding: 10px;
+}
+
+:global .ant-modal-close {
+    top: -15px;
+    right: -15px;
+}
+
+:global .ant-modal-close-x {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #FFFFFF;
+    color: #F45844;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+:global .ant-modal-close-x:hover {
+    color: #647B9E;
+}

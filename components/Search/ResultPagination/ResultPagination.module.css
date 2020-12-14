@@ -4,8 +4,31 @@
 }
 
 .Pagination :global .ant-pagination-item {
+    font-weight: 700;
     border: none;
     border-radius: 15px;
     background-color: #FFFFFF;
+}
 
+.Pagination :global .ant-pagination-item a {
+    color: #647B9E;
+}
+
+.Pagination :global .ant-pagination-item a:hover {
+    color: #F45844;
+}
+
+.Pagination :global .ant-pagination-item-active a {
+    color: #F45844;
+}
+
+.Pagination :global .ant-pagination-item-link {
+    font-weight: 700;
+    border: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+}
+
+.Pagination :global .ant-pagination-item-link:hover {
+    color: #F45844;
 }

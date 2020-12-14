@@ -23,6 +23,8 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
                 name={'query'}
                 size="large"
                 style={{width: "100%"}}
+                allowClear={true}
+                onChange={(e) => {e.target.value === '' ? onSearch(e.target.value) : undefined}}
               />
             </Col>
             <Col xs={2}>

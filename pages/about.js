@@ -29,12 +29,12 @@ const About = () => {
             </Text>
           </Col>
           <Col lg={12} style={{width: '100%', minHeight: '300px'}}>
-              <ReactPlayer
-                controls={true}
-                width='100%'
-                height='100%'
-                url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
-              />
+            <ReactPlayer
+              controls={true}
+              width='100%'
+              height='100%'
+              url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
+            />
           </Col>
         </Row>
         <Row>

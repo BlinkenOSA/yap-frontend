@@ -5,11 +5,11 @@ import style from "./ResultPagination.module.css";
 const ResultPagination = ({count, limit=10, offset=0, onPageChange}) => {
   return (
     <Row>
-      <Col md={24}>
+      <Col xs={24} md={24}>
         <div className={style.Pagination}>
           <Pagination
             total={count}
-            pageSize={limit}
+            pageSize={limit ? limit : 10}
             showSizeChanger={false}
             current={offset ? offset / limit + 1 : 1}
             onChange={onPageChange} />

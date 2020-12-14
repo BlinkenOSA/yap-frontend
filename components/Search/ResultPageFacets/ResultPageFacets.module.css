@@ -1,3 +1,7 @@
+.FacetsOff {
+    display: none;
+}
+
 .Facets :global .ant-collapse-header{
     background-color: #EEE;
     line-height: 100% !important;
@@ -33,4 +37,16 @@
     font-weight: 700;
     font-size: 16px;
     text-align: center;
+}
+
+.FilterTextMobile {
+    font-weight: 700;
+    border: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+}
+
+.FilterTextMobile:hover {
+    cursor: pointer;
 }

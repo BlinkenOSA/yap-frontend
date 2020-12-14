@@ -22,4 +22,7 @@ module.exports = withCSS({
       },
     })
   ),
+  images: {
+    domains: ['storage.osaarchivum.org'],
+  },
 });

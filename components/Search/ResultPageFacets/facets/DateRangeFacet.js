@@ -2,6 +2,7 @@ import {Button, Col, Row, Slider} from "antd";
 import React, {useEffect, useState} from "react";
 import style from "./DateRangeFacet.module.css"
 import { CheckOutlined, UndoOutlined } from '@ant-design/icons';
+import EmptyFacet from "./EmptyFacet";
 
 const DateRangeFacet = ({facets, selectedFacets, onSelect, onRemove}) => {
   const [min, setMin] = useState(1990);
@@ -42,34 +43,41 @@ const DateRangeFacet = ({facets, selectedFacets, onSelect, onRemove}) => {
     setSliderValue(value)
   };
 
-  return (
-    <div>
-      <Slider
-        range={true}
-        min={min}
-        max={max}
-        value={sliderValue}
-        tooltipVisible={false}
-        className={style.Slider}
-        onChange={onChange}
-      />
-      <Row>
-        <Col xs={24} style={{textAlign: 'center'}}>
-          <span className={style.SliderValues}>{sliderValue[0]} - {sliderValue[1]}</span>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={24} style={{textAlign: 'right', marginTop: '20px'}}>
-          <Button type="primary" size="small" className={style.FilterButton} onClick={onFilter}>
-            Filter <CheckOutlined />
-          </Button>
-          <Button size="small" className={style.ResetButton} onClick={onRemove}>
-            Reset <UndoOutlined />
-          </Button>
-        </Col>
-      </Row>
-    </div>
-  )
+  if (facets.length > 0) {
+    return (
+      <div>
+        <Slider
+          range={true}
+          min={min}
+          max={max}
+          value={sliderValue}
+          tooltipVisible={false}
+          className={style.Slider}
+          onChange={onChange}
+        />
+        <Row>
+          <Col xs={24} style={{textAlign: 'center'}}>
+            <span className={style.SliderValues}>{sliderValue[0]} - {sliderValue[1]}</span>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={24} style={{textAlign: 'right', marginTop: '20px'}}>
+            <Button type="primary" size="small" className={style.FilterButton} onClick={onFilter}>
+              Filter <CheckOutlined />
+            </Button>
+            <Button size="small" className={style.ResetButton} onClick={onRemove}>
+              Reset <UndoOutlined />
+            </Button>
+          </Col>
+        </Row>
+      </div>
+    )
+  } else {
+    return (
+      <EmptyFacet/>
+    )
+  }
+
 };
 
 export default DateRangeFacet;

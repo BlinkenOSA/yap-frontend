@@ -20,7 +20,7 @@ const DesktopMenu = () => {
         <Col flex={22}>
           <Menu theme="light" mode="horizontal" className={style.Menu}>
             <Menu.Item className={style.MenuItem} key="search">
-              Search
+              <Link href={'/search'}>Search</Link>
             </Menu.Item>
             <Menu.Item className={style.MenuItem} key="timeline">
               <Link href={'/timeline'}>Timeline</Link>
