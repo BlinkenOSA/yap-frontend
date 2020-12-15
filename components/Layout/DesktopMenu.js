@@ -25,7 +25,9 @@ const DesktopMenu = () => {
             <Menu.Item className={style.MenuItem} key="timeline">
               <Link href={'/timeline'}>Timeline</Link>
             </Menu.Item>
-            <Menu.Item className={style.MenuItem} key="collections">Collections</Menu.Item>
+            <Menu.Item className={style.MenuItem} key="collections">
+              <Link href={'/collections'}>Collections</Link>
+            </Menu.Item>
             <Menu.Item className={style.MenuItem} key="about">
               <Link href={'/about'}>About</Link>
             </Menu.Item>
