@@ -15,8 +15,8 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
       {(props) => (
         <Form layout="inline" onSubmit={props.handleSubmit}>
           <Row gutter={[32, 16]} style={{width: '100%'}}>
-            <Col xs={2}> </Col>
-            <Col xs={18}>
+            <Col xs={4}> </Col>
+            <Col xs={14}>
               <Input
                 placeholder={'Search...'}
                 className={style.SearchInput}
@@ -36,7 +36,7 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
                 className={style.SearchButton}
               />
             </Col>
-            <Col xs={2}> </Col>
+            <Col xs={4}> </Col>
           </Row>
         </Form>
       )}
