@@ -95,11 +95,12 @@ const Record = ({data}) => {
 
           {renderMedia()}
 
-          <ul>
-            {data.description.map((description, idx) => (
-              <li key={idx}>{description}.</li>
-            ))}
-          </ul>
+          <dl>
+            <dt>Description</dt>
+            <dd>
+              {data.description.join('.|')}
+            </dd>
+          </dl>
 
           <dl>
             <dt>Temporal Coverage</dt>
