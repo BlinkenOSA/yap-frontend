@@ -8,6 +8,7 @@ import useSWR from "swr";
 import {API, fetcher} from "../utils/api";
 import CollectionResults from "../components/Collections/CollectionResults";
 import {useRouter} from "next/router";
+import Head from "next/head";
 
 const { Text } = Typography;
 
@@ -30,6 +31,9 @@ const Collections = () => {
 
   return (
     <AppLayout withBackground={true}>
+      <Head>
+        <title>YAP (Yugoslavia Archive Project) - Collections</title>
+      </Head>
       <div className="container">
         <Row>
           <h3 className={style.Title}>Explore the collections</h3>

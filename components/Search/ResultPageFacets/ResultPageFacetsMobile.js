@@ -104,7 +104,7 @@ const ResultPageFacetsMobile = ({ facets, selectedFacets, onFacetSelect, onDateR
               search={true}
             />
           </Panel>
-          <Panel header="Cities" key="city">
+          <Panel header="Places" key="place">
             <TextFacet
               selectedFacets = {selectedFacets.hasOwnProperty('city') ? selectedFacets['city'] : []}
               onSelect={(value) => {onFacetSelect('city', value)}}

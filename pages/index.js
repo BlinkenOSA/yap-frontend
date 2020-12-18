@@ -25,9 +25,10 @@ export default function Home() {
       <div className={style.FrontPageImage}>
         <span className={style.FrontPageTitle}>
           <Typewriter
-            string={'Yugloslavia Archive Project'}
+            string={'Yugoslavia Archive Project'}
             stopBlinkinOnComplete
-          /></span>
+          />
+        </span>
       </div>
     </AppLayout>
   )

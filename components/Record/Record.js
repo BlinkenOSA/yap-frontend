@@ -1,7 +1,7 @@
 import React from "react";
 import {Carousel, Col, Row} from "antd";
 import style from './Record.module.css';
-import { AudioOutlined} from '@ant-design/icons';
+import { SoundOutlined} from '@ant-design/icons';
 import VideoPlayer from "./players/VideoPlayer";
 import PDFViewer from "./players/PDFViewer";
 import Image from "next/dist/client/image";
@@ -47,7 +47,7 @@ const Record = ({data}) => {
           return (
             <Col key={index} xs={24 / media_files.length} style={{textAlign: 'center', fontSize: '20px'}}>
               <span className={style.MediaPlayIcon}>
-                <AudioOutlined />
+                <SoundOutlined />
               </span>
             </Col>
           );
@@ -98,7 +98,7 @@ const Record = ({data}) => {
           <dl>
             <dt>Description</dt>
             <dd>
-              {data.description.join('.|')}
+              {data.description.join('|')}
             </dd>
           </dl>
 
