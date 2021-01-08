@@ -22,7 +22,7 @@ const VideoPlayer = ({key, media}) => {
         footer={false}
         visible={modalOpen}
         onCancel={() => setModalOpen(false)}
-        width={800}
+        width={750}
         destroyOnClose={true}
         zIndex={9999}
       >
