@@ -2,9 +2,11 @@
     margin: 10px 20px 20px 20px;
 }
 
+/*
 .Results :global .ant-tabs-nav-wrap {
     justify-content: flex-end;
 }
+*/
 
 .Results :global .ant-tabs-tab {
     width: 60px;
