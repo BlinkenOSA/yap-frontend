@@ -8,7 +8,7 @@ const ResultCounter = ({count, limit, offset}) => {
   const recordsEnd = parseInt(ofst) + parseInt(lmt);
 
   return (
-    <div style={{paddingLeft: '20px', paddingTop: '20px'}}>
+    <div>
       {`Showing ${recordsStart} - ${recordsEnd} results of ${count} documents`}
     </div>
   )

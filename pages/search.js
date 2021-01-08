@@ -16,11 +16,9 @@ import Image from "next/image";
 import Head from "next/head";
 
 const Search = () => {
-  const [view, setView] = useState('list');
-
   const router = useRouter();
   const params = router.query;
-  const {query, limit, offset, ...selectedFacets} = params;
+  const {query, limit, offset, view, ...selectedFacets} = params;
 
   const { data, error } = useSWR([`${API}/repository/records/`, params], fetcher);
 
@@ -119,15 +117,11 @@ const Search = () => {
   const renderResults = () => (
     data.count > 0 ?
     <React.Fragment>
-      <Row>
-        <Col xs={24}>
-          <ResultCounter count={data.count} limit={limit} offset={offset}/>
-        </Col>
-      </Row>
       <ResultPage
         data={data}
         limit={limit}
         offset={offset}
+        view={view}
         onPageChange={onPageChange}
         onRecordsPerPageChange={onRecordsPerPageChange}
       />
