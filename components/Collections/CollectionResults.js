@@ -29,7 +29,7 @@ const CollectionResults = ({data, limit, offset, onPageChange}) => {
   };
 
   const results = () => {
-    return data.map((d, idx) => (
+    return data['results'].map((d, idx) => (
       <Row style={{marginBottom: '40px'}} key={idx}>
         <Col xs={4}>
           {renderThumbnail(d)}
