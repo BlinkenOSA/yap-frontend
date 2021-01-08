@@ -29,7 +29,7 @@ const CollectionResults = ({data, limit, offset, onPageChange}) => {
   };
 
   const results = () => {
-    return data['results'].map((d, idx) => (
+    return data.map((d, idx) => (
       <Row style={{marginBottom: '40px'}} key={idx}>
         <Col xs={4}>
           {renderThumbnail(d)}
@@ -63,7 +63,13 @@ const CollectionResults = ({data, limit, offset, onPageChange}) => {
             {results()}
           </Col>
         </Row>
-        <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
+        <ResultPagination
+          count={data.count}
+          limit={limit}
+          offset={offset}
+          onPageChange={onPageChange}
+          recordsPerPage={false}
+        />
       </React.Fragment> : ''}
     </div>
   )
