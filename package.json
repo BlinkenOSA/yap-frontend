@@ -21,6 +21,7 @@
     "formik-antd": "^2.0.1",
     "leaflet": "^1.7.1",
     "less": "^3.12.2",
+    "lodash": "^4.17.20",
     "next": "^10.0.3",
     "next-google-fonts": "^1.2.1",
     "pdfjs-dist": "^2.4.456",

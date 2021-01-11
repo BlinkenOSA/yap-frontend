@@ -169,7 +169,10 @@ const Search = () => {
         </Media>
         <Media greaterThan="xs">
           <SearchBarDesktop onSearch={onSearch} initialValues={params}/>
-          <SelectedFacets selectedFacets={selectedFacets} onFacetRemove={onFacetRemove}/>
+          <SelectedFacets
+            selectedFacets={selectedFacets}
+            onFacetRemove={onFacetRemove}
+            onDateRangeFacetRemove={onDateRangeFacetRemove}/>
         </Media>
       </div>
       <Row>
