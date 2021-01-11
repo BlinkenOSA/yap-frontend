@@ -52,9 +52,13 @@ const Search = () => {
   const onFacetSelect = (field, value) => {
     if (selectedFacets.hasOwnProperty(field)) {
       if (Array.isArray(selectedFacets[field])) {
-        selectedFacets[field].push(value)
+        if (!selectedFacets[field].includes(value)) {
+          selectedFacets[field].push(value)
+        }
       } else {
-        selectedFacets[field] = [selectedFacets[field], value]
+        if (!selectedFacets[field].includes(value)) {
+          selectedFacets[field] = [selectedFacets[field], value]
+        }
       }
     } else {
       selectedFacets[field] = value;
@@ -65,17 +69,6 @@ const Search = () => {
         query: query,
         limit: limit,
         ...selectedFacets
-      }
-    })
-  };
-
-  const onDateRangeFacetSelect = (dateRangeValues) => {
-    const newFacets = {...selectedFacets, ...dateRangeValues}
-    router.push({
-      pathname: '/search', query: {
-        query: query,
-        limit: limit,
-        ...newFacets
       }
     })
   };
@@ -102,6 +95,17 @@ const Search = () => {
     })
   };
 
+  const onDateRangeFacetSelect = (dateRangeValues) => {
+    const newFacets = {...selectedFacets, ...dateRangeValues}
+    router.push({
+      pathname: '/search', query: {
+        query: query,
+        limit: limit,
+        ...newFacets
+      }
+    })
+  };
+
   const onDateRangeFacetRemove = (dateStartField, dateEndField) => {
     delete selectedFacets[dateStartField];
     delete selectedFacets[dateEndField];
@@ -114,10 +118,15 @@ const Search = () => {
     })
   };
 
+  const onMarkerClick = (value) => {
+    onFacetSelect('city', value)
+  };
+
   const renderResults = () => (
     data.count > 0 ?
     <React.Fragment>
       <ResultPage
+        query={query}
         data={data}
         limit={limit}
         offset={offset}
@@ -125,6 +134,7 @@ const Search = () => {
         selectedFacets={selectedFacets}
         onPageChange={onPageChange}
         onRecordsPerPageChange={onRecordsPerPageChange}
+        onMarkerClick={onMarkerClick}
       />
     </React.Fragment> :
     <Row>

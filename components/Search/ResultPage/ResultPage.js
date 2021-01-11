@@ -4,12 +4,17 @@ import style from "./ResultPage.module.css"
 import Image from "next/image";
 import ResultPageList from "./ResultPageList";
 import ResultPagination from "../ResultPagination/ResultPagination";
-import ResultPageMap from "./ResultPageMap";
 import ResultCounter from "../ResultCounter/ResultCounter";
+import dynamic from "next/dist/next-server/lib/dynamic";
 
 const { TabPane } = Tabs;
 
-const ResultPage = ({data, limit, view='list', offset, selectedFacets, onPageChange}) => {
+const ResultPageMap = dynamic(
+  () => import('./ResultPageMap'),
+  { ssr: false }
+);
+
+const ResultPage = ({data, query, limit, view='list', offset, selectedFacets, onPageChange, onMarkerClick}) => {
   return (
     <div className={style.Results}>
       <Tabs defaultActiveKey={view} tabBarExtraContent={
@@ -21,7 +26,7 @@ const ResultPage = ({data, limit, view='list', offset, selectedFacets, onPageCha
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
         </TabPane>
         <TabPane tab={<span><Image src={'/images/mapView.svg'} width={25} height={25}/></span>} key="map">
-          <ResultPageMap selectedFacets={selectedFacets}/>
+          <ResultPageMap params={{query: query, ...selectedFacets}} onMarkerClick={onMarkerClick}/>
         </TabPane>
       </Tabs>
     </div>
