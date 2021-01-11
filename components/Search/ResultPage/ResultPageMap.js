@@ -9,8 +9,8 @@ const MapComponent = dynamic(
   { ssr: false }
 );
 
-const ResultPageMap = ({params}) => {
-  const { data, error } = useSWR([`${API}/repository/records_map/`, params], fetcher);
+const ResultPageMap = ({selectedFacets}) => {
+  const { data, error } = useSWR([`${API}/repository/records_map/`, selectedFacets], fetcher);
 
   return (
     <React.Fragment>

@@ -122,6 +122,7 @@ const Search = () => {
         limit={limit}
         offset={offset}
         view={view}
+        selectedFacets={selectedFacets}
         onPageChange={onPageChange}
         onRecordsPerPageChange={onRecordsPerPageChange}
       />

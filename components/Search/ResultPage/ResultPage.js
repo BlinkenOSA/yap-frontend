@@ -9,7 +9,7 @@ import ResultCounter from "../ResultCounter/ResultCounter";
 
 const { TabPane } = Tabs;
 
-const ResultPage = ({data, limit, view='list', offset, onPageChange}) => {
+const ResultPage = ({data, limit, view='list', offset, selectedFacets, onPageChange}) => {
   return (
     <div className={style.Results}>
       <Tabs defaultActiveKey={view} tabBarExtraContent={
@@ -21,7 +21,7 @@ const ResultPage = ({data, limit, view='list', offset, onPageChange}) => {
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
         </TabPane>
         <TabPane tab={<span><Image src={'/images/mapView.svg'} width={25} height={25}/></span>} key="map">
-          <ResultPageMap />
+          <ResultPageMap selectedFacets={selectedFacets}/>
         </TabPane>
       </Tabs>
     </div>

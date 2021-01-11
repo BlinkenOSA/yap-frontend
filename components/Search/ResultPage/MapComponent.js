@@ -1,14 +1,12 @@
-import {CircleMarker, Map, Marker, TileLayer, Tooltip} from "react-leaflet";
+import {Map, Marker, TileLayer, Tooltip} from "react-leaflet";
 import React, {useEffect, useState} from "react";
 import L from 'leaflet';
 import FullscreenControl from 'react-leaflet-fullscreen';
 import Head from "next/head";
 import style from "./MapComponent.module.css";
-import {get} from "leaflet/src/dom/DomUtil";
 
 const MapComponent = ({data}) => {
   const [mapData, setMapData] = useState([]);
-  const imageBounds = [[40.3976, 13.3564], [47.1953, 23.2344]];
 
   useEffect(() => {
     const mData = [];
