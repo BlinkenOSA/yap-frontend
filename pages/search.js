@@ -1,13 +1,12 @@
 import AppLayout from "../components/Layout/Layout";
 import SearchBarDesktop from "../components/Search/SearchBarDesktop/SearchBarDesktop";
 import SearchBarMobile from "../components/Search/SearchBarMobile/SearchBarMobile";
-import React, {useState} from "react";
+import React from "react";
 import {Media} from "../components/Media/Media";
 import useSWR from 'swr'
 import {useRouter} from "next/router";
 import {API, fetcher} from "../utils/api";
-import {Col, Pagination, Row} from "antd";
-import ResultCounter from "../components/Search/ResultCounter/ResultCounter";
+import {Col, Row} from "antd";
 import ResultPage from "../components/Search/ResultPage/ResultPage";
 import ResultPageFacetsDesktop from "../components/Search/ResultPageFacets/ResultPageFacetsDesktop";
 import SelectedFacets from "../components/Search/SelectedFacets/SelectedFacets";
@@ -77,7 +76,7 @@ const Search = () => {
     if (selectedFacets.hasOwnProperty(field)) {
       if (Array.isArray(selectedFacets[field])) {
         if (selectedFacets[field].includes(value)) {
-          selectedFacets[field].pop(value)
+          selectedFacets[field] = selectedFacets[field].filter(facet => facet !== value);
         }
       } else {
         if (selectedFacets[field] === value) {

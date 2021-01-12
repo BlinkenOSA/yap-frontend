@@ -5,12 +5,21 @@ import style from "./SelectedFacets.module.css";
 import { CloseOutlined } from '@ant-design/icons';
 
 const SelectedFacets = ({selectedFacets, onFacetRemove, onDateRangeFacetRemove}) => {
-  const renderFacetButton = (key, value, label, index) => (
-    <span className={style.Button} key={index}>
-      <span className={style.Label}>{label ? label : _.startCase(key)}:</span> {value}
-      <a className={style.RemoveIcon} onClick={() => onFacetRemove(key, value)}><CloseOutlined/></a>
-    </span>
-  );
+  const renderFacetButton = (key, value, label, index) => {
+    const renderButton = (val, index) => (
+      <span className={style.Button} key={index}>
+        <span className={style.Label}>{label}:</span> {val}
+        <a className={style.RemoveIcon} onClick={() => onFacetRemove(key, val)}><CloseOutlined/></a>
+      </span>
+    );
+
+    if (Array.isArray(value)) {
+      return value.map((val, index) => (renderButton(val, index)))
+    } else {
+      return renderButton(value, index);
+    }
+
+  };
 
   const renderDateFacet = (start, end) => (
     <span className={style.Button} key={'temporal_coverage'}>
@@ -35,23 +44,20 @@ const SelectedFacets = ({selectedFacets, onFacetRemove, onDateRangeFacetRemove})
         case 'year_coverage_end':
           return '';
         default:
-          if (Array.isArray(value)) {
-            return value.map((val, index) => (renderFacetButton(key, val, index)))
-          } else {
-            return renderFacetButton(key, value, index);
-          }
+          return renderFacetButton(key, value, _.startCase(key), index)
       }
     })
   );
 
   return (
-    <Row gutter={[32, 16]} style={{width: '100%'}}>
-      <Col xs={4}> </Col>
-      <Col xs={16}>
-        {renderFacets()}
-      </Col>
-      <Col xs={4}> </Col>
-    </Row>
+      Object.keys(selectedFacets).length > 0 &&
+      <Row gutter={[32, 16]} style={{width: '100%'}}>
+        <Col xs={4}> </Col>
+        <Col xs={16}>
+          {renderFacets()}
+        </Col>
+        <Col xs={4}> </Col>
+      </Row>
   )
 };
 
