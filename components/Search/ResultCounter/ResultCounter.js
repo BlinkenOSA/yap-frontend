@@ -1,4 +1,5 @@
 import React from "react";
+import {Media} from "../../Media/Media";
 
 const ResultCounter = ({count, limit, offset}) => {
   const lmt = limit ? limit : 10;
@@ -8,9 +9,19 @@ const ResultCounter = ({count, limit, offset}) => {
   const recordsEnd = parseInt(ofst) + parseInt(lmt);
 
   return (
-    <div>
-      {`Showing ${recordsStart} - ${recordsEnd} results of ${count} documents`}
-    </div>
+    <React.Fragment>
+      <Media at="xs">
+        <div>
+          {`${recordsStart} - ${recordsEnd} / ${count}`}
+        </div>
+      </Media>
+      <Media greaterThan="xs">
+        <div>
+          {`Showing ${recordsStart} - ${recordsEnd} results of ${count} documents`}
+        </div>
+      </Media>
+    </React.Fragment>
+
   )
 };
 
