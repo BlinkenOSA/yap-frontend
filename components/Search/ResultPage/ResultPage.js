@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Tabs} from "antd";
 import style from "./ResultPage.module.css"
 import Image from "next/image";
@@ -15,11 +15,22 @@ const ResultPageMap = dynamic(
 );
 
 const ResultPage = ({data, query, limit, view='list', offset, selectedFacets, onPageChange, onMarkerClick}) => {
+  const [activeTab, setActiveTab] = useState("list");
+
+  const getCounter = () => {
+    switch (activeTab) {
+      case 'list':
+        return <ResultCounter count={data.count} limit={limit} offset={offset}/>
+      case 'map':
+        return <div>{`Showing ${data.count} documents`}</div>
+      default:
+        return ''
+    }
+  };
+
   return (
     <div className={style.Results}>
-      <Tabs defaultActiveKey={view} tabBarExtraContent={
-        {right: <ResultCounter count={data.count} limit={limit} offset={offset}/>}
-      }>
+      <Tabs defaultActiveKey={view} tabBarExtraContent={{right: getCounter()}} onChange={setActiveTab}>
         <TabPane tab={<span><Image src={'/images/listView.svg'} width={25} height={25}/></span>} key="list">
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
           <ResultPageList data={data.results} />
