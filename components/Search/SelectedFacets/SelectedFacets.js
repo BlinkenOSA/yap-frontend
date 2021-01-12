@@ -52,11 +52,11 @@ const SelectedFacets = ({selectedFacets, onFacetRemove, onDateRangeFacetRemove})
   return (
       Object.keys(selectedFacets).length > 0 &&
       <Row gutter={[32, 16]} style={{width: '100%'}}>
-        <Col xs={4}> </Col>
-        <Col xs={16}>
+        <Col sm={2} md={4}> </Col>
+        <Col sm={20} md={16}>
           {renderFacets()}
         </Col>
-        <Col xs={4}> </Col>
+        <Col sm={2} md={4}> </Col>
       </Row>
   )
 };
