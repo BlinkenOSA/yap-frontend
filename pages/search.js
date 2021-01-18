@@ -25,17 +25,6 @@ const Search = () => {
     router.push({pathname: '/search', query: values})
   };
 
-  const onRecordsPerPageChange = (value) => {
-    router.push({
-      pathname: '/search',
-      query: {
-        query: query,
-        limit: value,
-        ...selectedFacets
-      }
-    })
-  };
-
   const onPageChange = (page, pageSize) => {
     router.push({
       pathname: '/search',
@@ -132,7 +121,6 @@ const Search = () => {
         view={view}
         selectedFacets={selectedFacets}
         onPageChange={onPageChange}
-        onRecordsPerPageChange={onRecordsPerPageChange}
         onMarkerClick={onMarkerClick}
       />
     </React.Fragment> :

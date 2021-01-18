@@ -86,7 +86,7 @@ const ResultPageList = ({data}) => {
           <div>
             {d.hasOwnProperty('city') ?
               <React.Fragment>
-                <span className={style.Label}>City:</span> {d.city.join(', ')}
+                <span className={style.Label}>Place:</span> {d.city.join(', ')}
               </React.Fragment> : ''}
           </div>
         </div>

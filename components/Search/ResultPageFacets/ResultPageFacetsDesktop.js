@@ -63,7 +63,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
             facets={facets.hasOwnProperty('facet_fields') ? facets['facet_fields']['temporal_coverage_facet'] : []}
           />
         </Panel>
-        <Panel header="Subject Person" key="subject_person">
+        <Panel header="People" key="subject_person">
           <TextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('subject_person') ? selectedFacets['subject_person'] : []}
             onSelect={(value) => {onFacetSelect('subject_person', value)}}
@@ -105,7 +105,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
 
   return (
     <div className={style.Facets}>
-      <div className={style.FilterText}>Advanced Filters</div>
+      <div className={style.FilterText}>Filters</div>
       <Collapse
         bordered={false}
         defaultActiveKey={selectedFacetsValues}

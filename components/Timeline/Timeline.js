@@ -1,37 +1,53 @@
 import React from "react";
-import {Map, TileLayer} from "react-leaflet";
-import ReactDistortableImageOverlay from "react-leaflet-distortable-imageoverlay";
+import {ImageOverlay, LayersControl, Map, TileLayer} from "react-leaflet";
 import L from 'leaflet'
 
 const Timeline = () => {
-  const imageUrl = '/maps/1992_04_07.svg';
-  const imageBounds = [[40.3976, 13.3564], [47.1953, 23.2344]];
+  const mapFiles = [
+    {file: '/maps/YAP_map_1990.svg', text: '1990'},
+    {file: '/maps/YAP_map_1991_06.svg', text: '1991 June'},
+    {file: '/maps/YAP_map_1991_09.svg', text: '1991 September'},
+    {file: '/maps/YAP_map_1992_03.svg', text: '1992 March'},
+    {file: '/maps/YAP_map_1992_04_07.svg', text: '1992 April 7th'},
+    {file: '/maps/YAP_map_1992_04_28.svg', text: '1992 April 28th'},
+    {file: '/maps/YAP_map_1993_06.svg', text: '1993 June'},
+    {file: '/maps/YAP_map_1995_09.svg', text: '1995 September'},
+    {file: '/maps/YAP_map_1996_01.svg', text: '1996 April'},
+    {file: '/maps/YAP_map_1998_01.svg', text: '1998 January'},
+    {file: '/maps/YAP_map_2008_02.svg', text: '2008 February'},
+  ];
 
-  const onCornersUpdated = (corners) => {
-    console.log(corners);
-  };
+  const imageBounds = [
+    new L.latLng(46.877933, 23.034040),
+    new L.latLng(40.852090, 13.375633),
+  ];
+  const mapBounds = [[40.3976, 13.3564], [47.1953, 23.2344]];
+
+  const renderLayers = () => (
+    mapFiles.map((m, idx) => (
+      <LayersControl.BaseLayer name={m.text} key={idx}>
+        <ImageOverlay
+          url={m.file}
+          attributes={{ stroke: 'red' }}
+          opacity={0.6}
+          bounds={imageBounds}
+          zIndex={999}
+        />
+      </LayersControl.BaseLayer>
+    ))
+  );
 
   return (
     <div style={{marginTop: '110px', height: '100%'}}>
-      <Map bounds={imageBounds} zoom={6} style={{height:"600px"}}>
+      <Map bounds={mapBounds} zoom={6} style={{height:"600px"}}>
         <TileLayer
           noWrap={true}
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         />
-        <ReactDistortableImageOverlay
-          url={imageUrl}
-          attributes={{ stroke: 'red' }}
-          onCornersUpdated={onCornersUpdated}
-          opacity={0.6}
-          corners={[
-            new L.latLng(46.891052758899654,13.383321762084963),
-            new L.latLng(46.82285159007993, 23.536920547485355),
-            new L.latLng(41.046152082688636,13.58940124511719),
-            new L.latLng(40.812315136326006,22.947950363159183),
-          ]}
-          zIndex={999}
-        />
+        <LayersControl position="topright">
+          {renderLayers()}
+        </LayersControl>
       </Map>
     </div>
   )

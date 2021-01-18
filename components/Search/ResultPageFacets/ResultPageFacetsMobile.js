@@ -38,7 +38,7 @@ const ResultPageFacetsMobile = ({ facets, selectedFacets, onFacetSelect, onDateR
       <div
         onClick={() => setFacetsOpen(!facetsOpen)}
         className={style.FilterText}>
-        <span className={style.FilterTextMobile}>{facetsOpen ? `Close Advanced Filters` : `Open Advanced Filters`}</span>
+        <span className={style.FilterTextMobile}>{facetsOpen ? `Close Filters` : `Open Filters`}</span>
       </div>
       <div className={facetsOpen ? '' : style.FacetsOff}>
         <Collapse
@@ -77,7 +77,7 @@ const ResultPageFacetsMobile = ({ facets, selectedFacets, onFacetSelect, onDateR
               facets={facets.hasOwnProperty('facet_fields') ? facets['facet_fields']['temporal_coverage_facet'] : []}
             />
           </Panel>
-          <Panel header="Subject Person" key="subject_person">
+          <Panel header="People" key="subject_person">
             <TextFacet
               selectedFacets = {selectedFacets.hasOwnProperty('subject_person') ? selectedFacets['subject_person'] : []}
               onSelect={(value) => {onFacetSelect('subject_person', value)}}

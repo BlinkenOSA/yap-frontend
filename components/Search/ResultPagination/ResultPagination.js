@@ -3,7 +3,7 @@ import React from "react";
 import style from "./ResultPagination.module.css";
 import RecordsPerPage from "../RecordsPerPage/RecordsPerPage";
 
-const ResultPagination = ({count, limit=10, offset=0, onPageChange, recordsPerPage=true}) => {
+const ResultPagination = ({count, limit=10, offset=0, onPageChange}) => {
   return (
     <Row>
       <Col xs={24} md={24}>
@@ -14,7 +14,7 @@ const ResultPagination = ({count, limit=10, offset=0, onPageChange, recordsPerPa
             showSizeChanger={false}
             current={offset ? offset / limit + 1 : 1}
             onChange={onPageChange} />
-          {recordsPerPage && <RecordsPerPage onChange={onPageChange} />}
+            <RecordsPerPage recordsPerPage={limit} onChange={(value) => onPageChange(1, value)} />
         </div>
       </Col>
     </Row>
