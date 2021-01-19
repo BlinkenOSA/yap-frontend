@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import {ImageOverlay, LayersControl, Map, TileLayer} from "react-leaflet";
 import L from 'leaflet'
+import Control from 'react-leaflet-control';
+import Legend from "./Legend";
 
 const Timeline = () => {
+  const [selectedLayer, setSelectedLayer] = useState('');
+
   const mapFiles = [
     {file: '/maps/YAP_map_1990.svg', text: '1990'},
     {file: '/maps/YAP_map_1991_06.svg', text: '1991 June'},
@@ -25,7 +29,10 @@ const Timeline = () => {
 
   const renderLayers = () => (
     mapFiles.map((m, idx) => (
-      <LayersControl.BaseLayer name={m.text} key={idx}>
+      <LayersControl.BaseLayer
+        name={m.text}
+        key={idx}
+      >
         <ImageOverlay
           url={m.file}
           attributes={{ stroke: 'red' }}
@@ -38,16 +45,27 @@ const Timeline = () => {
   );
 
   return (
-    <div style={{marginTop: '110px', height: '100%'}}>
-      <Map bounds={mapBounds} zoom={6} style={{height:"600px"}}>
+    <div style={{marginTop: '70px', height: '100%'}}>
+      <Map
+        bounds={mapBounds}
+        zoom={6}
+        style={{height:"640px"}}
+        onBaselayerchange={({name}) => {setSelectedLayer(name)}}
+      >
         <TileLayer
           noWrap={true}
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
         />
-        <LayersControl position="topright">
+        <LayersControl
+          position="topright"
+          collapsed={false}
+        >
           {renderLayers()}
         </LayersControl>
+        <Control position={'bottomleft'}>
+          <Legend selectedLayer={selectedLayer}/>
+        </Control>
       </Map>
     </div>
   )

@@ -1,9 +1,11 @@
 import React from "react";
-import {Col, Row} from "antd";
+import {Card, Col, Row} from "antd";
 import style from "./CollectionResults.module.css"
 import ResultPagination from "../Search/ResultPagination/ResultPagination";
 import Image from "next/dist/client/image";
 import { RightOutlined } from '@ant-design/icons';
+
+const { Meta } = Card;
 
 const CollectionResults = ({data, limit, offset, onPageChange}) => {
 
@@ -11,9 +13,8 @@ const CollectionResults = ({data, limit, offset, onPageChange}) => {
     if (d.thumbnail) {
       return (
         <Image
-          width={250}
-          height={250}
-          objectFit={'contain'}
+          layout={'fill'}
+          objectFit={'cover'}
           objectPosition={'center center'}
           src={d.thumbnail}/>
       )
@@ -31,10 +32,10 @@ const CollectionResults = ({data, limit, offset, onPageChange}) => {
   const results = () => {
     return data['results'].map((d, idx) => (
       <Row style={{marginBottom: '40px'}} key={idx}>
-        <Col xs={4}>
+        <Col xs={24} md={6}>
           {renderThumbnail(d)}
         </Col>
-        <Col xs={20}>
+        <Col xs={24} md={18}>
           <div className={style.ResultItemData}>
             <div className={style.Title}>
               {d.title}
@@ -58,11 +59,7 @@ const CollectionResults = ({data, limit, offset, onPageChange}) => {
     <div className={style.Results}>
       {data ?
       <React.Fragment>
-        <Row>
-          <Col xs={24}>
-            {results()}
-          </Col>
-        </Row>
+        {results()}
         <ResultPagination
           count={data.count}
           limit={limit}

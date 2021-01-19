@@ -19,7 +19,7 @@ const MobileMenu = () => {
         <Col flex={2}>
           <div className={style.Logo}>
             <a href={'/'}>
-              <Image width={50} height={35} src='/images/yap-logo.svg'/>
+              <Image width={75} height={50} src='/images/yap-logo.svg'/>
             </a>
           </div>
         </Col>

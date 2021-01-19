@@ -13,7 +13,7 @@ const DesktopMenu = () => {
         <Col flex={2}>
           <div className={style.Logo}>
             <a href={'/'}>
-              <Image width={100} height={70} src='/images/yap-logo.svg'/>
+              <Image width={75} height={50} src='/images/yap-logo.svg'/>
             </a>
           </div>
         </Col>

@@ -5,10 +5,11 @@
     height: 70px;
     line-height: 30px;
     background-color: #F9F9F9;
+    padding: 0 30px;
 }
 
 .Logo {
-    padding: 20px 0;
+    padding: 10px 0;
     height: 70px;
 }
 
