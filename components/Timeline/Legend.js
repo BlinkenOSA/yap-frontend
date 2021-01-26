@@ -8,7 +8,7 @@ const countriesOnMap = {
   '1993 August 28th': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina_2', 'western_bosnia', 'republika_srpska', 'herzeg_bosnia', 'sfr_yugoslavia', 'macedonia'],
   '1995 December 14th': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina_2', 'republika_srpska_2', 'fr_yugoslavia', 'macedonia'],
   '1998 January 15th': ['slovenia', 'croatia', 'bosnia_herzegovina_2', 'republika_srpska_2', 'fr_yugoslavia', 'macedonia'],
-  '2008 February 17th': ['slovenia', 'croatia', 'bosnia_herzegovina_2', 'republika_srpska_2', 'brcko', 'serbia', 'montenegro', 'macedonia'],
+  '2008 February 17th': ['slovenia', 'croatia', 'bosnia_herzegovina_2', 'republika_srpska_2', 'brcko', 'serbia', 'montenegro', 'kosovo', 'macedonia'],
 };
 
 const countries = {
