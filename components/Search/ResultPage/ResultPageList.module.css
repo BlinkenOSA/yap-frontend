@@ -13,6 +13,37 @@
     font-weight: 700;
 }
 
+.Title em {
+    font-style: normal;
+    background-color: #FFD911;
+}
+
 .Label {
     font-weight: 400;
+}
+
+.More {
+    color: #F45844;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 14px;
+}
+
+.Highlight {
+    background-color: #FFF;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.CatalogLink a {
+    color: #F45844;
+    transition: border-bottom-color 0.3s;
+    border-bottom: 1px dotted transparent;
+}
+
+.CatalogLink a:hover {
+    border-bottom: 1px dotted #F45844;
 }

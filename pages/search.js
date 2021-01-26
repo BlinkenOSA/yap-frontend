@@ -1,7 +1,6 @@
 import AppLayout from "../components/Layout/Layout";
-import SearchBarDesktop from "../components/Search/SearchBarDesktop/SearchBarDesktop";
-import SearchBarMobile from "../components/Search/SearchBarMobile/SearchBarMobile";
-import React from "react";
+import SearchBar from "../components/Search/SearchBar/SearchBar";
+import React, {useState} from "react";
 import {Media} from "../components/Media/Media";
 import useSWR from 'swr'
 import {useRouter} from "next/router";
@@ -151,23 +150,14 @@ const Search = () => {
         <title>YAP (Yugoslavia Archive Project) - Search</title>
       </Head>
       <div className="container">
-        <Media at="xs">
-          <SearchBarMobile onSearch={onSearch} initialValues={params}/>
+          <SearchBar onSearch={onSearch} initialValues={{query: query}}/>
           <SelectedFacets
             selectedFacets={selectedFacets}
             onFacetRemove={onFacetRemove}
             onDateRangeFacetRemove={onDateRangeFacetRemove}/>
-        </Media>
-        <Media greaterThan="xs">
-          <SearchBarDesktop onSearch={onSearch} initialValues={params}/>
-          <SelectedFacets
-            selectedFacets={selectedFacets}
-            onFacetRemove={onFacetRemove}
-            onDateRangeFacetRemove={onDateRangeFacetRemove}/>
-        </Media>
       </div>
       <Row>
-        <Col xs={24} md={6}>
+        <Col xs={24} lg={4}>
           <Media at="xs">
             <ResultPageFacetsMobile
               selectedFacets={selectedFacets}
@@ -189,7 +179,7 @@ const Search = () => {
             />
           </Media>
         </Col>
-        <Col xs={24} md={18}>
+        <Col xs={24} lg={20}>
           { data ? renderResults() : <div>Loading...</div>}
         </Col>
       </Row>

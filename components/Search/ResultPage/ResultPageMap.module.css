@@ -45,3 +45,7 @@
     font-size: 12px;
     line-height: 26px;
 }
+
+.MapContainer {
+    height: calc(100vh - 124px);
+}

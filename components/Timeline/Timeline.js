@@ -8,17 +8,13 @@ const Timeline = () => {
   const [selectedLayer, setSelectedLayer] = useState('');
 
   const mapFiles = [
-    {file: '/maps/YAP_map_1990.svg', text: '1990'},
-    {file: '/maps/YAP_map_1991_06.svg', text: '1991 June'},
-    {file: '/maps/YAP_map_1991_09.svg', text: '1991 September'},
-    {file: '/maps/YAP_map_1992_03.svg', text: '1992 March'},
-    {file: '/maps/YAP_map_1992_04_07.svg', text: '1992 April 7th'},
-    {file: '/maps/YAP_map_1992_04_28.svg', text: '1992 April 28th'},
-    {file: '/maps/YAP_map_1993_06.svg', text: '1993 June'},
-    {file: '/maps/YAP_map_1995_09.svg', text: '1995 September'},
-    {file: '/maps/YAP_map_1996_01.svg', text: '1996 April'},
-    {file: '/maps/YAP_map_1998_01.svg', text: '1998 January'},
-    {file: '/maps/YAP_map_2008_02.svg', text: '2008 February'},
+    {file: '/maps/YAP_map_1990.svg', text: '1990 December'},
+    {file: '/maps/YAP_map_1991_06.svg', text: '1991 June 25th'},
+    {file: '/maps/YAP_map_1992_03.svg', text: '1992 March 3rd'},
+    {file: '/maps/YAP_map_1993_08.svg', text: '1993 August 28th'},
+    {file: '/maps/YAP_map_1995_12_14.svg', text: '1995 December 14th'},
+    {file: '/maps/YAP_map_1998_01.svg', text: '1998 January 15th'},
+    {file: '/maps/YAP_map_2008_02.svg', text: '2008 February 17th'},
   ];
 
   const imageBounds = [
@@ -55,7 +51,7 @@ const Timeline = () => {
         <TileLayer
           noWrap={true}
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
+          url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         <LayersControl
           position="topright"

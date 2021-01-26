@@ -1,65 +1,95 @@
 import React, { useEffect } from "react";
 import style from './Legend.module.css';
-import Image from "next/image";
 
 const countriesOnMap = {
-  '1990': ['yugoslavia'],
-  '1991 June': ['croatia', 'serbian_krajina', 'slovenia', 'yugoslavia',],
-  '1991 September': ['croatia', 'macedonia', 'serbian_krajina', 'slovenia', 'yugoslavia',],
-  '1992 March': ['croatia', 'macedonia', 'republic_bh', 'serbian_krajina', 'slovenia', 'yugoslavia'],
-  '1992 April 7th': ['croatia', 'herzeg_bosnia', 'macedonia', 'republic_bh', 'republika_srpska', 'serbian_krajina', 'slovenia', 'yugoslavia'],
-  '1992 April 28th': ['croatia', 'herzeg_bosnia', 'macedonia', 'republic_bh', 'republika_srpska', 'serbian_krajina', 'serbia_montenegro', 'slovenia'],
-  '1993 June': ['croatia', 'herzeg_bosnia', 'macedonia', 'republic_bh', 'republika_srpska', 'serbian_krajina', 'serbia_montenegro', 'slovenia', 'western_bosnia'],
-  '1995 September': ['croatia', 'herzeg_bosnia', 'macedonia', 'republic_bh', 'republika_srpska', 'serbian_krajina', 'serbia_montenegro', 'slovenia'],
-  '1996 April': ['bosnia_herzegovina', 'croatia', 'macedonia', 'serbian_krajina', 'serbia_montenegro', 'slovenia', 'untaes'],
-  '1998 January': ['bosnia_herzegovina', 'croatia', 'macedonia', 'serbia_montenegro', 'slovenia'],
-  '2008 February': ['bosnia_herzegovina', 'croatia', 'kosovo', 'macedonia', 'montenegro', 'serbia', 'slovenia'],
+  '1990 December': ['sfr_yugoslavia'],
+  '1991 June 25th': ['slovenia', 'croatia', 'eastern_slavonia', 'kninska_krajina', 'sfr_yugoslavia',],
+  '1992 March 3rd': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina', 'bosanska_krajina', 'eastern_herzegovina', 'romanija', 'ne_bosnia', 'sfr_yugoslavia', 'macedonia'],
+  '1993 August 28th': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina_2', 'western_bosnia', 'republika_srpska', 'herzeg_bosnia', 'sfr_yugoslavia', 'macedonia'],
+  '1995 December 14th': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina_2', 'republika_srpska_2', 'fr_yugoslavia', 'macedonia'],
+  '1998 January 15th': ['slovenia', 'croatia', 'bosnia_herzegovina_2', 'republika_srpska_2', 'fr_yugoslavia', 'macedonia'],
+  '2008 February 17th': ['slovenia', 'croatia', 'bosnia_herzegovina_2', 'republika_srpska_2', 'brcko', 'serbia', 'montenegro', 'macedonia'],
 };
 
 const countries = {
-  yugoslavia: {
-    name: 'Yugoslavia',
+  sfr_yugoslavia: {
+    name: 'Socialist Federal Republic of Yugoslavia',
     bgColor: 'rgba(244, 88, 68, 0.8)',
+    color: '#FFF'
+  },
+  fr_yugoslavia: {
+    name: 'Federal Republic of Yugoslavia',
+    bgColor: 'rgba(45, 92, 170, 0.8)',
     color: '#FFF'
   },
   slovenia: {
     name: 'Slovenia',
-    bgColor: 'rgba(254, 232, 117, 0.8)',
-    color: '#666'
+    bgColor: 'rgba(252, 202, 118, 0.8)',
+    color: '#FFF'
   },
   macedonia: {
     name: 'Macedonia',
-    bgColor: 'rgba(247, 156, 144, 0.8)',
+    bgColor: 'rgba(255, 156, 148, 0.8)',
     color: '#FFF'
+  },
+  bosanska_krajina: {
+    name: 'SAO Bosanska Krajina',
+    bgColor: 'rgba(204, 204, 204, 0.8)',
+    color: '#333'
   },
   serbian_krajina: {
     name: 'Serbian Krajina',
-    bgColor: 'rgba(107, 151, 207, 0.8)',
+    bgColor: 'rgba(47, 128, 237, 0.8)',
     color: '#FFF'
   },
-  untaes: {
-    name: 'UNTAES',
-    bgColor: 'rgba(185, 228, 255, 0.8)',
+  kninska_krajina: {
+    name: 'SAO Kninska Krajina',
+    bgColor: 'rgba(136, 81, 161, 0.8)',
+    color: '#FFF'
+  },
+  eastern_slavonia: {
+    name: 'SAO of Eastern Slavonia, Baranja and Western Syrmia',
+    bgColor: 'rgba(0, 173, 164, 0.8)',
+    color: '#FFF'
+  },
+  romanija: {
+    name: 'SAO Romanija',
+    bgColor: 'rgba(113, 201, 153, 0.8)',
+    color: '#FFF'
+  },
+  eastern_herzegovina: {
+    name: 'SAO Eastern Herzegovina',
+    bgColor: 'rgba(255, 217, 17, 0.8)',
     color: '#333'
   },
-  republic_bh: {
-    name: 'Republic of Bosnia & Herzegovina',
+  ne_bosnia: {
+    name: 'SAO North Eastern Bosnia',
+    bgColor: 'rgba(206, 56, 56, 0.8)',
+    color: '#FFF'
+  },
+  bosnia_herzegovina_2: {
+    name: 'Bosnia & Herzegovina',
     bgColor: 'rgba(200, 200, 200, 0.8)',
     color: '#333'
   },
   bosnia_herzegovina: {
     name: 'Bosnia & Herzegovina',
-    bgColor: 'rgba(201, 201, 201, 0.8)',
+    bgColor: 'rgba(63, 177, 217, 0.8)',
+    color: '#333'
+  },
+  brcko: {
+    name: 'Brcko',
+    bgColor: 'rgba(255, 255, 255, 0.8)',
     color: '#333'
   },
   herzeg_bosnia: {
-    name: 'Herzeg-Bosnia',
+    name: 'Croatian Republic of Herzeg-Bosnia',
     bgColor: 'rgba(121, 115, 114, 0.8)',
     color: '#FFF'
   },
-  serbia_montenegro: {
-    name: 'Serbia & Montenegro',
-    bgColor: 'rgba(45, 92, 170, 0.8)',
+  republika_srpska_2: {
+    name: 'Republika Srpska',
+    bgColor: 'rgba(153, 153, 153, 0.8)',
     color: '#FFF'
   },
   republika_srpska: {
@@ -69,17 +99,17 @@ const countries = {
   },
   croatia: {
     name: 'Croatia',
-    bgColor: 'rgba(254, 190, 28, 0.8)',
-    color: '#333'
+    bgColor: 'rgba(255, 158, 62, 0.8)',
+    color: '#FFF'
   },
   western_bosnia: {
     name: 'Western Bosnia',
-    bgColor: 'rgba(237, 238, 238, 0.8)',
+    bgColor: 'rgba(255, 217, 17, 0.8)',
     color: '#333'
   },
   montenegro: {
     name: 'Montenegro',
-    bgColor: 'rgba(131, 174, 189, 0.8)',
+    bgColor: 'rgba(116, 161, 175, 0.8)',
     color: '#FFF'
   },
   serbia: {

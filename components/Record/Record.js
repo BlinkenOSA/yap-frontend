@@ -4,7 +4,8 @@ import style from './Record.module.css';
 import { SoundOutlined} from '@ant-design/icons';
 import VideoPlayer from "./players/VideoPlayer";
 import PDFViewer from "./players/PDFViewer";
-import Image from "next/dist/client/image";
+import Image from "next/image";
+import Link from "next/link";
 
 const Record = ({data}) => {
   const renderThumbnails = () => {
@@ -61,7 +62,46 @@ const Record = ({data}) => {
         </Row>
       )
     } else {
-      return <div style={{height: '10px'}}/>
+      return '';
+    }
+  };
+
+  const renderMultiValuedField = (field, label, subField='', paramField='', facet=false) => {
+    const renderValue = (value) => {
+      if (facet) {
+        const f = {};
+        f[paramField] = subField === '' ? value : value[subField];
+        return <Link
+          href={{
+            pathname: '/search',
+            query: f,
+          }}>{subField === '' ? value : value[subField]}</Link>
+      } else {
+        return subField === '' ? value : value[subField]
+      }
+    };
+
+    if (data.hasOwnProperty(field)) {
+      if (data[field].length > 0) {
+        return (
+          <dl>
+            <dt>{label}</dt>
+            <dd>
+              {data[field].map((d, idx) => {
+                if (data[field].length === idx + 1) {
+                  return renderValue(d)
+                } else {
+                  return (
+                    <span>
+                      {renderValue(d)}<span className={style.Pipe}>|</span>
+                    </span>
+                  )
+                }
+              })}
+            </dd>
+          </dl>
+        )
+      }
     }
   };
 
@@ -98,7 +138,9 @@ const Record = ({data}) => {
           <dl>
             <dt>Description</dt>
             <dd>
-              {data.description.join('|')}
+              <div dangerouslySetInnerHTML={{
+                __html: `${data.description.join('<span style="margin: 0 5px; color: #CCC">|</span>')}`
+              }}/>
             </dd>
           </dl>
 
@@ -108,64 +150,23 @@ const Record = ({data}) => {
               {data.temporal_coverage_start} {data.temporal_coverage_start ? `- ${data.temporal_coverage_end}` : ''}
             </dd>
           </dl>
-          <dl>
-            <dt>People as subjects</dt>
-            <dd>
-              {data.subject_people.map(person =>
-                <React.Fragment>{person}<br/></React.Fragment>
-              )}
-            </dd>
-          </dl>
-          <dl>
-            <dt>City</dt>
-            <dd>
-              {data.city.map(city =>
-                <React.Fragment>{city['city']}<br/></React.Fragment>
-              )}
-            </dd>
-          </dl>
-          <dl>
-            <dt>Language</dt>
-            <dd>
-              {data.language.map(lang => lang['language']).join(', ')}
-            </dd>
-          </dl>
-          <dl>
-            <dt>Subject</dt>
-            <dd>
-              {data.subject.join(', ')}
-            </dd>
-          </dl>
+          {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
+          {renderMultiValuedField('city', 'Place', 'city', 'city', true)}
+          {renderMultiValuedField('language', 'Language', 'language')}
+          {renderMultiValuedField('subject', 'Subject', '', 'subject', true)}
+
           <dl>
             <dt>Description Level</dt>
             <dd>
               {data.description_level === 'F' ? 'Folder' : 'Item'}
             </dd>
           </dl>
-          <dl>
-            <dt>Collector</dt>
-            <dd>
-              {data.collector.join(', ')}
-            </dd>
-          </dl>
-          <dl>
-            <dt>Creator</dt>
-            <dd>
-              {data.creator.join(', ')}
-            </dd>
-          </dl>
-          <dl>
-            <dt>Type</dt>
-            <dd>
-              {data.type.join(', ')}
-            </dd>
-          </dl>
-          <dl>
-            <dt>Genre</dt>
-            <dd>
-              {data.genre.join(', ')}
-            </dd>
-          </dl>
+
+          {renderMultiValuedField('collector', 'Collector')}
+          {renderMultiValuedField('creator', 'Creator')}
+          {renderMultiValuedField('type', 'Type', '', 'type', true)}
+          {renderMultiValuedField('genre', 'Genre', '', 'genre', true)}
+
         </Col>
         <Col xs={2}/>
       </Row>

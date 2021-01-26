@@ -2,10 +2,10 @@ import React from "react";
 import {Button, Col, Row} from "antd";
 import { Form, Input } from 'formik-antd'
 import { SearchOutlined } from '@ant-design/icons';
-import style from "./SearchBarDesktop.module.css";
+import style from "./SearchBar.module.css";
 import {Formik} from "formik";
 
-const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
+const SearchBar = ({onSearch, initialValues={}, ...props}) => {
   return (
     <Formik
       onSubmit={onSearch}
@@ -15,8 +15,8 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
       {(props) => (
         <Form layout="inline" onSubmit={props.handleSubmit}>
           <Row gutter={[32, 16]} style={{width: '100%'}}>
-            <Col xs={4}> </Col>
-            <Col xs={14}>
+            <Col xs={2} sm={4}> </Col>
+            <Col xs={18} sm={14}>
               <Input
                 placeholder={'Search...'}
                 className={style.SearchInput}
@@ -27,7 +27,7 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
                 onChange={(e) => {e.target.value === '' ? onSearch(e.target.value) : undefined}}
               />
             </Col>
-            <Col xs={2}>
+            <Col xs={2} sm={2}>
               <Button
                 htmlType="submit"
                 shape="circle"
@@ -36,7 +36,7 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
                 className={style.SearchButton}
               />
             </Col>
-            <Col xs={4}> </Col>
+            <Col xs={2} sm={4}> </Col>
           </Row>
         </Form>
       )}
@@ -44,4 +44,4 @@ const SearchBarDesktop = ({onSearch, initialValues={}, ...props}) => {
   )
 };
 
-export default SearchBarDesktop;
+export default SearchBar;

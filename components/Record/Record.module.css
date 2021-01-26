@@ -1,5 +1,6 @@
 .RecordWrap {
     margin-bottom: 30px;
+    min-height: calc(100vh - 144px);
 }
 
 .RecordWrap h3 {
@@ -13,7 +14,18 @@
 
 .RecordWrap dl {
     display: flex;
-    margin-bottom: 0;
+    margin-bottom: 5px;
+    word-break: normal;
+}
+
+.RecordWrap dl a {
+    color: #F45844;
+    transition: border-bottom-color 0.3s;
+    border-bottom: 1px dotted transparent;
+}
+
+.RecordWrap dl a:hover {
+    border-bottom: 1px dotted #F45844;
 }
 
 @media screen and (max-width: 768px) {
@@ -45,6 +57,16 @@
 
 .RecordWrap ul {
     margin-bottom: 20px;
+}
+
+.RecordWrap span {
+    display: inline-block;
+}
+
+.RecordWrap .Pipe {
+    color: #CCC;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .MediaContainer {

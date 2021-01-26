@@ -23,7 +23,7 @@
 
 .FrontPageImage {
     width: 100%;
-    height: calc(100vh - 240px);
+    height: calc(100vh - 190px);
     position: relative;
     flex-grow: 1;
     margin-top: 20px;

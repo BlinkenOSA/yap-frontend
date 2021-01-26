@@ -2,8 +2,9 @@ import React from "react";
 import {Carousel, Col, Row} from "antd";
 import style from "./ResultPageList.module.css"
 import Image from "next/image";
+import Highlight from "../Highlight/Highlight";
 
-const ResultPageList = ({data}) => {
+const ResultPageList = ({data, highlights}) => {
   const renderDates = (startDate, endDate) => {
     if (endDate) {
       if (startDate !== endDate) {
@@ -59,6 +60,39 @@ const ResultPageList = ({data}) => {
     }
   };
 
+  const renderTitle = (d) => {
+    if (highlights.hasOwnProperty(d.id)) {
+      const h = highlights[d.id];
+      if (h.hasOwnProperty('title_original_search')) {
+        return <div dangerouslySetInnerHTML={
+          {__html: `${h.title_original_search}`}
+        }/>
+      }
+      if (h.hasOwnProperty('title_english_search')) {
+        return <div dangerouslySetInnerHTML={
+          {__html: `${h.title_english_search}`}
+        }/>
+      }
+    }
+    return `${d.title_original}`
+  };
+
+  const renderSearchHit = (d) => {
+    if (highlights.hasOwnProperty(d.id)) {
+      const h = highlights[d.id];
+      if (Object.keys(h).length > 0) {
+        return (
+          <div className={style.Highlight}>
+            <Highlight data={h}/>
+            <a className={style.More} href={`/record/${d.id}`}>
+              more >>
+            </a>
+          </div>
+        )
+      }
+    }
+  };
+
   const results = data.map((d, idx) => (
     <Row style={{marginBottom: '40px'}} key={idx}>
       <Col xs={4}>
@@ -68,8 +102,17 @@ const ResultPageList = ({data}) => {
         <div className={style.ResultItemData}>
           <div className={style.Title}>
             <a href={`/record/${d.id}`}>
-              {d.title_original} {renderDates(d.date_of_creation_start, d.date_of_creation_end)}
+              {renderTitle(d)}
             </a>
+          </div>
+          <div>
+            <span className={style.Label}>Date(s) of creation:</span> {renderDates(d.date_of_creation_start, d.date_of_creation_end)}
+          </div>
+          <div>
+            {d.hasOwnProperty('language') ?
+              <React.Fragment>
+                <span className={style.Label}>Language:</span> {d.language.join(', ')}
+              </React.Fragment> : ''}
           </div>
           <div>
             <span className={style.Label}>Type:</span> {d.type}
@@ -77,17 +120,13 @@ const ResultPageList = ({data}) => {
           <div>
             <span className={style.Label}>Call Number:</span> {d.archival_reference_number}
           </div>
-          <div>
-            {d.hasOwnProperty('genre') ?
-              <React.Fragment>
-                <span className={style.Label}>Genre:</span> {d.genre.join(', ')}
-              </React.Fragment> : ''}
+          <div className={style.CatalogLink}>
+            <span className={style.Label}>Part of:</span> <a href={d.collection_url} target={'_new'}>{d.collection}</a>
           </div>
           <div>
-            {d.hasOwnProperty('city') ?
-              <React.Fragment>
-                <span className={style.Label}>Place:</span> {d.city.join(', ')}
-              </React.Fragment> : ''}
+            <React.Fragment>
+              {renderSearchHit(d)}
+            </React.Fragment>
           </div>
         </div>
       </Col>

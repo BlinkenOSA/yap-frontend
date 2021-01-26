@@ -95,11 +95,11 @@ const ResultPageMap = ({params, onMarkerClick}) => {
         <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"/>
       </Head>
       <div style={{height: '100%'}}>
-        <Map className="markercluster-map" center={[44.53842, 18.66709]} zoom={7} style={{height:"600px"}}>
+        <Map className={`markercluster-map ${style.MapContainer}`} center={[44.53842, 18.66709]} zoom={7}>
           <TileLayer
             noWrap={true}
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+            url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
           />
           {renderMarkers()}
           <FullscreenControl

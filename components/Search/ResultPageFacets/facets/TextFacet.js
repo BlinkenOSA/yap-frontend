@@ -92,7 +92,6 @@ const TextFacet = ({facets, selectedFacets, search=false, onSelect, onRemove}) =
         {search &&
           <div className={facetStyle.Search}>
             <Search
-              placeholder="Search..."
               onSearch={onSearch}
               style={{ width: '100%' }}
               allowClear={true}

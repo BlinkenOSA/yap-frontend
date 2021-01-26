@@ -6,6 +6,7 @@ import ResultPageList from "./ResultPageList";
 import ResultPagination from "../ResultPagination/ResultPagination";
 import ResultCounter from "../ResultCounter/ResultCounter";
 import dynamic from "next/dist/next-server/lib/dynamic";
+import Sticky from 'react-stickynode';
 
 const { TabPane } = Tabs;
 
@@ -33,11 +34,13 @@ const ResultPage = ({data, query, limit, view='list', offset, selectedFacets, on
       <Tabs defaultActiveKey={view} tabBarExtraContent={{right: getCounter()}} onChange={setActiveTab}>
         <TabPane tab={<span><Image src={'/images/listView.svg'} width={25} height={25}/></span>} key="list">
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
-          <ResultPageList data={data.results} />
+          <ResultPageList data={data.results} highlights={data.highlights} />
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
         </TabPane>
         <TabPane tab={<span><Image src={'/images/mapView.svg'} width={25} height={25}/></span>} key="map">
-          <ResultPageMap params={{query: query, ...selectedFacets}} onMarkerClick={onMarkerClick}/>
+          <Sticky enabled={true} top={70}>
+            <ResultPageMap params={{query: query, ...selectedFacets}} onMarkerClick={onMarkerClick}/>
+          </Sticky>
         </TabPane>
       </Tabs>
     </div>
