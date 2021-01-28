@@ -4,6 +4,7 @@ import style from "./CollectionResults.module.css"
 import ResultPagination from "../Search/ResultPagination/ResultPagination";
 import Image from "next/dist/client/image";
 import { RightOutlined } from '@ant-design/icons';
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 const { Meta } = Card;
 
