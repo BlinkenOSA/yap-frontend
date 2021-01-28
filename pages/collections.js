@@ -6,9 +6,9 @@ import ReactPlayer from 'react-player/youtube'
 import style from "../styles/global.module.css";
 import useSWR from "swr";
 import {API, fetcher} from "../utils/api";
-import CollectionResults from "../components/Collections/CollectionResults";
 import {useRouter} from "next/router";
 import Head from "next/head";
+import CollectionResultsMasonry from "../components/Collections/CollectionResultsMasonry";
 
 const { Text } = Typography;
 
@@ -61,8 +61,8 @@ const Collections = () => {
             />
           </Col>
         </Row>
-        <CollectionResults data={data} limit={limit} offset={offset} onPageChange={onPageChange}/>
       </div>
+      <CollectionResultsMasonry data={data} limit={limit} offset={offset} onPageChange={onPageChange}/>
     </AppLayout>
   )
 }
