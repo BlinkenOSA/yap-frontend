@@ -9,12 +9,12 @@ const Timeline = () => {
 
   const mapFiles = [
     {file: '/maps/YAP_map_1990.svg', text: '1990 December'},
-    {file: '/maps/YAP_map_1991_06.svg', text: '1991 June 25th'},
-    {file: '/maps/YAP_map_1992_03.svg', text: '1992 March 3rd'},
-    {file: '/maps/YAP_map_1993_08.svg', text: '1993 August 28th'},
-    {file: '/maps/YAP_map_1995_12_14.svg', text: '1995 December 14th'},
-    {file: '/maps/YAP_map_1998_01.svg', text: '1998 January 15th'},
-    {file: '/maps/YAP_map_2008_02.svg', text: '2008 February 17th'},
+    {file: '/maps/YAP_map_1991_06.svg', text: '1991 June 25'},
+    {file: '/maps/YAP_map_1992_03.svg', text: '1992 March 3'},
+    {file: '/maps/YAP_map_1993_08.svg', text: '1993 August 28'},
+    {file: '/maps/YAP_map_1995_12_14.svg', text: '1995 December 14'},
+    {file: '/maps/YAP_map_1998_01.svg', text: '1998 January 15'},
+    {file: '/maps/YAP_map_2008_02.svg', text: '2008 February 17'},
   ];
 
   const imageBounds = [

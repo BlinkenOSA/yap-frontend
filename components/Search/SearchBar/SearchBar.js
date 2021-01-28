@@ -18,7 +18,6 @@ const SearchBar = ({onSearch, initialValues={}, ...props}) => {
             <Col xs={2} sm={4}> </Col>
             <Col xs={18} sm={14}>
               <Input
-                placeholder={'Search...'}
                 className={style.SearchInput}
                 name={'query'}
                 size="large"
