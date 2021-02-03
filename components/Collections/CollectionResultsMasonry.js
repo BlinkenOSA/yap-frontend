@@ -1,40 +1,97 @@
 import React, {useEffect, useState} from "react";
-import style from "./CollectionResults.module.css"
+import style from "./CollectionResultsMasonry.module.css"
 import Image from "next/dist/client/image";
-import {Col, Row} from "antd";
+import {Col, Modal, Row} from "antd";
+import { RightOutlined } from '@ant-design/icons';
 
-const CollectionResultsMasonry = ({data}) => {
+const CollectionResultsMasonry = ({data, isMobile=false}) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedRecord, setSelectedRecord] = useState({});
+
   const renderThumbnail = (d) => {
-    if (d.thumbnail) {
+    return (
+      <div
+        className={style.HoverBox}
+        style={d.thumbnail ? {background: `url(${d.thumbnail}) center center no-repeat`, backgroundSize: 'cover'} : undefined}
+        onClick={() => {
+          setSelectedRecord(d);
+          setModalOpen(true);
+        }}
+      >
+        <div className={`${style.HoverBoxTopLayer} ${style.HoverBoxEffect}`}>
+          <div className={style.HoverBoxText}>
+            <div className={style.Title}>
+              {d.title}
+            </div>
+            <div className={style.ItemCount}>
+              {d.archival_reference_code}<br/>{d.record_count === 0 ? 'No items' : `${d.record_count} items`}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  };
+
+  const renderModal = () => {
+    if (selectedRecord.hasOwnProperty('id')) {
       return (
-          <img src={d.thumbnail} className={style.Image}/>
+        <Modal
+          centered
+          visible={modalOpen}
+          onCancel={() => setModalOpen(false)}
+          wrapClassName={style.ModalWrap}
+          footer={false}
+          width={isMobile ? '95%' : '60%'}
+          destroyOnClose={true}
+          zIndex={9999}
+        >
+          <Row>
+            <Col xs={isMobile ? 24 : 12} style={isMobile ? {height: '200px'} : undefined}>
+              <Image
+                layout={'fill'}
+                objectFit={'cover'}
+                src={selectedRecord['thumbnail']}
+              />
+            </Col>
+            <Col xs={isMobile ? 24 : 12}>
+              <div className={isMobile ? style.PopupContentWrapMobile : style.PopupContentWrap} >
+                <div className={style.Title}>
+                  {selectedRecord.title}
+                </div>
+                <div style={{paddingTop: '30px'}}>
+                  {selectedRecord.description}
+                </div>
+                <div className={style.Date}>
+                  {selectedRecord.year_start} {selectedRecord.year_end !== selectedRecord.year_start && selectedRecord.year_end !== null ? ` - ${selectedRecord.year_end}` : ''} • {selectedRecord.archival_reference_code} • {selectedRecord.record_count === 0 ? 'No items' : `${selectedRecord.record_count} items`}
+                </div>
+                <div className={style.CatalogLink}>
+                  <a href={selectedRecord.catalog_url} target={'_new'}>See at OSA Catalog <RightOutlined /></a>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Modal>
       )
     } else {
-      return (
-        <Image
-          layout={'fill'}
-          objectFit={'none'}
-          objectPosition={'top left'}
-          src='/images/recordEmpty.png'/>
-      )
+      return '';
     }
   };
 
   const results = () => {
-    return data['results'].map((d, idx) => {
-      if (idx < 6 || (14 <= idx && idx < 20) || (28 <= idx && idx < 34) || (42 <= idx && idx < 48)) {
+    return data.map((d, idx) => {
+      if (isMobile ? (idx < 2 || idx % 5 < 2) : (idx < 4 || idx % 10 < 4)) {
         return (
-          <Col xs={4} sm={4}>
-            <div className={`${style.ImageWrapper} ${style.ImageWrapperLarge}`}>
+          <Col xs={isMobile ? 12 : 6} key={idx}>
+            <div className={`${style.ImageWrapperLarge}`}>
               {renderThumbnail(d)}
             </div>
           </Col>
         )
       }
-      if ((6 <= idx && idx < 14) || (20 <= idx && idx < 28) || (34 <= idx && idx < 42)) {
+      if (isMobile ? (2 <= idx && idx < 5) || idx % 5 >= 2 : (4 <= idx && idx < 10) || idx % 10 >= 4) {
         return (
-          <Col xs={3} sm={3}>
-            <div className={`${style.ImageWrapper} ${style.ImageWrapperSmall}`}>
+          <Col xs={isMobile ? 8 : 4} key={idx}>
+            <div className={`${style.ImageWrapperSmall}`}>
               {renderThumbnail(d)}
             </div>
           </Col>
@@ -47,9 +104,10 @@ const CollectionResultsMasonry = ({data}) => {
     <div>
       {data ?
       <React.Fragment>
-        <Row gutter={[5, 5]}>
+        <Row className={style.Container}>
           {results()}
         </Row>
+        {renderModal()}
       </React.Fragment> : ''}
     </div>
   )

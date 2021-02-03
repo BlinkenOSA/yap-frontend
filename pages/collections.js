@@ -6,28 +6,14 @@ import ReactPlayer from 'react-player/youtube'
 import style from "../styles/global.module.css";
 import useSWR from "swr";
 import {API, fetcher} from "../utils/api";
-import {useRouter} from "next/router";
 import Head from "next/head";
+import {Media} from "../components/Media/Media";
 import CollectionResultsMasonry from "../components/Collections/CollectionResultsMasonry";
 
 const { Text } = Typography;
 
 const Collections = () => {
-  const router = useRouter();
-  const params = router.query;
-  const {limit, offset} = params;
-
-  const { data, error } = useSWR([`${API}/repository/collections/`, params], fetcher);
-
-  const onPageChange = (page, pageSize) => {
-    router.push({
-      pathname: '/collections',
-      query: {
-        limit: pageSize,
-        offset: (page * pageSize) - pageSize,
-      }
-    })
-  };
+  const { data, error } = useSWR(`${API}/repository/collections/`, fetcher);
 
   return (
     <AppLayout withBackground={true}>
@@ -62,7 +48,13 @@ const Collections = () => {
           </Col>
         </Row>
       </div>
-      <CollectionResultsMasonry data={data} limit={limit} offset={offset} onPageChange={onPageChange}/>
+      <Media at="xs">
+        <CollectionResultsMasonry data={data} isMobile={true}/>
+      </Media>
+      <Media greaterThan="xs">
+        <CollectionResultsMasonry data={data} />
+      </Media>
+
     </AppLayout>
   )
 }

@@ -1,0 +1,175 @@
+.Title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.Date {
+    margin-top: 20px;
+    color: #F45844;
+}
+
+.ItemCount {
+    margin-top: 20px;
+    font-weight: 400;
+    color: #F45844;
+}
+
+.CatalogLink {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.CatalogLink a {
+    font-weight: 700;
+    color: #F45844;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.CatalogLink span {
+    margin: 0 10px;
+}
+
+.Container {
+    background-color: #555;
+    border-bottom: 2px solid #555;
+    border-top: 2px solid #555;
+    margin-bottom: 0;
+}
+
+.ImageWrapperLarge .HoverBox{
+    min-height: 150px;
+    height: calc(100vh - 400px);
+}
+
+.ImageWrapperSmall .HoverBox {
+    min-height: 150px;
+    height: calc(100vh - 500px);
+}
+
+.HoverBox {
+    display: block;
+    overflow: hidden;
+    background-color: grey;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.ImageWrapperLarge .HoverBoxThumbnailWrap {
+    min-height: 150px;
+    height: calc(100vh - 400px);
+}
+
+.ImageWrapperSmall .HoverBoxThumbnailWrap {
+    min-height: 150px;
+    height: calc(100vh - 500px);
+}
+
+.HoverBoxThumbnail {
+    max-width: 100%;
+    object-position: center;
+}
+
+.HoverBoxTopLayer {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.HoverBoxTopLayer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.ImageWrapperLarge .HoverBoxTopLayer {
+    min-height: 150px;
+    height: calc(100vh - 400px);
+}
+
+.ImageWrapperSmall .HoverBoxTopLayer {
+    min-height: 150px;
+    height: calc(100vh - 500px);
+}
+
+.HoverBox:hover .HoverBoxTopLayer,
+.HoverBox.active .HoverBoxTopLayer {
+    opacity: 1;
+}
+
+.HoverBoxText {
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.HoverBox .HoverBoxEffect {
+    -moz-transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+.HoverBox:hover .HoverBoxEffect,
+.HoverBox.active .HoverBoxEffect {
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.ModalWrap {
+
+}
+
+.PopupContentWrap {
+    background-color: #F9F9F9;
+    margin-left: 5px;
+    padding: 30px 20px;
+    min-height: 400px;
+}
+
+.PopupContentWrapMobile {
+    background-color: #F9F9F9;
+    padding: 30px 20px;
+}
+
+:global .ant-modal-body {
+    border: 1px solid black;
+    background-color: #555;
+    padding: 5px;
+}
+
+:global .ant-modal-close {
+    top: -39px;
+    right: 0;
+}
+
+:global .ant-modal-close-x {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #555;
+    color: #FFF;
+    font-weight: 800;
+    font-size: 30px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+:global .ant-modal-close-x:hover {
+    color: #F45844;
+}
+
+:global .ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
