@@ -1,10 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import style from "./CollectionResultsMasonry.module.css"
 import Image from "next/dist/client/image";
 import {Col, Modal, Row} from "antd";
 import { RightOutlined } from '@ant-design/icons';
 
-const CollectionResultsMasonry = ({data, isMobile=false}) => {
+const paragraph1 = "The Yugoslavia Archive Project deals with the archiving of records from the civilian, economic and political processes of the countries of former Yugoslavia during and after the disintegration of the country. The project started with systematic data capturing in 2015. Its aim is to provide meaningful descriptive metadata on the OSA Yugoslav Collection, formed in 2013, containing around 25.000 records from the post WWII history of Yugoslavia."
+const paragraph2 = "The processing of the OSA Yugoslav Collection is an ongoing project. This online platform contains data of all the materials pertaining to the OSA Yugoslav Collection, the ones with already enriched descriptive metadata as well as the ones to be processed in future, for which currently only basic data are available."
+const collectionTexts = [paragraph1, paragraph2];
+
+const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState({});
 
@@ -78,24 +82,59 @@ const CollectionResultsMasonry = ({data, isMobile=false}) => {
   };
 
   const results = () => {
+    const renderSmall = (d, idx) => (
+      <Col xs={isMobile ? 8 : 4} key={idx}>
+        <div className={`${style.ImageWrapperSmall}`}>
+          {renderThumbnail(d)}
+        </div>
+      </Col>
+    );
+
+    const renderLarge = (d, idx) => (
+      <Col xs={isMobile ? 12 : 6} key={idx}>
+        <div className={`${style.ImageWrapperLarge}`}>
+          {renderThumbnail(d)}
+        </div>
+      </Col>
+      );
+
     return data.map((d, idx) => {
-      if (isMobile ? (idx < 2 || idx % 5 < 2) : (idx < 4 || idx % 10 < 4)) {
+      if (idx < 2) {
+        return renderLarge(d, idx)
+      }
+
+      if (idx === 2) {
         return (
-          <Col xs={isMobile ? 12 : 6} key={idx}>
-            <div className={`${style.ImageWrapperLarge}`}>
-              {renderThumbnail(d)}
-            </div>
-          </Col>
+          <React.Fragment>
+            <Col xs={isMobile ? 24 : 12} className={style.TextWrap}>
+              <div className={style.Text}>{paragraph1}</div>
+            </Col>
+            { isMobile ? '' :
+              <Col xs={12} className={style.TextWrap}>
+                <div className={style.Text}>{paragraph2}</div>
+              </Col> }
+            {renderSmall(d)}
+          </React.Fragment>
         )
       }
-      if (isMobile ? (2 <= idx && idx < 5) || idx % 5 >= 2 : (4 <= idx && idx < 10) || idx % 10 >= 4) {
+
+      if (idx === 4) {
         return (
-          <Col xs={isMobile ? 8 : 4} key={idx}>
-            <div className={`${style.ImageWrapperSmall}`}>
-              {renderThumbnail(d)}
-            </div>
-          </Col>
+          <React.Fragment>
+            {renderSmall(d)}
+            { isMobile ?
+              <Col xs={24} className={style.TextWrap}>
+                <div className={style.Text}>{paragraph2}</div>
+              </Col> : '' }
+          </React.Fragment>
         )
+      }
+
+      if (isMobile ? idx % 5 < 2 : (idx + 5) % 10 < 4) {
+        return renderLarge(d, idx)
+      }
+      if (isMobile ? idx % 5 >= 2 : (idx + 5) % 10 >= 4) {
+        return renderSmall(d, idx)
       }
     });
   };
@@ -104,7 +143,7 @@ const CollectionResultsMasonry = ({data, isMobile=false}) => {
     <div>
       {data ?
       <React.Fragment>
-        <Row className={style.Container}>
+        <Row className={style.Container} style={{marginTop: '50px'}}>
           {results()}
         </Row>
         {renderModal()}
@@ -113,4 +152,4 @@ const CollectionResultsMasonry = ({data, isMobile=false}) => {
   )
 };
 
-export default CollectionResultsMasonry;
+export default CollectionResultsMasonryWithText;

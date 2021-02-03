@@ -24,27 +24,23 @@ const Collections = () => {
         <Row>
           <h3 className={style.Title}>Explore the collections</h3>
         </Row>
-        <Row gutter={[24, 48]}>
+        <Row gutter={[24, 24]}>
           <Col lg={12}>
             <Text className={style.Text}>
               The Yugoslavia Archive Project deals with the archiving of records from the civilian,
               economic and political processes of the countries of former Yugoslavia during and after the
               disintegration of the country. The project started with systematic data capturing in 2015.
               Its aim is to provide meaningful descriptive metadata on the OSA Yugoslav Collection, formed in 2013,
-              containing around 25.000 records from the post WWII history of Yugoslavia.<br/><br/>
+              containing around 25.000 records from the post WWII history of Yugoslavia.
+            </Text>
+          </Col>
+          <Col lg={12}>
+            <Text className={style.Text}>
               The processing of the OSA Yugoslav Collection is an ongoing project. This online platform contains
               data of all the materials pertaining to the OSA Yugoslav Collection, the ones with already enriched
               descriptive metadata as well as the ones to be processed in future, for which currently only
               basic data are available.
             </Text>
-          </Col>
-          <Col lg={12} style={{width: '100%', minHeight: '300px'}}>
-            <ReactPlayer
-              controls={true}
-              width='100%'
-              height='100%'
-              url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
-            />
           </Col>
         </Row>
       </div>
@@ -54,7 +50,6 @@ const Collections = () => {
       <Media greaterThan="xs">
         <CollectionResultsMasonry data={data} />
       </Media>
-
     </AppLayout>
   )
 }
