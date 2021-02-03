@@ -5,7 +5,7 @@ const countriesOnMap = {
   '1990 December': ['sfr_yugoslavia'],
   '1991 June 25': ['slovenia', 'croatia', 'eastern_slavonia', 'kninska_krajina', 'sfr_yugoslavia',],
   '1992 March 3': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina', 'bosanska_krajina', 'eastern_herzegovina', 'romanija', 'ne_bosnia', 'sfr_yugoslavia', 'macedonia'],
-  '1993 August 28': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina', 'western_bosnia', 'republika_srpska', 'herzeg_bosnia', 'sfr_yugoslavia', 'macedonia'],
+  '1993 August 28': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina', 'western_bosnia', 'republika_srpska', 'herzeg_bosnia', 'fr_yugoslavia', 'macedonia'],
   '1995 December 14': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_federation', 'republika_srpska', 'fr_yugoslavia', 'macedonia'],
   '1998 January 15': ['slovenia', 'croatia', 'bosnia_herzegovina', 'fr_yugoslavia', 'macedonia'],
   '2008 February 17': ['slovenia', 'croatia', 'bosnia_herzegovina', 'serbia', 'montenegro', 'kosovo', 'macedonia'],
@@ -24,7 +24,7 @@ const countries = {
   },
   slovenia: {
     name: 'Slovenia',
-    bgColor: 'rgba(252, 202, 118, 0.8)',
+    bgColor: 'rgba(63, 191, 114, 0.8)',
     color: '#FFF'
   },
   macedonia: {
@@ -94,7 +94,7 @@ const countries = {
   },
   croatia: {
     name: 'Croatia',
-    bgColor: 'rgba(255, 158, 62, 0.8)',
+    bgColor: 'rgba(252, 202, 118, 0.8)',
     color: '#FFF'
   },
   western_bosnia: {
@@ -104,7 +104,7 @@ const countries = {
   },
   montenegro: {
     name: 'Montenegro',
-    bgColor: 'rgba(116, 161, 175, 0.8)',
+    bgColor: 'rgba(255, 158, 62, 0.8)',
     color: '#FFF'
   },
   serbia: {
