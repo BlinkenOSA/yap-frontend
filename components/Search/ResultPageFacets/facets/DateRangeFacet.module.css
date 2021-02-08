@@ -1,7 +1,11 @@
-.Slider {
-    margin-left: 30px;
-    margin-right: 30px;
+.SliderWrapper {
+    margin-left: 15px;
+    margin-right: 15px;
     margin-bottom: 20px;
+}
+
+.Slider {
+    margin-top: -4px;
 }
 
 .SliderValues {

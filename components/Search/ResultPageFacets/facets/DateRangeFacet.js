@@ -3,10 +3,12 @@ import React, {useEffect, useState} from "react";
 import style from "./DateRangeFacet.module.css"
 import { CheckOutlined, UndoOutlined } from '@ant-design/icons';
 import EmptyFacet from "./EmptyFacet";
+import DateRangeFacetBarChart from "./DateRangeFacetBarChart";
 
 const DateRangeFacet = ({facets, selectedFacets, onSelect, onRemove}) => {
   const [min, setMin] = useState(1990);
   const [max, setMax] = useState(2000);
+  const [facetData, setFacetData] = useState([]);
   const [sliderValue, setSliderValue] = useState([1990, 2000]);
 
   useEffect(() => {
@@ -21,6 +23,7 @@ const DateRangeFacet = ({facets, selectedFacets, onSelect, onRemove}) => {
           fData.push({text: facet, count: facets[index+1]})
         }
       });
+      setFacetData(fData);
 
       const minNode = fData.reduce((prev, curr) => prev.text < curr.text ? prev : curr);
       const maxNode = fData.reduce((prev, curr) => prev.text > curr.text ? prev : curr);
@@ -46,15 +49,18 @@ const DateRangeFacet = ({facets, selectedFacets, onSelect, onRemove}) => {
   if (facets.length > 0) {
     return (
       <div>
-        <Slider
-          range={true}
-          min={min}
-          max={max}
-          value={sliderValue}
-          tooltipVisible={false}
-          className={style.Slider}
-          onChange={onChange}
-        />
+        <div className={style.SliderWrapper}>
+          <DateRangeFacetBarChart data={facetData} highlight={sliderValue}/>
+          <Slider
+            range={true}
+            min={min}
+            max={max}
+            value={sliderValue}
+            tooltipVisible={false}
+            className={style.Slider}
+            onChange={onChange}
+          />
+        </div>
         <Row>
           <Col xs={24} style={{textAlign: 'center'}}>
             <span className={style.SliderValues}>{sliderValue[0]} - {sliderValue[1]}</span>
