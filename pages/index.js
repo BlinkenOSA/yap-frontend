@@ -6,6 +6,7 @@ import style from "../styles/global.module.css"
 import { Typewriter } from 'react-typewriting-effect'
 import 'react-typewriting-effect/dist/index.css'
 import {useRouter} from "next/router";
+import Head from "next/head";
 
 export default function Home() {
   const router = useRouter();
@@ -16,6 +17,9 @@ export default function Home() {
 
   return (
     <AppLayout>
+      <Head>
+        <title>Yugoslavia Archive Project</title>
+      </Head>
       <div className="container">
         <SearchBar onSearch={onSearch}/>
       </div>

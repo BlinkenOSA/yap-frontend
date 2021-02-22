@@ -49,3 +49,22 @@
     text-transform: uppercase;
 }
 
+.NavButtons button {
+    font-weight: 700;
+    font-size: 14px;
+    color: #647B9E;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.NavButtons button:focus {
+    color: #F45844;
+}
+
+.NavButtons .ActiveButton {
+    color: #F45844;
+}

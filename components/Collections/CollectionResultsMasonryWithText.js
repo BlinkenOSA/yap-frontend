@@ -3,10 +3,36 @@ import style from "./CollectionResultsMasonry.module.css"
 import Image from "next/dist/client/image";
 import {Col, Modal, Row} from "antd";
 import { RightOutlined } from '@ant-design/icons';
+import QueueAnim from 'rc-queue-anim';
 
-const paragraph1 = "The Yugoslavia Archive Project deals with the archiving of records from the civilian, economic and political processes of the countries of former Yugoslavia during and after the disintegration of the country. The project started with systematic data capturing in 2015. Its aim is to provide meaningful descriptive metadata on the OSA Yugoslav Collection, formed in 2013, containing around 25.000 records from the post WWII history of Yugoslavia."
-const paragraph2 = "The processing of the OSA Yugoslav Collection is an ongoing project. This online platform contains data of all the materials pertaining to the OSA Yugoslav Collection, the ones with already enriched descriptive metadata as well as the ones to be processed in future, for which currently only basic data are available."
-const collectionTexts = [paragraph1, paragraph2];
+const paragraph1 =
+  <QueueAnim delay={300}>
+    <div key={'p1'}>
+      The Yugoslavia Archive Project (YAP) contains over 30,000 records on the post WWII history of Yugoslavia from
+      the archival collections of Blinken OSA. They include text, photo, moving image and sound documents in analog and
+      digital format. Available in over ten languages, records are described either individually (items) or in smaller
+      units (folders or carriers) with descriptive metadata of various levels of granularity.
+    </div>
+  </QueueAnim>;
+const paragraph2 =
+  <QueueAnim delay={600}>
+    <div key={'p2'}>
+      The YAP collections were donated by international human rights, media and philanthropic organizations,
+      such as Physicians for Human Rights, the United Nations Expert Committee on Investigating War Crimes in the former
+      Yugoslavia, the International Helsinki Federation for Human Rights, the American Refugee Committee, Radio Free
+      Europe/Radio Liberty, the International Monitor Institute and the Open Society Foundations.
+    </div>
+  </QueueAnim>;
+const paragraph3 =
+  <QueueAnim delay={900}>
+    <div key={'p3'}>
+      Some of the records come from local NGOs like the Humanitarian Law Center in Belgrade or private donors,
+      including the journalist David Rohde, the political scientist Lara Nettelfield and the legal scholar
+      Tibor Várady. Important parts of the collections, such as television monitoring materials from Bosnia and
+      Herzegovina, Croatia and Serbia were commissioned by Blinken OSA. A full list of all archival record groups is
+      available for download here.
+    </div>
+  </QueueAnim>;
 
 const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -107,7 +133,10 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
         return (
           <React.Fragment>
             <Col xs={isMobile ? 24 : 12} className={style.TextWrap}>
-              <div className={style.Text}>{paragraph1}</div>
+              <div className={style.Text}>
+                <div className={style.Title}>Explore the collections</div>
+                {paragraph1}
+              </div>
             </Col>
             { isMobile ? '' :
               <Col xs={12} className={style.TextWrap}>
@@ -116,6 +145,10 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
             {renderSmall(d)}
           </React.Fragment>
         )
+      }
+
+      if (idx === 3) {
+        return renderSmall(d, idx)
       }
 
       if (idx === 4) {
@@ -130,11 +163,30 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
         )
       }
 
-      if (isMobile ? idx % 5 < 2 : (idx + 5) % 10 < 4) {
+      if (idx > 4 && idx <7) {
         return renderLarge(d, idx)
       }
-      if (isMobile ? idx % 5 >= 2 : (idx + 5) % 10 >= 4) {
-        return renderSmall(d, idx)
+
+      if (idx === 7) {
+        return (
+          <React.Fragment>
+            <Col xs={isMobile ? 24 : 12} className={style.TextWrap}>
+              <div className={style.Text}>
+                {paragraph3}
+              </div>
+            </Col>
+            {renderSmall(d)}
+          </React.Fragment>
+        )
+      }
+
+      if (idx > 7) {
+        if (isMobile ? idx % 5 < 2 : (idx + 3) % 10 > 5) {
+          return renderLarge(d, idx)
+        }
+        if (isMobile ? idx % 5 >= 2 : (idx + 3) % 10 <= 5) {
+          return renderSmall(d, idx)
+        }
       }
     });
   };

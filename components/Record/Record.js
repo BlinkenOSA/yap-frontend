@@ -6,6 +6,13 @@ import VideoPlayer from "./players/VideoPlayer";
 import PDFViewer from "./players/PDFViewer";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dist/next-server/lib/dynamic";
+
+const RecordMap = dynamic(
+  () => import('./RecordMap'),
+  { ssr: false }
+);
+
 
 const Record = ({data}) => {
   const renderThumbnails = () => {

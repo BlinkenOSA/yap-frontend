@@ -4,10 +4,13 @@ import Link from "next/link";
 import React from "react";
 import {Col, Layout, Row} from "antd";
 import Image from "next/image";
+import {useRouter} from "next/router";
 
 const {Header} = Layout;
 
 const MobileMenu = () => {
+  const router = useRouter();
+
   const contentStyle = {
     width: "80%",
     border: "none"
@@ -16,14 +19,14 @@ const MobileMenu = () => {
   return (
     <Header className={style.Header}>
       <Row align="middle">
-        <Col flex={2}>
+        <Col flex={20}>
           <div className={style.Logo}>
             <a href={'/'}>
               <Image width={75} height={50} src='/images/yap-logo.svg'/>
             </a>
           </div>
         </Col>
-        <Col flex={22}>
+        <Col flex={4}>
           <Popup
             modal
             overlayStyle={{ background: "rgba(249,249,249,0.95)", zIndex: 999 }}
@@ -40,11 +43,21 @@ const MobileMenu = () => {
             {close => (
               <div className={style.PopupMenu}>
                 <ul>
-                  <li onClick={close}><Link href={'/search'}>Search</Link></li>
-                  <li onClick={close}><Link href={'/timeline'}>Timeline</Link></li>
-                  <li onClick={close}><Link href={'/collections'}>Collections</Link></li>
-                  <li onClick={close}><Link href={'/about'}>About</Link></li>
+                  <li className={`${router.pathname === "/search" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
+                    <Link href={'/search'}>Search</Link>
+                  </li>
+                  <li className={`${router.pathname === "/collections" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
+                    <Link href={'/collections'}>Collections</Link>
+                  </li>
+                  <li className={`${router.pathname === "/about" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
+                    <Link href={'/about'}>About</Link>
+                  </li>
                 </ul>
+                <div className={style.OSALogo}>
+                  <a href={'https://www.osaarchivum.org'} target={'_blank'}>
+                    <Image width={123} height={40} src='/images/osa-logo.png'/>
+                  </a>
+                </div>
               </div>
             )}
           </Popup>

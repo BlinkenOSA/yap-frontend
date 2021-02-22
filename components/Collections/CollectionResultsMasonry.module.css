@@ -1,6 +1,7 @@
 .Title {
     font-size: 18px;
     font-weight: 700;
+    margin-bottom: 30px
 }
 
 .Date {
@@ -21,7 +22,7 @@
 
 .Text {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 500;
     padding: 20px;
 }
 

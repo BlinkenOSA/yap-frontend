@@ -11,6 +11,14 @@
 .Logo {
     padding: 10px 0;
     height: 70px;
+    display: inline-flex;
+}
+
+.OSALogo {
+    position: relative;
+    top: 0;
+    font-size: 24px;
+    padding: 0;
 }
 
 .BurgerMenu, .BurgerMenu.Open {
@@ -61,15 +69,22 @@
     font-size: 24px;
     padding: 0;
 }
-
-.PopupMenu li:hover, .PopupMenu a:hover {
-    color: #F45844;
-}
-
-.PopupMenu li, .PopupMenu a {
+.MenuItem, .MenuItem a {
     list-style: outside none none;
     margin: 20px 0;
     padding: 0;
     cursor: pointer;
     color: #3080ed;
+}
+
+.MenuItem, .MenuItem a:hover {
+    color: #F45844;
+}
+
+.MenuItemActive, .MenuItemActive a {
+    list-style: outside none none;
+    margin: 20px 0;
+    padding: 0;
+    cursor: pointer;
+    color: #F45844 !important;
 }

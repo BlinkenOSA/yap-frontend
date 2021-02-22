@@ -12,6 +12,7 @@ import SelectedFacets from "../components/Search/SelectedFacets/SelectedFacets";
 import ResultPageFacetsMobile from "../components/Search/ResultPageFacets/ResultPageFacetsMobile";
 import Image from "next/image";
 import Head from "next/head";
+import ResultPageSkeleton from "../components/Search/ResultPageSkeleton/ResultPageSkeleton";
 
 const Search = () => {
   const router = useRouter();
@@ -180,7 +181,7 @@ const Search = () => {
           </Media>
         </Col>
         <Col xs={24} lg={20}>
-          { data ? renderResults() : <div>Loading...</div>}
+          { data ? renderResults() : <ResultPageSkeleton/>}
         </Col>
       </Row>
     </AppLayout>

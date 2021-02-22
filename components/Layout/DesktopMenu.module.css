@@ -13,14 +13,30 @@
     height: 70px;
 }
 
+.OSALogo {
+    padding-top: 15px;
+    height: 70px;
+    text-align: right;
+}
+
 .Menu {
     background-color: inherit;
     border-bottom: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .MenuItem {
     font-weight: 400;
+}
+
+.MenuItemActive {
+    border-bottom: 2px solid !important;
+    font-weight: 400;
+}
+
+.SubMenu ul {
+    margin-top: 80px;
+    z-index: 9999;
 }
