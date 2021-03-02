@@ -21,9 +21,13 @@
 }
 
 .Text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     padding: 20px;
+}
+
+.Text a {
+    display: inline-block;
 }
 
 .CatalogLink {

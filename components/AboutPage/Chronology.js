@@ -17,11 +17,11 @@ const Chronology = () => {
           <QueueAnim>
             <h3 key={'chronology'} className={style.Title}>Chronology</h3>
           </QueueAnim>
-          <QueueAnim delay={200}>
+          <QueueAnim delay={300}>
             <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
               <Timeline.Item label={yearLabel('2011')}>
-                The preliminary work for a curated Balkan Archive began with the drafting of a conceptual frame
-                and creating an inventory of possible collections to be included.
+                  The preliminary work for a curated Balkan Archive began with the drafting of a conceptual frame
+                  and creating an inventory of possible collections to be included.
               </Timeline.Item>
               <Timeline.Item label={yearLabel('2013')}>
                 A master datasheet of analog and digital collection items (ca. 27,000 records) with pertaining

@@ -1,7 +1,6 @@
 import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
-import ReactPlayer from 'react-player/youtube'
 import QueueAnim from 'rc-queue-anim';
 
 const ArchivalMethodology = () => {
@@ -17,6 +16,23 @@ const ArchivalMethodology = () => {
               critical-reflective approach to the process of archival intervention and the agency of the archivist
               throughout it.
             </div>
+          </QueueAnim>
+          <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '10px', textAlign: 'center'}}>
+            <video
+              className={style.Video}
+              width="95%"
+              height="300px"
+              controls
+              poster='https://storage.osaarchivum.org/yap/thumbnail/YAPTrailer.png'>
+              <source
+                src="https://storage.osaarchivum.org/yap/video/YAPTrailer.mp4"
+                type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </Col>
+        <Col lg={12}>
+          <QueueAnim delay={300}>
             <h3  key={'metadata'} className={style.Title} style={{marginTop: '20px'}}>Enhanced metadata</h3>
             <div key={2} className={style.Text}>
               The metadata schema used by the YAP is an extension in both scope and granularity of the traditional archival
@@ -36,8 +52,8 @@ const ArchivalMethodology = () => {
             </div>
           </QueueAnim>
         </Col>
-        <Col lg={12}>
-          <QueueAnim delay={300}>
+        <Col lg={24}>
+          <QueueAnim delay={600}>
             <h3 key={'procesing'} className={style.Title}>Critical and self-reflective data processing</h3>
             <div key={4} className={style.Text} style={{marginTop: '20px'}}>
               The YAP methodology starts from the fundamental epistemic premise that the agency of the archivist is of
@@ -60,16 +76,6 @@ const ArchivalMethodology = () => {
               process of archiving.
             </div>
           </QueueAnim>
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={24} style={{width: '100%', minHeight: '400px', marginBottom: '30px'}}>
-          <ReactPlayer
-            controls={true}
-            width='100%'
-            height='100%'
-            url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
-          />
         </Col>
       </Row>
     </React.Fragment>

@@ -1,14 +1,11 @@
 import React from "react";
 import AppLayout from "../components/Layout/Layout";
-import {Col, Row, Typography} from "antd";
-
 import useSWR from "swr";
 import {API, fetcher} from "../utils/api";
 import Head from "next/head";
 import {Media} from "../components/Media/Media";
 import CollectionResultsMasonryWithText from "../components/Collections/CollectionResultsMasonryWithText";
 
-const { Text } = Typography;
 
 const Collections = () => {
   const { data, error } = useSWR(`${API}/repository/collections/`, fetcher);
@@ -26,6 +23,6 @@ const Collections = () => {
       </Media>
     </AppLayout>
   )
-}
+};
 
 export default Collections
