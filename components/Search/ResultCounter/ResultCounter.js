@@ -17,7 +17,7 @@ const ResultCounter = ({count, limit, offset}) => {
       </Media>
       <Media greaterThan="xs">
         <div>
-          {`Showing ${recordsStart} - ${recordsEnd} results of ${count} documents`}
+          {`${recordsStart} - ${recordsEnd} results of ${count}`}
         </div>
       </Media>
     </React.Fragment>
