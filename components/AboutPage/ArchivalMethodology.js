@@ -67,13 +67,11 @@ const ArchivalMethodology = () => {
               (“cultural insiders”) with different backgrounds from the former Yugoslavia. While interacting with the
               materials through enriched archival descriptions, team members also reflected on the archival narratives
               they have created and on their individual and collective position within this specific archival context.
-            </div>
-            <div key={6} className={style.Text} style={{marginTop: '20px'}}>
               They continued to maintain dialogue with each other about methodological, moral, ethical and factual
-              matters throughout the process. Many of these debates have been captured in the documentary film Room
-              Without a View produced by the YAP team in April 2016, in which they also give account of their
-              emotional-behavioral approach and imagination in relation to the materials in their care and the entire
-              process of archiving.
+              matters throughout the process. Many of these debates have been captured in the documentary
+              film <a href={'https://www.youtube.com/watch?v=Bk7f4mGl6e8'} target={'_blank'}>A Room Without a View</a> produced
+              by the YAP team in April 2016, in which they also give account of their emotional-behavioral
+              approach and imagination in relation to the materials in their care and the entire process of archiving.
             </div>
           </QueueAnim>
         </Col>
