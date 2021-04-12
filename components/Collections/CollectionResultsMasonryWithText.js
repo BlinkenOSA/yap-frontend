@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import style from "./CollectionResultsMasonry.module.css"
 import Image from "next/dist/client/image";
 import {Col, Modal, Row} from "antd";
-import { RightOutlined } from '@ant-design/icons';
 import QueueAnim from 'rc-queue-anim';
 
 const paragraph1 =
@@ -95,7 +94,7 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
                     {selectedRecord.record_count === 0 ? 'No items' : `${selectedRecord.record_count} items`}
                 </div>
                 <div className={style.CatalogLink}>
-                  <a href={selectedRecord.catalog_url} target={'_new'}>Blinken OSA catalog: {selectedRecord.archival_reference_code} <RightOutlined /></a>
+                  <a href={selectedRecord.catalog_url} target={'_new'}>Blinken OSA catalog: {selectedRecord.archival_reference_code}</a>
                 </div>
               </div>
             </Col>

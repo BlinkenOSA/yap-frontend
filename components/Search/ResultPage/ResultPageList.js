@@ -85,7 +85,7 @@ const ResultPageList = ({data, highlights}) => {
           <div className={style.Highlight}>
             <Highlight data={h}/>
             <a className={style.More} href={`/record/${d.id}`}>
-              more >>
+              more
             </a>
           </div>
         )
