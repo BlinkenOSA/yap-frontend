@@ -32,12 +32,12 @@ const ResultPage = ({data, query, limit, view='list', offset, selectedFacets, on
   return (
     <div className={style.Results}>
       <Tabs defaultActiveKey={view} tabBarExtraContent={{right: getCounter()}} onChange={setActiveTab}>
-        <TabPane tab={<span><Image src={'/images/listView.svg'} width={25} height={25}/></span>} key="list">
+        <TabPane tab={<span><Image src={'/images/listView.svg'} width={20} height={20}/></span>} key="list">
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
           <ResultPageList data={data.results} highlights={data.highlights} />
           <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
         </TabPane>
-        <TabPane tab={<span><Image src={'/images/mapView.svg'} width={25} height={25}/></span>} key="map">
+        <TabPane tab={<span><Image src={'/images/mapView.svg'} width={20} height={20}/></span>} key="map">
           <Sticky enabled={true} top={70}>
             <ResultPageMap params={{query: query, ...selectedFacets}} onMarkerClick={onMarkerClick}/>
           </Sticky>

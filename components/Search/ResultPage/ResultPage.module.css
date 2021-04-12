@@ -9,9 +9,10 @@
 */
 
 .Results :global .ant-tabs-tab {
-    width: 60px;
+    width: 48px;
     text-align: center;
     margin-right: 0;
+    padding: 6px 0;
 }
 
 .Results :global .ant-tabs-tab-active {

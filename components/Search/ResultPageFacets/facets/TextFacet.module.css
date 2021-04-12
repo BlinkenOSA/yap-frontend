@@ -48,3 +48,13 @@
 .Search {
     margin: 5px 10px;
 }
+
+.Search :global .ant-input-affix-wrapper {
+    padding: 0 10px;
+}
+
+.Search :global .ant-input-group-addon button {
+    height: 26px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

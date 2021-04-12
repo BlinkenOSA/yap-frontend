@@ -9,6 +9,8 @@
     font-size: 16px;
     color: #F45844 !important;
     text-align: right;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
 }
 
 .Facets :global .ant-collapse-item-active .ant-collapse-header {
@@ -22,7 +24,7 @@
 }
 
 .Facets :global .ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow {
-    top: 15px;
+    top: 11px;
 }
 
 .Facets :global .ant-collapse-content-box {
