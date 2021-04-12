@@ -2,7 +2,7 @@ import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
 import ReactPlayer from 'react-player/youtube'
-import QueueAnim from 'rc-queue-anim';
+import FadeIn from 'react-fade-in';
 
 
 const About = () => {
@@ -10,14 +10,14 @@ const About = () => {
     <React.Fragment>
       <Row gutter={[24]} style={{minHeight: '600px'}}>
         <Col lg={24}>
-          <QueueAnim>
+          <FadeIn>
             <div key={'title'}>
               <h3 className={style.Title}>About the Yugoslavia Archive Project</h3>
             </div>
-          </QueueAnim>
+          </FadeIn>
         </Col>
         <Col lg={12}>
-          <QueueAnim delay={100}>
+          <FadeIn delay={100}>
             <div key={1} className={style.Text}>
               The Yugoslavia Archive Project (YAP) is both a curated collection and an archival research lab of
               Blinken OSA, which comprises over 30,000 records covering the historical changes in the socio-political,
@@ -25,19 +25,19 @@ const About = () => {
               text, still and moving image and sound records in multiple languages in analog and digital format from
               across the archives.
             </div>
-          </QueueAnim>
-          <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '60px', textAlign: 'center'}}>
-            <ReactPlayer
-              controls={true}
-              width='95%'
-              height='300px'
-              style={{margin: '30 auto'}}
-              url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
-            />
-          </div>
+            <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '60px', textAlign: 'center'}}>
+              <ReactPlayer
+                controls={true}
+                width='95%'
+                height='300px'
+                style={{margin: '30 auto'}}
+                url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
+              />
+            </div>
+          </FadeIn>
         </Col>
         <Col lg={12}>
-          <QueueAnim delay={400}>
+          <FadeIn delay={200}>
             <div key={2} className={style.Text}>
               The included documents are reprocessed and recontextualized according to a geo-temporally simultaneous
               and self-reflexive archival methodology developed specifically for this project, which aims at enhancing
@@ -56,7 +56,7 @@ const About = () => {
               across Blinken OSA. When searching the holdings of the YAP, you will therefore find analog and digital
               materials represented by metadata of different levels of granularity.
             </div>
-          </QueueAnim>
+          </FadeIn>
         </Col>
       </Row>
     </React.Fragment>

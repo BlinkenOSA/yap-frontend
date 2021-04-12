@@ -1,45 +1,59 @@
 import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
-import QueueAnim from 'rc-queue-anim';
+import FadeIn from 'react-fade-in';
 
 const People = () => {
   return (
     <React.Fragment>
       <Row gutter={[24, 48]}>
         <Col lg={24} style={{minHeight: '960px'}}>
-          <QueueAnim>
+          <FadeIn>
             <h3 key={'people'} className={style.Title}>People</h3>
             <div key={'1'} className={style.Text}>
               <span className={style.Name}>Csaba Szilagyi</span>, Project Leader<br/>
-              Head of Human Rights Program/Acting Chief Archivist, Blinken OSA, 2013-present
+              Head of Human Rights Program
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Acting Chief Archivist, Blinken OSA, 2013-present
             </div>
             <div key={'2'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Perica Jovchevski</span><br/>
-              PhD Student in Political Theory, CEU, Assistant Archivist, Blinken OSA, Budapest, 2015-present
+              PhD Student in Political Theory, CEU
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Assistant Archivist, Blinken OSA, Budapest, 2015-present
             </div>
             <h3 key={'contributors'} className={style.Title} style={{marginTop: '20px'}}>
               Former contributors
             </h3>
             <div key={'3'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Connor Kusilek</span><br/>
-              MA Student in International Relations, CEU, Assistant Archivist, Blinken OSA, Budapest, 2017-2018
+              MA Student in International Relations, CEU
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Assistant Archivist, Blinken OSA, Budapest, 2017-2018
             </div>
             <div key={'4'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Miloš Resimić</span><br/>
-              PhD Student in Political Science, CEU, Assistant Archivist, Blinken OSA, Budapest, 2015-2017
+              PhD Student in Political Science, CEU
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Assistant Archivist, Blinken OSA, Budapest, 2015-2017
             </div>
             <div key={'5'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Ana Ćuković</span><br/>
-              MA Student in Nationalism Studies, CEU, Assistant Archivist, Blinken OSA, Budapest, 2015-2017
+              MA Student in Nationalism Studies, CEU
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Assistant Archivist, Blinken OSA, Budapest, 2015-2017
             </div>
             <div key={'6'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Nikola Kosović</span><br/>
-              MA Student in Political Science, CEU, Assistant Archivist, Blinken OSA, Budapest, 2015-2016
+              MA Student in Political Science, CEU
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Assistant Archivist, Blinken OSA, Budapest, 2015-2016
             </div>
             <div key={'7'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Katarina Kosmina</span><br/>
-              MA Student in International Relations, CEU, Assistant Archivist, Blinken OSA, Budapest, 2015
+              MA Student in International Relations, CEU
+              <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+              Assistant Archivist, Blinken OSA, Budapest, 2015
             </div>
             <div key={'8'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Kathryn Marie Metz</span><br/>
@@ -62,7 +76,7 @@ const People = () => {
             <div key={'12'} className={style.Text} style={{marginTop: '20px'}}>
               <span className={style.Name}>Panni Bodonyi</span>, illustrator
             </div>
-          </QueueAnim>
+          </FadeIn>
         </Col>
       </Row>
     </React.Fragment>

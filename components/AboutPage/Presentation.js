@@ -1,7 +1,7 @@
 import {Col, Row, Timeline} from "antd";
 import style from "./style.module.css";
 import React from "react";
-import QueueAnim from 'rc-queue-anim';
+import FadeIn from 'react-fade-in';
 
 const Presentation = () => {
   const yearLabel = (year) => {
@@ -14,17 +14,17 @@ const Presentation = () => {
     <React.Fragment>
       <Row gutter={[24, 48]} style={{minHeight: '650px'}}>
         <Col lg={24}>
-          <QueueAnim>
+          <FadeIn>
             <h3 key={'title'} className={style.Title}>Presentations</h3>
-          </QueueAnim>
-          <QueueAnim delay={300}>
+          </FadeIn>
+          <FadeIn delay={200}>
             <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
-              <Timeline.Item label={yearLabel('2020')}>
+              <Timeline.Item label={yearLabel('2022')}>
                 <div className={style.Text}>
                   <a href={'https://iuc.hr/programme/1065'} target={'_blank'} className={style.Presentation}>
                     Divided Societies XXIII: Myths and the Media
                   </a>
-                  Inter-University Center, Dubrovnik, 2020 (postponed for 2021)
+                  Inter-University Center, Dubrovnik, 2020 (postponed for 2022)
                 </div>
               </Timeline.Item>
               <Timeline.Item label={yearLabel('2019')}>
@@ -81,7 +81,7 @@ const Presentation = () => {
                 </div>
               </Timeline.Item>
             </Timeline>
-          </QueueAnim>
+          </FadeIn>
         </Col>
       </Row>
     </React.Fragment>

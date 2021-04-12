@@ -1,14 +1,14 @@
 import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
-import QueueAnim from 'rc-queue-anim';
+import FadeIn from 'react-fade-in';
 
 const ArchivalMethodology = () => {
   return (
     <React.Fragment>
       <Row gutter={[24, 48]} style={{minHeight: '700px'}}>
         <Col lg={12}>
-          <QueueAnim>
+          <FadeIn>
             <h3 key={'methodology'} className={style.Title}>Archival Methodology</h3>
             <div key={1} className={style.Text}>
               The Yugoslavia Archive Project (YAP) has developed and deployed a geo-temporally simultaneous and
@@ -16,24 +16,24 @@ const ArchivalMethodology = () => {
               critical-reflective approach to the process of archival intervention and the agency of the archivist
               throughout it.
             </div>
-          </QueueAnim>
-          <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '10px', textAlign: 'center'}}>
-            <video
-              className={style.Video}
-              width="95%"
-              height="300px"
-              controls
-              poster='https://storage.osaarchivum.org/yap/thumbnail/YAPTrailer.png'>
-              <source
-                src="https://storage.osaarchivum.org/yap/video/YAPTrailer.mp4"
-                type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+            <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '10px', textAlign: 'center'}}>
+              <video
+                className={style.Video}
+                width="95%"
+                height="300px"
+                controls
+                poster='https://storage.osaarchivum.org/yap/thumbnail/YAPTrailer.png'>
+                <source
+                  src="https://storage.osaarchivum.org/yap/video/YAPTrailer.mp4"
+                  type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </FadeIn>
         </Col>
         <Col lg={12}>
-          <QueueAnim delay={300}>
-            <h3  key={'metadata'} className={style.Title} style={{marginTop: '20px'}}>Enhanced metadata</h3>
+          <FadeIn delay={200}>
+            <h3  key={'metadata'} className={style.Title}>Enhanced metadata</h3>
             <div key={2} className={style.Text}>
               The metadata schema used by the YAP is an extension in both scope and granularity of the traditional archival
               metadata model used in the <a href={"https://catalog.osaarchivum.org/"} target={'_blank'}>catalog</a> of Blinken
@@ -50,10 +50,10 @@ const ArchivalMethodology = () => {
               ensures a more insightful scanning of the vast Yugoslavia Archive and offers possibilities of creating new
               meanings and narratives by every instance of using or reusing the records.
             </div>
-          </QueueAnim>
+          </FadeIn>
         </Col>
         <Col lg={24}>
-          <QueueAnim delay={600}>
+          <FadeIn delay={400}>
             <h3 key={'procesing'} className={style.Title}>Critical and self-reflective data processing</h3>
             <div key={4} className={style.Text} style={{marginTop: '20px'}}>
               The YAP methodology starts from the fundamental epistemic premise that the agency of the archivist is of
@@ -73,7 +73,7 @@ const ArchivalMethodology = () => {
               by the YAP team in April 2016, in which they also give account of their emotional-behavioral
               approach and imagination in relation to the materials in their care and the entire process of archiving.
             </div>
-          </QueueAnim>
+          </FadeIn>
         </Col>
       </Row>
     </React.Fragment>
