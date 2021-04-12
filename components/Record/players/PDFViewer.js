@@ -1,21 +1,37 @@
 import React, {useState} from "react";
 import style from "./Players.module.css";
-import {Modal, Tooltip} from "antd";
+import {Carousel, Modal, Tooltip} from "antd";
 import {FilePdfOutlined} from '@ant-design/icons';
+import Image from "next/dist/client/image";
 
-const PDFViewer = ({media}) => {
+const PDFViewer = ({media, thumbnails}) => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const renderThumbnails = () => {
+    return (
+      <div className={style.Player}>
+        <Carousel effect={'fade'} dots={false} autoplay>
+          {thumbnails.map(thmb =>
+            <div key={thmb}>
+              <span className={style.PlayIcon} onClick={() => setModalOpen(true)}>
+                <FilePdfOutlined />
+              </span>
+              <Image
+                width={400}
+                height={300}
+                objectFit={'contain'}
+                objectPosition={'center center'}
+                src={thmb}/>
+            </div>
+          )}
+        </Carousel>
+      </div>
+    )
+  };
 
   return (
     <React.Fragment>
-      <Tooltip title="Read!">
-        <span
-          className={style.MediaPlayIcon}
-          onClick={() => setModalOpen(true)}
-        >
-          <FilePdfOutlined />
-        </span>
-      </Tooltip>
+      {renderThumbnails()}
       <Modal
         centered
         footer={false}

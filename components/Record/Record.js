@@ -15,45 +15,26 @@ const RecordMap = dynamic(
 
 
 const Record = ({data}) => {
-  const renderThumbnails = () => {
-    return (
-      <div style={{textAlign: 'center', marginBottom: '20px'}}>
-      <Carousel effect={'fade'} dots={true} arrows={true}>
-        {data.thumbnails.map(thmb =>
-          <div key={thmb}>
-            <Image
-              width={400}
-              height={300}
-              objectFit={'contain'}
-              objectPosition={'center center'}
-              src={thmb}/>
-          </div>
-        )}
-      </Carousel>
-      </div>
-    )
-  };
-
   const renderMedia = () => {
-    const {media_files} = data;
+    const {thumbnails, media_files} = data;
 
     const renderMediaButton = (media, index) => {
       switch (media.mimetype) {
         case 'video/mp4':
           return (
-            <Col key={index} xs={24 / media_files.length} style={{textAlign: 'center', fontSize: '20px'}}>
-              <VideoPlayer media={media} />
+            <Col key={index} xs={24} style={{textAlign: 'center', fontSize: '20px'}}>
+              <VideoPlayer media={media} thumbnails={thumbnails} />
             </Col>
           );
         case 'application/pdf':
           return (
-            <Col key={index} xs={24 / media_files.length} style={{textAlign: 'center', fontSize: '20px'}}>
-              <PDFViewer media={media} />
+            <Col key={index} xs={24} style={{textAlign: 'center', fontSize: '20px'}}>
+              <PDFViewer media={media} thumbnails={thumbnails} />
             </Col>
           );
         case 'audio/mp3':
           return (
-            <Col key={index} xs={24 / media_files.length} style={{textAlign: 'center', fontSize: '20px'}}>
+            <Col key={index} xs={24} style={{textAlign: 'center', fontSize: '20px'}}>
               <span className={style.MediaPlayIcon}>
                 <SoundOutlined />
               </span>
@@ -65,7 +46,7 @@ const Record = ({data}) => {
     if (media_files.length > 0) {
       return (
         <Row justify="space-around" align="middle" className={style.MediaContainer} gutter={[24, 24]}>
-          {media_files.map((media, idx) => renderMediaButton(media, idx))}
+          {renderMediaButton(media_files[0], 0)}
         </Row>
       )
     } else {
@@ -119,7 +100,7 @@ const Record = ({data}) => {
         <Col xs={20}>
           <h3>{data.title_original}</h3>
 
-          {renderThumbnails()}
+          {renderMedia()}
 
           <dl>
             <dt>Archival Rerefence Number</dt>
@@ -139,9 +120,6 @@ const Record = ({data}) => {
               {data.date_of_creation_start} {data.date_of_creation_end ? `- ${data.date_of_creation_end}` : ''}
             </dd>
           </dl>
-
-          {renderMedia()}
-
           <dl>
             <dt>Description</dt>
             <dd>
