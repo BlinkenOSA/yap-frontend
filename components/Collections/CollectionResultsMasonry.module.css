@@ -156,26 +156,22 @@
 
 :global .ant-modal-body {
     border: 1px solid black;
-    background-color: #555;
+    background-color: #F9F9F9;
     padding: 5px;
 }
 
 :global .ant-modal-close {
-    top: -39px;
-    right: 0;
+    top: 5px;
+    right: 5px;
 }
 
 :global .ant-modal-close-x {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background-color: #555;
-    color: #FFF;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #F45844;
     font-weight: 800;
-    font-size: 30px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+    font-size: 20px;
 }
 
 :global .ant-modal-close-x:hover {

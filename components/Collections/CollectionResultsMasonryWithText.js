@@ -78,7 +78,7 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
             <Col xs={isMobile ? 24 : 12} style={isMobile ? {height: '200px'} : undefined}>
               <Image
                 layout={'fill'}
-                objectFit={'cover'}
+                objectFit={'contain'}
                 src={selectedRecord['thumbnail']}
               />
             </Col>
