@@ -68,7 +68,6 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
           centered
           visible={modalOpen}
           onCancel={() => setModalOpen(false)}
-          wrapClassName={style.ModalWrap}
           footer={false}
           width={isMobile ? '95%' : '60%'}
           destroyOnClose={true}
