@@ -150,31 +150,3 @@
     padding: 30px 20px;
 }
 
-:global .ant-modal-body {
-    border: 1px solid black;
-    background-color: #F9F9F9;
-    padding: 5px;
-}
-
-:global .ant-modal-close {
-    top: 10px !important;
-    right: 10px !important;
-}
-
-:global .ant-modal-close-x {
-    width: 30px !important;
-    height: 30px !important;
-    line-height: 30px !important;
-    color: #F45844 !important;
-    font-weight: 800 !important;
-    font-size: 20px !important;
-}
-
-:global .ant-modal-close-x:hover {
-    color: #F45844 !important;
-}
-
-:global .ant-modal-mask {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
