@@ -162,12 +162,14 @@
 }
 
 :global .ant-modal-close-x {
+    background-color: transparent !important;
     width: 30px !important;
     height: 30px !important;
     line-height: 30px !important;
     color: #F45844 !important;
     font-weight: 800 !important;
     font-size: 20px !important;
+    border: none !important;
 }
 
 :global .ant-modal-close-x:hover {
