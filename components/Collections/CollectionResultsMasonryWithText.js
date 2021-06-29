@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "./CollectionResultsMasonry.module.css"
+import style from "./CollectionResultsMasonryWithText.module.css"
 import Image from "next/dist/client/image";
 import {Col, Modal, Row} from "antd";
 import QueueAnim from 'rc-queue-anim';
