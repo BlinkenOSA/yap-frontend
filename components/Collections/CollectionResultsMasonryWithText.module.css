@@ -139,14 +139,42 @@
 }
 
 .PopupContentWrap {
-    background-color: #F9F9F9;
-    margin-left: 5px;
-    padding: 30px 20px;
-    min-height: 400px;
+    background-color: #F9F9F9 !important;
+    margin-left: 5px !important;
+    padding: 30px 20px !important;
+    min-height: 400px !important;
 }
 
 .PopupContentWrapMobile {
-    background-color: #F9F9F9;
-    padding: 30px 20px;
+    background-color: #F9F9F9 !important;
+    padding: 30px 20px !important;
+}
+
+:global .ant-modal-body {
+    border: 1px solid black !important;
+    background-color: #F9F9F9 !important;
+    padding: 5px !important;
+}
+
+:global .ant-modal-close {
+    top: 10px !important;
+    right: 10px !important;
+}
+
+:global .ant-modal-close-x {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    color: #F45844 !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+}
+
+:global .ant-modal-close-x:hover {
+    color: #F45844 !important;
+}
+
+:global .ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
