@@ -1,6 +1,11 @@
 .FacetWrapper {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.FacetWrapper:hover {
+    background-color: #EEEEEE;
 }
 
 .FacetText {
@@ -35,6 +40,7 @@
     width: 60px;
     text-align: right;
     padding-right: 15px;
+    bottom: 0;
 }
 
 .FacetLink {
@@ -57,4 +63,23 @@
     height: 26px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.LongFacetActiveText {
+    color: #666;
+    font-weight: 600;
+    flex-grow: 1;
+    padding-left: 10px;
+    margin-bottom: 0 !important;
+}
+
+.LongFacetText {
+    flex-grow: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0 !important;
+}
+
+.FacetLink:hover {
+    color: #666666 !important;
 }

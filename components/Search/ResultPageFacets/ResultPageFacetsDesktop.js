@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { Collapse } from 'antd';
 import style from "./ResultPageFacets.module.css";
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import TextFacet from "./facets/TextFacet";
 import DateRangeFacet from "./facets/DateRangeFacet";
+import LongTextFacet from "./facets/LongTextFacet";
 
 const { Panel } = Collapse;
 
@@ -34,7 +34,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
     return (
       <React.Fragment>
         <Panel header="Type" key="type">
-          <TextFacet
+          <LongTextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('type') ? selectedFacets['type'] : []}
             onSelect={(value) => {onFacetSelect('type', value)}}
             onRemove={(value) => {onFacetRemove('type', value)}}
@@ -42,7 +42,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
           />
         </Panel>
         <Panel header="Creator" key="creator">
-          <TextFacet
+          <LongTextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('creator') ? selectedFacets['creator'] : []}
             onSelect={(value) => {onFacetSelect('creator', value)}}
             onRemove={(value) => {onFacetRemove('creator', value)}}
@@ -64,7 +64,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
           />
         </Panel>
         <Panel header="People" key="subject_person">
-          <TextFacet
+          <LongTextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('subject_person') ? selectedFacets['subject_person'] : []}
             onSelect={(value) => {onFacetSelect('subject_person', value)}}
             onRemove={(value) => {onFacetRemove('subject_person', value)}}
@@ -73,7 +73,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
           />
         </Panel>
         <Panel header="Genre" key="genre">
-          <TextFacet
+          <LongTextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('genre') ? selectedFacets['genre'] : []}
             onSelect={(value) => {onFacetSelect('genre', value)}}
             onRemove={(value) => {onFacetRemove('genre', value)}}
@@ -82,7 +82,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
           />
         </Panel>
         <Panel header="Keywords" key="subject">
-          <TextFacet
+          <LongTextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('subject') ? selectedFacets['subject'] : []}
             onSelect={(value) => {onFacetSelect('subject', value)}}
             onRemove={(value) => {onFacetRemove('subject', value)}}
@@ -91,7 +91,7 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
           />
         </Panel>
         <Panel header="Places" key="place">
-          <TextFacet
+          <LongTextFacet
             selectedFacets = {selectedFacets.hasOwnProperty('city') ? selectedFacets['city'] : []}
             onSelect={(value) => {onFacetSelect('city', value)}}
             onRemove={(value) => {onFacetRemove('city', value)}}
