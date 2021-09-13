@@ -97,9 +97,13 @@ const ResultPageList = ({data, highlights}) => {
               {renderTitle(d)}
             </a>
           </div>
-          <div className={style.Genre}>
-            <span>{d.genre.join('/')}</span>
-          </div>
+          {
+            d.hasOwnProperty('genre') ?
+              <div className={style.Genre}>
+                <span>{d.genre.join('/')}</span>
+              </div> :
+              ''
+          }
           <div>
             <span className={style.Label}>Date(s) of creation:</span> {renderDates(d.date_of_creation_start, d.date_of_creation_end)}
           </div>
