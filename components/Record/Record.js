@@ -103,23 +103,13 @@ const Record = ({data}) => {
           {renderMedia()}
 
           <dl>
-            <dt>Archival Rerefence Number</dt>
-            <dd>{data.archival_reference_number}</dd>
-          </dl>
-          <dl>
-            <dt>Part of collection</dt>
-            <dd>
-              <a href={data.collection.catalog_url}>
-                {data.collection.title} ({data.collection.archival_reference_code})
-              </a>
-            </dd>
-          </dl>
-          <dl>
             <dt>Creation Date</dt>
             <dd>
               {data.date_of_creation_start} {data.date_of_creation_end ? `- ${data.date_of_creation_end}` : ''}
             </dd>
           </dl>
+          {renderMultiValuedField('language', 'Language', 'language')}
+          {renderMultiValuedField('type', 'Type', '', 'type', true)}
           <dl>
             <dt>Description</dt>
             <dd>
@@ -135,10 +125,9 @@ const Record = ({data}) => {
               {data.temporal_coverage_start} {data.temporal_coverage_start ? `- ${data.temporal_coverage_end}` : ''}
             </dd>
           </dl>
-          {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
           {renderMultiValuedField('city', 'Place', 'city', 'city', true)}
-          {renderMultiValuedField('language', 'Language', 'language')}
           {renderMultiValuedField('subject', 'Subject', '', 'subject', true)}
+          {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
 
           <dl>
             <dt>Description Level</dt>
@@ -147,11 +136,28 @@ const Record = ({data}) => {
             </dd>
           </dl>
 
-          {renderMultiValuedField('collector', 'Collector')}
-          {renderMultiValuedField('creator', 'Creator')}
-          {renderMultiValuedField('type', 'Type', '', 'type', true)}
           {renderMultiValuedField('genre', 'Genre', '', 'genre', true)}
 
+          <dl>
+            <dt>Extent</dt>
+            <dd>{data.extent}</dd>
+          </dl>
+
+          {renderMultiValuedField('creator', 'Creator')}
+          {renderMultiValuedField('collector', 'Collector')}
+
+          <dl>
+            <dt>Archival Rerefence Number</dt>
+            <dd>{data.archival_reference_number}</dd>
+          </dl>
+          <dl>
+            <dt>Part of collection</dt>
+            <dd>
+              <a href={data.collection.catalog_url}>
+                {data.collection.title} ({data.collection.archival_reference_code})
+              </a>
+            </dd>
+          </dl>
         </Col>
         <Col xs={2}/>
       </Row>
