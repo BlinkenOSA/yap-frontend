@@ -116,9 +116,6 @@ const ResultPageList = ({data, highlights}) => {
             <span className={style.Label}>Part of:</span> <a href={d.collection_url} target={'_new'}>{d.collection}</a>
           </div>
           <div>
-            <span className={style.Label}>Call Number:</span> {d.archival_reference_number}
-          </div>
-          <div>
             <React.Fragment>
               {renderSearchHit(d)}
             </React.Fragment>

@@ -126,7 +126,7 @@ const Record = ({data}) => {
             </dd>
           </dl>
           {renderMultiValuedField('city', 'Place', 'city', 'city', true)}
-          {renderMultiValuedField('subject', 'Subject', '', 'subject', true)}
+          {renderMultiValuedField('subject', 'Keyword', '', 'subject', true)}
           {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
 
           <dl>
@@ -147,9 +147,10 @@ const Record = ({data}) => {
           {renderMultiValuedField('collector', 'Collector')}
 
           <dl>
-            <dt>Archival Rerefence Number</dt>
+            <dt>Call Number</dt>
             <dd>{data.archival_reference_number}</dd>
           </dl>
+
           <dl>
             <dt>Part of collection</dt>
             <dd>

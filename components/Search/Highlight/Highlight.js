@@ -3,8 +3,8 @@ import React, {useState} from "react";
 
 const facetLabels = {
   description_search: 'Description',
-  subject_search: 'Subject',
-  subject_person_search: 'Person',
+  subject_search: 'Keyword',
+  subject_person_search: 'People',
   city_search: 'Place'
 };
 
