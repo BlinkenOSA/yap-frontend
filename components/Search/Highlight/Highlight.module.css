@@ -1,10 +1,27 @@
-.Highlight {
+.HighlightWrapper {
     font-size: 14px;
     margin-top: 5px;
     line-height: 16px;
 }
 
-.Highlight em {
+.HighlightWrapper em {
     font-style: normal;
     background-color: #FFD911;
+}
+
+
+.More {
+    color: #F45844;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 14px;
+}
+
+.Highlight {
+    background-color: #FFF;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
 }

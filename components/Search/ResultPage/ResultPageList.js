@@ -80,16 +80,8 @@ const ResultPageList = ({data, highlights}) => {
   const renderSearchHit = (d) => {
     if (highlights.hasOwnProperty(d.id)) {
       const h = highlights[d.id];
-      if (Object.keys(h).length > 0) {
-        return (
-          <div className={style.Highlight}>
-            <Highlight data={h}/>
-            <a className={style.More} href={`/record/${d.id}`}>
-              more
-            </a>
-          </div>
-        )
-      }
+      return (<Highlight data={h} id={d.id}/>);
+
     }
   };
 
@@ -105,6 +97,9 @@ const ResultPageList = ({data, highlights}) => {
               {renderTitle(d)}
             </a>
           </div>
+          <div className={style.Genre}>
+            <span>{d.genre.join('/')}</span>
+          </div>
           <div>
             <span className={style.Label}>Date(s) of creation:</span> {renderDates(d.date_of_creation_start, d.date_of_creation_end)}
           </div>
@@ -117,11 +112,11 @@ const ResultPageList = ({data, highlights}) => {
           <div>
             <span className={style.Label}>Type:</span> {d.type}
           </div>
-          <div>
-            <span className={style.Label}>Call Number:</span> {d.archival_reference_number}
-          </div>
           <div className={style.CatalogLink}>
             <span className={style.Label}>Part of:</span> <a href={d.collection_url} target={'_new'}>{d.collection}</a>
+          </div>
+          <div>
+            <span className={style.Label}>Call Number:</span> {d.archival_reference_number}
           </div>
           <div>
             <React.Fragment>

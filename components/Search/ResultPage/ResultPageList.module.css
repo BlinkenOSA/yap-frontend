@@ -19,24 +19,13 @@
     background-color: #FFD911;
 }
 
-.Label {
+.Genre {
+    margin-bottom: 10px;
     font-weight: 400;
 }
 
-.More {
-    color: #F45844;
-    font-weight: 700;
-    font-size: 14px;
-    margin-top: 5px;
-    line-height: 14px;
-}
-
-.Highlight {
-    background-color: #FFF;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    margin-right: 20px;
+.Label {
+    font-weight: 400;
 }
 
 .CatalogLink a {
