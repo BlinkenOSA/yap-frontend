@@ -128,14 +128,6 @@ const Record = ({data}) => {
           {renderMultiValuedField('city', 'Place', 'city', 'city', true)}
           {renderMultiValuedField('subject', 'Keyword', '', 'subject', true)}
           {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
-
-          <dl>
-            <dt>Description Level</dt>
-            <dd>
-              {data.description_level === 'F' ? 'Folder' : 'Item'}
-            </dd>
-          </dl>
-
           {renderMultiValuedField('genre', 'Genre', '', 'genre', true)}
 
           <dl>
@@ -157,6 +149,13 @@ const Record = ({data}) => {
               <a href={data.collection.catalog_url}>
                 {data.collection.title} ({data.collection.archival_reference_code})
               </a>
+            </dd>
+          </dl>
+
+          <dl>
+            <dt>Description Level</dt>
+            <dd>
+              {data.description_level === 'F' ? 'Folder' : 'Item'}
             </dd>
           </dl>
         </Col>
