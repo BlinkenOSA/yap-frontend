@@ -4,9 +4,13 @@
     margin-bottom: 30px
 }
 
-.Date {
+.RecordCount a {
     margin-top: 20px;
     color: #F45844;
+}
+
+.NoRecordCount {
+    margin-top: 20px;
 }
 
 .ItemCount {

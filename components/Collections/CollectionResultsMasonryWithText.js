@@ -52,9 +52,6 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
             <div className={style.Title}>
               {d.title}, {d.year_start}{d.year_end !== d.year_start && d.year_end !== null ? ` - ${d.year_end}` : ''}
             </div>
-            <div className={style.ItemCount}>
-              {d.archival_reference_code}<br/>{d.record_count === 0 ? 'No items' : `${d.record_count} items`}
-            </div>
           </div>
         </div>
       </div>
@@ -78,7 +75,7 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
               <Image
                 layout={'fill'}
                 objectFit={'contain'}
-                src={selectedRecord['thumbnail']}
+                src={selectedRecord['thumbnail'] ? selectedRecord['thumbnail'] : '/images/recordEmpty.svg'}
               />
             </Col>
             <Col xs={isMobile ? 24 : 12}>
@@ -89,9 +86,17 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
                 <div style={{paddingTop: '30px'}}>
                   {selectedRecord.description}
                 </div>
-                <div className={style.Date}>
-                    {selectedRecord.record_count === 0 ? 'No items' : `${selectedRecord.record_count} items`}
-                </div>
+
+                {
+                  selectedRecord.record_count === 0 ?
+                    <div className={style.NoRecordCount}>No items</div> :
+                    <div className={style.RecordCount}>
+                      <a href={`/search?collection=${selectedRecord.title}`}>
+                        {`${selectedRecord.record_count} items`}
+                      </a>
+                    </div>
+                }
+
                 <div className={style.CatalogLink}>
                   <a href={selectedRecord.catalog_url} target={'_new'}>Blinken OSA catalog: {selectedRecord.archival_reference_code}</a>
                 </div>
