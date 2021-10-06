@@ -46,11 +46,11 @@ const MobileMenu = () => {
                   <li className={`${router.pathname === "/search" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
                     <Link href={'/search'}>Search</Link>
                   </li>
-                  <li className={`${router.pathname === "/collections" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
-                    <Link href={'/collections'}>Collections</Link>
-                  </li>
                   <li className={`${router.pathname === "/about" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
                     <Link href={'/about'}>About</Link>
+                  </li>
+                  <li className={`${router.pathname === "/collections" ? style.MenuItemActive : style.MenuItem}`} onClick={close}>
+                    <Link href={'/collections'}>Collection Overview</Link>
                   </li>
                 </ul>
                 <div className={style.OSALogo}>

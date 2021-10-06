@@ -25,11 +25,11 @@ const DesktopMenu = () => {
             <Menu.Item className={`${router.pathname === "/search" ? style.MenuItemActive : style.MenuItem}`} key="search">
               <Link href={'/search'}>Search</Link>
             </Menu.Item>
-            <Menu.Item className={`${router.pathname === "/collections" ? style.MenuItemActive : style.MenuItem}`} key="collections">
-              <Link href={'/collections'}>Collections</Link>
-            </Menu.Item>
             <Menu.Item className={`${router.pathname === "/about" ? style.MenuItemActive : style.MenuItem}`} key="about">
               <Link href={'/about'}>About</Link>
+            </Menu.Item>
+            <Menu.Item className={`${router.pathname === "/collections" ? style.MenuItemActive : style.MenuItem}`} key="collections">
+              <Link href={'/collections'}>Collection Overview</Link>
             </Menu.Item>
           </Menu>
         </Col>
