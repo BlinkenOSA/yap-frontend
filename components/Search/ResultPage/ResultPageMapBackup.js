@@ -4,12 +4,12 @@ import useSWR from "swr";
 import {API, fetcher} from "../../../utils/api";
 import {ImageOverlay, LayersControl, Map, Marker, TileLayer, Tooltip} from "react-leaflet";
 import FullscreenControl from "react-leaflet-fullscreen";
-import style from "./ResultPageMap.module.css";
+import style from "./ResultPageMapBackup.module.css";
 import L from "leaflet";
 import Control from "react-leaflet-control";
 import Legend from "./Legend";
 
-const ResultPageMap = ({params, onMarkerClick}) => {
+const ResultPageMapBackup = ({params, onMarkerClick}) => {
   const { data, error } = useSWR([`${API}/repository/records_map/`, params], fetcher);
   const [mapData, setMapData] = useState([]);
   const [selectedLayer, setSelectedLayer] = useState('');
@@ -161,4 +161,4 @@ const ResultPageMap = ({params, onMarkerClick}) => {
   )
 };
 
-export default ResultPageMap;
+export default ResultPageMapBackup;

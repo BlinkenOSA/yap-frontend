@@ -56,6 +56,7 @@ const Search = () => {
       pathname: '/search', query: {
         query: query,
         limit: limit,
+        view: view,
         ...selectedFacets
       }
     })
@@ -78,6 +79,7 @@ const Search = () => {
       pathname: '/search', query: {
         query: query,
         limit: limit,
+        view: view,
         ...selectedFacets
       }
     })
@@ -89,6 +91,7 @@ const Search = () => {
       pathname: '/search', query: {
         query: query,
         limit: limit,
+        view: view,
         ...newFacets
       }
     })
@@ -101,6 +104,7 @@ const Search = () => {
       pathname: '/search', query: {
         query: query,
         limit: limit,
+        view: view,
         ...selectedFacets
       }
     })
@@ -108,6 +112,17 @@ const Search = () => {
 
   const onMarkerClick = (value) => {
     onFacetSelect('city', value)
+  };
+
+  const onTabChange = (tab) => {
+    router.push({
+      pathname: '/search', query: {
+        query: query,
+        limit: limit,
+        view: tab,
+        ...selectedFacets
+      }
+    })
   };
 
   const renderResults = () => (
@@ -121,6 +136,7 @@ const Search = () => {
         view={view}
         selectedFacets={selectedFacets}
         onPageChange={onPageChange}
+        onTabChange={onTabChange}
         onMarkerClick={onMarkerClick}
       />
     </React.Fragment> :

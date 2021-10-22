@@ -10,7 +10,7 @@ const facetLabels = {
 
 
 
-const Highlight = ({data, id}) => {
+const Highlight = ({data, id, type='hitlist'}) => {
   const countHighligts = () => {
     let count = 0;
     Object.keys(data).map((key, idx) => {
@@ -37,7 +37,7 @@ const Highlight = ({data, id}) => {
 
   if (countHighligts() > 0) {
     return (
-      <div className={style.Highlight}>
+      <div className={type === 'hitlist' ? style.Highlight : style.HighlightMap}>
         {displayHighlights()}
         <a className={style.More} href={`/record/${id}`}>
           more
