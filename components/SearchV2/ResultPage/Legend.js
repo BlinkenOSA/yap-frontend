@@ -128,7 +128,7 @@ const Legend = ({selectedLayer}) => {
             className={style.Badge}
             style={{backgroundColor: countries[c].bgColor, color: countries[c].color}}
           >
-            <img height={50} src={`/maps/icons/${c}.svg`} />
+            <img height={30} src={`/maps/icons/${c}.svg`} />
             <div>{countries[c].name}</div>
           </div>
         ))}
