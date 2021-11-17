@@ -19,11 +19,11 @@ const ResultPage = ({data, query, limit, view='list', offset, selectedFacets, on
   const getCounter = () => {
     switch (view) {
       case 'list':
-        return <ResultCounter count={data.count} limit={limit} offset={offset}/>
+        return <ResultCounter count={data.count} limit={limit} offset={offset}/>;
       case 'map02':
-        return <span/>
+        return <span/>;
       default:
-        return ''
+        return <span/>
     }
   };
 

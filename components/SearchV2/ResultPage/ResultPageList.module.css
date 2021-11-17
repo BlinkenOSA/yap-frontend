@@ -1,0 +1,79 @@
+.ResultsToScroll {
+    flex: 1;
+    overflow: auto;
+}
+
+.ResultItem {
+    margin-bottom: 20px;
+}
+
+.ResultItemData {
+    margin-left: 30px;
+    font-weight: 300;
+}
+
+.Loading {
+    margin: 0;
+    padding-top: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+
+.Title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.Title em {
+    font-style: normal;
+    background-color: #FFD911;
+}
+
+.Genre {
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.Label {
+    font-weight: 400;
+}
+
+.CatalogLink a {
+    color: #F45844;
+    transition: border-bottom-color 0.3s;
+    border-bottom: 1px dotted transparent;
+}
+
+.CatalogLink a:hover {
+    border-bottom: 1px dotted #F45844;
+}
+
+.MapButtonPopover {
+    font-size: 12px;
+}
+
+.MapButton, .MapButton:focus {
+    margin-left: 10px;
+    color: #F45844;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.ActiveMapButton, .ActiveMapButton:focus {
+    margin-left: 10px;
+    color: #FFF;
+    background-color: #417fdf;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.MapButton:hover {
+    background-color: #F45844;
+    color: #F9F9F9;
+}
