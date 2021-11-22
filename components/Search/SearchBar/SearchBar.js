@@ -82,7 +82,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
       >
         {(props) => (
           <Form layout="inline" onSubmit={props.handleSubmit}>
-            <Row gutter={[16, 16]} style={{width: '100%'}}>
+            <Row gutter={[16, 8]} style={{width: '100%'}}>
               <Col xs={20}>
                 <Input
                   className={style.SearchInput}
