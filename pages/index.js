@@ -1,5 +1,5 @@
 import AppLayout from "../components/Layout/Layout";
-import SearchBar from "../components/Search/SearchBar/SearchBar";
+import SearchBarIndex from "../components/Search/SearchBarIndex/SearchBarIndex";
 import React from "react";
 import style from "../styles/global.module.css"
 
@@ -21,7 +21,7 @@ export default function Home() {
         <title>Yugoslavia Archive Project</title>
       </Head>
       <div className="container">
-        <SearchBar onSearch={onSearch}/>
+        <SearchBarIndex onSearch={onSearch}/>
       </div>
       <div className={style.FrontPageImage}>
         <span className={style.FrontPageTitle}>

@@ -10,7 +10,7 @@ const {Content, Footer} = Layout;
 
 export default function AppLayout({ withBackground = false, children }) {
   return (
-    <Layout>
+    <Layout className={style.Layout}>
       <Media at="xs"><MobileMenu/></Media>
       <Media greaterThan="xs"><DesktopMenu/></Media>
       <Content

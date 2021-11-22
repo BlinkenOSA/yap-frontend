@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import style from './Legend.module.css';
 
 const countriesOnMap = {
+  'Off': [],
   '1990 December': ['sfr_yugoslavia'],
   '1991 June 25': ['slovenia', 'croatia', 'eastern_slavonia', 'kninska_krajina', 'sfr_yugoslavia',],
   '1992 March 3': ['slovenia', 'croatia', 'serbian_krajina', 'bosnia_herzegovina', 'bosanska_krajina', 'eastern_herzegovina', 'romanija', 'ne_bosnia', 'sfr_yugoslavia', 'macedonia'],
@@ -128,7 +129,6 @@ const Legend = ({selectedLayer}) => {
             className={style.Badge}
             style={{backgroundColor: countries[c].bgColor, color: countries[c].color}}
           >
-            <img height={50} src={`/maps/icons/${c}.svg`} />
             <div>{countries[c].name}</div>
           </div>
         ))}

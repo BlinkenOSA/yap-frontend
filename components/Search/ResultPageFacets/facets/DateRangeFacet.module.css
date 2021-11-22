@@ -11,7 +11,7 @@
 .SliderValues {
     margin-top: 10px;
     font-weight: 700;
-    color: #F45844;
+    color: #647B9E;
     background-color: #FFFFFF;
     padding: 5px 10px;
     border-radius: 15px;
@@ -19,9 +19,13 @@
 
 .FilterButton {
     font-size: 12px;
+    font-weight: 700;
+    border-radius: 10px;
 }
 
 .ResetButton {
     font-size: 12px;
+    font-weight: 700;
     margin-left: 5px;
+    border-radius: 10px;
 }

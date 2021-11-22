@@ -15,7 +15,7 @@ const DateRangeFacetBarChart = ({data, highlight}) => {
       if (leftCount && rightCount) {
         return (
           chartData.map(cd => (
-            cd.text >= leftCount.text && cd.text <= rightCount.text ? "rgba(244, 88, 68, 0.4)" : "rgba(100, 122, 156, 0.4)"
+            cd.text >= leftCount.text && cd.text <= rightCount.text ? "rgba(255,255,255,0.8)" : "rgba(65,127,223,0.8)"
           ))
         );
       } else {

@@ -8,7 +8,7 @@ const SelectedFacets = ({selectedFacets, onFacetRemove, onDateRangeFacetRemove})
   const renderFacetButton = (key, value, label, index) => {
     const renderButton = (val, index) => (
       <span className={style.Button} key={index}>
-        <span className={style.Label}>{label}:</span> {val}
+        {val}
         <a className={style.RemoveIcon} onClick={() => onFacetRemove(key, val)}><CloseOutlined/></a>
       </span>
     );
@@ -23,7 +23,7 @@ const SelectedFacets = ({selectedFacets, onFacetRemove, onDateRangeFacetRemove})
 
   const renderDateFacet = (start, end) => (
     <span className={style.Button} key={'temporal_coverage'}>
-      <span className={style.Label}>Temporal coverage:</span> {start} {end ? `- ${end}` : ''}
+      {start} {end ? `- ${end}` : ''}
       <a className={style.RemoveIcon} onClick={() => onDateRangeFacetRemove('year_coverage_start', 'year_coverage_end')}>
         <CloseOutlined/>
       </a>
@@ -51,12 +51,12 @@ const SelectedFacets = ({selectedFacets, onFacetRemove, onDateRangeFacetRemove})
 
   return (
       Object.keys(selectedFacets).length > 0 &&
-      <Row gutter={[32, 16]} style={{width: '100%'}}>
-        <Col sm={2} md={4}> </Col>
-        <Col sm={20} md={16}>
-          {renderFacets()}
+      <Row gutter={[16, 16]} style={{width: '100%'}}>
+        <Col xs={24}>
+          <div>
+            {renderFacets()}
+          </div>
         </Col>
-        <Col sm={2} md={4}> </Col>
       </Row>
   )
 };

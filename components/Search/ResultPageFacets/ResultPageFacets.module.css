@@ -1,34 +1,18 @@
+.Title {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
 .FacetsOff {
     display: none;
 }
 
-.Facets :global .ant-collapse-header{
-    background-color: #EEE;
-    line-height: 100% !important;
-    font-weight: 700;
-    font-size: 16px;
-    color: #F45844 !important;
-    text-align: right;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-}
-
-.Facets :global .ant-collapse-item-active .ant-collapse-header {
-    background-color: #F45844;
-    color: #F9F9F9 !important;
-}
-
-.Facets :global .ant-collapse-item {
-    border: none;
-    margin-bottom: 20px;
-}
-
-.Facets :global .ant-collapse .ant-collapse-item .ant-collapse-header .ant-collapse-arrow {
-    top: 11px;
-}
-
-.Facets :global .ant-collapse-content-box {
-    padding: 0;
+.Facets {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .FilterText {

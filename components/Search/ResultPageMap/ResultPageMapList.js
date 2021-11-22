@@ -3,7 +3,7 @@ import Highlight from "../Highlight/Highlight";
 import {AutoSizer, CellMeasurer, CellMeasurerCache, List} from 'react-virtualized';
 import listStyle from "./ResultPageMapList.module.css";
 import {CloseOutlined} from '@ant-design/icons';
-import style from "../SelectedFacets/SelectedFacets.module.css";
+import style from "../Facets/SelectedFacets.module.css";
 
 const ResultPageMapList = ({data, highlights, selectedCity, onRemoveCity, onCloseClick, selectedEntry, onSelectEntry}) => {
   const cache = new CellMeasurerCache({

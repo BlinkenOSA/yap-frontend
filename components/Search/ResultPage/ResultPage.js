@@ -1,46 +1,82 @@
-import React, {useState} from "react";
-import {Tabs} from "antd";
+import React, {useState, useEffect} from "react";
+import {Col, Drawer, Row} from "antd";
 import style from "./ResultPage.module.css"
-import Image from "next/image";
 import ResultPageList from "./ResultPageList";
-import ResultPagination from "../ResultPagination/ResultPagination";
-import ResultCounter from "../ResultCounter/ResultCounter";
 import dynamic from "next/dist/next-server/lib/dynamic";
-import Sticky from 'react-stickynode';
-
-const { TabPane } = Tabs;
+import SearchBar from "../SearchBar/SearchBar";
+import Facets from "../Facets/Facets";
+import useSWR from "swr";
+import {API, fetcher} from "../../../utils/api";
 
 const ResultPageMap = dynamic(
   () => import('../ResultPageMap/ResultPageMap'),
   { ssr: false }
 );
 
-const ResultPage = ({data, query, limit, view='list', offset, selectedFacets, onPageChange, onTabChange, onMarkerClick}) => {
-  const getCounter = () => {
-    switch (view) {
-      case 'list':
-        return <ResultCounter count={data.count} limit={limit} offset={offset}/>;
-      case 'map02':
-        return <span/>;
-      default:
-        return <span/>
-    }
+const ResultPage = (params) => {
+  const {query, limit, offset, ...selectedFacets} = params;
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [displayOnMapID, setDisplayOnMapID] = useState(0);
+
+  const { data, error } = useSWR([`${API}/repository/records/`, params], fetcher);
+
+  const onFilter = () => {
+    setFilterOpen(!filterOpen);
+  };
+
+  const onSearch = () => {
+    setDisplayOnMapID(0);
+  };
+
+  const onClickDisplayOnMap = (id) => {
+    setFilterOpen(false);
+    setDisplayOnMapID(id);
   };
 
   return (
-    <div className={style.Results}>
-      <Tabs defaultActiveKey={view} tabBarExtraContent={{right: getCounter()}} onChange={onTabChange}>
-        <TabPane tab={<span><Image src={'/images/listView.svg'} width={20} height={20}/> </span>} key="list">
-          <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
-          <ResultPageList data={data.results} highlights={data.highlights} />
-          <ResultPagination count={data.count} limit={limit} offset={offset} onPageChange={onPageChange} />
-        </TabPane>
-        <TabPane tab={<span><Image src={'/images/mapView.svg'} width={20} height={20}/> </span>} key="map02">
-          <Sticky enabled={true} top={70}>
-            <ResultPageMap params={{query: query, ...selectedFacets}} onMarkerClick={onMarkerClick}/>
-          </Sticky>
-        </TabPane>
-      </Tabs>
+    <div className={style.ResultsWrap}>
+      <Row>
+        <Col xs={12}>
+          <div className={style.Results}>
+            <SearchBar
+              urlParams={params}
+              filterOpen={filterOpen}
+              onFilter={onFilter}
+              onSearch={onSearch}
+            />
+            <ResultPageList
+              urlParams={params}
+              displayOnMapID={displayOnMapID}
+              onClickDisplayOnMap={onClickDisplayOnMap}
+              data={data}
+            />
+          </div>
+        </Col>
+        <Col xs={12}>
+          <ResultPageMap
+            query={query}
+            selectedFacets={selectedFacets}
+            selectedEntry={displayOnMapID}
+            filterOpen={filterOpen}
+          />
+          <Drawer
+            mask={false}
+            placement={'right'}
+            width={'100%'}
+            visible={filterOpen}
+            closable={false}
+            getContainer={false}
+            className={style.Drawer}
+            style={{ position: 'absolute' }}
+          >
+            <Facets
+              query={query}
+              selectedFacets={selectedFacets}
+              facetData={data ? data.facets : {}}
+            />
+          </Drawer>
+        </Col>
+      </Row>
     </div>
   )
 };

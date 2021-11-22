@@ -121,7 +121,7 @@ const LongTextFacet = ({facets, selectedFacets, search=false, onSelect, onRemove
             />
           </div>
         }
-        <div style={{height: `${facetData.length > 10 ? 250 : facetData.length * 25}px`}}>
+        <div style={{flex: 1}}>
           <AutoSizer>
             {({ width, height }) => (
               <List

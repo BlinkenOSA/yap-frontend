@@ -4,10 +4,6 @@
     align-items: center;
 }
 
-.FacetWrapper:hover {
-    background-color: #EEEEEE;
-}
-
 .FacetText {
     flex-grow: 1;
     text-align: right;
@@ -23,13 +19,14 @@
 .FacetRemove {
     color: #F45844;
     font-weight: 600;
-    width: 60px;
-    text-align: center;
+    width: 80px;
+    padding-right: 17px;
+    text-align: right;
 }
 
 .FacetRemoveLink {
-    font-weight: 600;
-    color: #F45844 !important;
+    font-weight: 700;
+    color: #FFF !important;
 }
 
 .FacetRemoveLink:hover {
@@ -37,43 +34,80 @@
 }
 
 .FacetNumber {
-    width: 60px;
+    width: 80px;
     text-align: right;
     padding-right: 15px;
     bottom: 0;
 }
 
-.FacetLink {
+.LongFacetText .FacetLink {
+    color: #FFF;
     cursor: pointer;
 }
 
-.FacetLink:hover {
-    color: #F45844;
+.LongFacetText .FacetLink:hover {
+    color: #FFF !important;
+    border-bottom: 2px dotted #FFF;
 }
+
 
 .Search {
     margin: 5px 10px;
+    border-bottom: 2px solid #FFFFFF;
 }
 
 .Search :global .ant-input-affix-wrapper {
-    padding: 0 10px;
+    background-color: unset;
+    padding: 0 10px 0 0;
+    border: 0;
+}
+
+.Search :global .ant-input {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: unset;
+    border-bottom: 2px;
+}
+
+.Search :global .ant-input::selection {
+    background-color: #2E80EC;
+}
+
+.Search :global .ant-input::-moz-selection {
+    background-color: #2E80EC;
+}
+
+.Search :global .ant-input-suffix .ant-input-clear-icon {
+    color: #FFF;
+}
+
+.Search :global .ant-input-group-addon {
+    border-radius: 0;
 }
 
 .Search :global .ant-input-group-addon button {
-    height: 26px;
+    border-radius: 0 !important;
+    height: 28px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
+.Search :global .ant-input-group-addon button:hover {
+    border-color: #F45844;
+    background-color: #F45844;
+}
+
 .LongFacetActiveText {
-    color: #666;
-    font-weight: 600;
+    color: #FFF;
+    font-weight: 700;
     flex-grow: 1;
     padding-left: 10px;
     margin-bottom: 0 !important;
 }
 
 .LongFacetText {
+    color: #FFF;
     flex-grow: 1;
     padding-left: 10px;
     padding-right: 10px;

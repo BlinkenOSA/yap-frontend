@@ -1,7 +1,7 @@
 import {Col, Pagination, Row} from "antd";
 import React from "react";
 import style from "./ResultPagination.module.css";
-import RecordsPerPage from "../RecordsPerPage/RecordsPerPage";
+import RecordsPerPage from "./RecordsPerPage";
 
 const ResultPagination = ({count, limit=10, offset=0, onPageChange}) => {
   return (

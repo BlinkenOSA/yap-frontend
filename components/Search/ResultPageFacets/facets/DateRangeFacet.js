@@ -68,7 +68,7 @@ const DateRangeFacet = ({facets, selectedFacets, onSelect, onRemove}) => {
         </Row>
         <Row>
           <Col xs={24} style={{textAlign: 'right', marginTop: '20px'}}>
-            <Button type="primary" size="small" className={style.FilterButton} onClick={onFilter}>
+            <Button size="small" className={style.FilterButton} onClick={onFilter}>
               Filter <CheckOutlined />
             </Button>
             <Button size="small" className={style.ResetButton} onClick={onRemove}>

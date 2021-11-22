@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {ImageOverlay, LayersControl, Map, TileLayer} from "react-leaflet";
 import L from 'leaflet'
 import Control from 'react-leaflet-control';
-import Legend from "../Search/ResultPage/Legend";
+import Legend from "../Search/ResultPageMap/Legend";
 
 const Timeline = () => {
   const [selectedLayer, setSelectedLayer] = useState('');

@@ -1,5 +1,5 @@
-.Results {
-    margin: 10px 20px 20px 20px;
+.ResultsWrap {
+    padding: 70px 0 20px 0;
 }
 
 /*
@@ -8,11 +8,10 @@
 }
 */
 
-.Results :global .ant-tabs-tab {
-    width: 48px;
-    text-align: center;
-    margin-right: 0;
-    padding: 6px 0;
+.Results {
+    height: calc(100vh - 106px);
+    display: flex;
+    flex-direction: column;
 }
 
 .Results :global .ant-tabs-tab-active {
@@ -30,3 +29,14 @@
 .Tabs {
     justify-content: flex-end;
 }
+
+.Drawer :global .ant-drawer-content-wrapper {
+    box-shadow: none !important;
+}
+
+.Drawer :global .ant-drawer-content-wrapper .ant-drawer-body {
+    color: #FFFFFF;
+    background-color: #F45844;
+    padding: 20px;
+}
+

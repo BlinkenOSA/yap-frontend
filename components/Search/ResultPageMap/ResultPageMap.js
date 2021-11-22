@@ -4,29 +4,29 @@ import {ImageOverlay, LayersControl, Map, Marker, TileLayer, Tooltip} from "reac
 import style from "./ResultPageMap.module.css";
 import L from "leaflet";
 import Control from "react-leaflet-control";
-import Legend from "../ResultPage/Legend";
-import {Button, Col, Drawer, Row} from 'antd';
+import Legend from "./Legend";
+import {Col, Row} from 'antd';
 import ResultPageMapMarkers from "./ResultPageMapMarkers";
-import ResultPageMapEntries from "./ResultPageMapEntries";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import {FullscreenOutlined, FullscreenExitOutlined} from '@ant-design/icons';
+import {useDeepCompareEffect} from 'react-use';
+import {useRouter} from "next/router";
 
-const ResultPageMap = ({params}) => {
+const ResultPageMap = ({query, selectedFacets, selectedEntry}) => {
+  const router = useRouter();
   const handle = useFullScreenHandle();
 
   const [mapParams, setMapParams] = useState({});
-
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [selectedCity, setSelectedCity] = useState([]);
-  const [selectedEntry, setSelectedEntry] = useState(0);
-
   const [selectedLayer, setSelectedLayer] = useState('');
 
-  useEffect(() => {
-    setMapParams(params);
-  }, [params]);
+  useDeepCompareEffect(() => {
+    setMapParams({
+      query: query,
+      ...selectedFacets
+    })
+  }, [query, selectedFacets]);
 
   const mapFiles = [
+    {file: '/maps/YAP_map_off.svg', text: 'Off'},
     {file: '/maps/YAP_map_1990.svg', text: '1990 December'},
     {file: '/maps/YAP_map_1991_06.svg', text: '1991 June 25'},
     {file: '/maps/YAP_map_1992_03.svg', text: '1992 March 3'},
@@ -44,6 +44,7 @@ const ResultPageMap = ({params}) => {
   const renderLayers = () => (
     mapFiles.map((m, idx) => (
       <LayersControl.BaseLayer
+        checked={m.text === 'Off'}
         name={m.text}
         key={idx}
       >
@@ -57,49 +58,27 @@ const ResultPageMap = ({params}) => {
     ))
   );
 
-  const onRemoveCity = (index) => {
-    const sc = [...selectedCity];
-    const params = {...mapParams};
-
-    if ('city' in params) {
-      if (params['city'].length === sc.length) {
-        params['city'].splice(index, 1)
-      } else {
-        params['city'].splice(params['city'].length - sc.length + index, 1);
-      }
-      setMapParams(params);
-    }
-    sc.splice(index, 1);
-    setSelectedCity(sc);
-    setSelectedEntry(0);
-  };
-
-  const onDrawerClose = () => {
-    const params = {...mapParams};
-    if ('city' in params) {
-      params['city'].splice(params['city'].length - selectedCity.length, selectedCity.length);
-    }
-    setMapParams(params);
-    setDrawerVisible(false);
-    setSelectedCity([]);
-    setSelectedEntry(0);
-  };
-
   const onClick = (place) => {
-    const params = {...mapParams};
-
-    if ('city' in params) {
-      if (Array.isArray(params['city'])) {
-        params['city'].push(place);
+    if (selectedFacets.hasOwnProperty('city')) {
+      if (Array.isArray(selectedFacets['city'])) {
+        if (!selectedFacets['city'].includes(place)) {
+          selectedFacets['city'].push(place)
+        }
       } else {
-        params['city'] = [params['city'], place];
+        if (!selectedFacets['city'].includes(place)) {
+          selectedFacets['city'] = [selectedFacets['city'], place]
+        }
       }
     } else {
-      params['city'] = [place];
+      selectedFacets['city'] = place;
     }
-    setMapParams(params);
-    setDrawerVisible(true);
-    setSelectedCity(oldSelectedCity => [...oldSelectedCity, place])
+
+    router.push({
+      pathname: '/search', query: {
+        query: query,
+        ...selectedFacets
+      }
+    })
   };
 
   return (
@@ -110,7 +89,7 @@ const ResultPageMap = ({params}) => {
       </Head>
       <FullScreen handle={handle} className={handle.active ? style.FullScreen : ''}>
         <Row>
-          <Col xs={drawerVisible ? 16 : 24}>
+          <Col xs={24}>
             <div style={{height: '100%'}}>
               <Map
                 className={`markercluster-map ${style.MapContainer}`}
@@ -123,39 +102,23 @@ const ResultPageMap = ({params}) => {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
                   url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
                 />
-                <ResultPageMapMarkers params={mapParams} onMarkerClick={onClick} selectedEntry={selectedEntry}/>
+                <ResultPageMapMarkers
+                  params={mapParams}
+                  onMarkerClick={onClick}
+                  selectedEntry={selectedEntry}
+                />
                 <LayersControl
                   position="topright"
                   collapsed={false}
                 >
                   {renderLayers()}
                 </LayersControl>
-                <Control position="topleft" >
-                  <div className={style.FullScreenButtonWrap}>
-                    <a onClick={handle.active ? handle.exit : handle.enter} className={style.FullScreenButton}>
-                      {handle.active ? <FullscreenExitOutlined/> : <FullscreenOutlined />}
-                    </a>
-                  </div>
-                </Control>
                 <Control position={'bottomleft'}>
                   <Legend selectedLayer={selectedLayer}/>
                 </Control>
               </Map>
             </div>
           </Col>
-          {
-            drawerVisible &&
-            <Col xs={8}>
-              <ResultPageMapEntries
-                params={mapParams}
-                selectedCity={selectedCity}
-                onCloseClick={onDrawerClose}
-                onRemoveCity={onRemoveCity}
-                selectedEntry={selectedEntry}
-                onSelectEntry={setSelectedEntry}
-              />
-            </Col>
-          }
         </Row>
       </FullScreen>
     </React.Fragment>

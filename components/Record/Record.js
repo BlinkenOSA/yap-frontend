@@ -1,10 +1,11 @@
 import React from "react";
-import {Carousel, Col, Row} from "antd";
+import {Col, Row} from "antd";
 import style from './Record.module.css';
 import { SoundOutlined} from '@ant-design/icons';
 import VideoPlayer from "./players/VideoPlayer";
 import PDFViewer from "./players/PDFViewer";
 import Link from "next/link";
+import Head from "next/head";
 
 
 const Record = ({data}) => {
@@ -87,74 +88,79 @@ const Record = ({data}) => {
   };
 
   return (
-    <div className={style.RecordWrap}>
-      <Row>
-        <Col xs={2}/>
-        <Col xs={20}>
-          <h3>{data.title_original}</h3>
+    <React.Fragment>
+      <Head>
+        <title>YAP (Yugoslavia Archive Project) - {data.archival_reference_number} {data.title_original}</title>
+      </Head>
+      <div className={style.RecordWrap}>
+        <Row>
+          <Col xs={2}/>
+          <Col xs={20}>
+            <h3>{data.title_original}</h3>
 
-          {renderMedia()}
+            {renderMedia()}
 
-          <dl>
-            <dt>Creation Date</dt>
-            <dd>
-              {data.date_of_creation_start} {data.date_of_creation_end ? `- ${data.date_of_creation_end}` : ''}
-            </dd>
-          </dl>
-          {renderMultiValuedField('language', 'Language', 'language')}
-          {renderMultiValuedField('type', 'Type', '', 'type', true)}
-          <dl>
-            <dt>Description</dt>
-            <dd>
-              <div dangerouslySetInnerHTML={{
-                __html: `${data.description.join('<span style="margin: 0 5px; color: #CCC">|</span>')}`
-              }}/>
-            </dd>
-          </dl>
+            <dl>
+              <dt>Creation Date</dt>
+              <dd>
+                {data.date_of_creation_start} {data.date_of_creation_end ? `- ${data.date_of_creation_end}` : ''}
+              </dd>
+            </dl>
+            {renderMultiValuedField('language', 'Language', 'language')}
+            {renderMultiValuedField('type', 'Type', '', 'type', true)}
+            <dl>
+              <dt>Description</dt>
+              <dd>
+                <div dangerouslySetInnerHTML={{
+                  __html: `${data.description.join('<span style="margin: 0 5px; color: #CCC">|</span>')}`
+                }}/>
+              </dd>
+            </dl>
 
-          <dl>
-            <dt>Temporal Coverage</dt>
-            <dd>
-              {data.temporal_coverage_start} {data.temporal_coverage_start ? `- ${data.temporal_coverage_end}` : ''}
-            </dd>
-          </dl>
-          {renderMultiValuedField('city', 'Place', 'city', 'city', true)}
-          {renderMultiValuedField('subject', 'Keyword', '', 'subject', true)}
-          {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
-          {renderMultiValuedField('genre', 'Genre', '', 'genre', true)}
+            <dl>
+              <dt>Temporal Coverage</dt>
+              <dd>
+                {data.temporal_coverage_start} {data.temporal_coverage_start ? `- ${data.temporal_coverage_end}` : ''}
+              </dd>
+            </dl>
+            {renderMultiValuedField('city', 'Place', 'city', 'city', true)}
+            {renderMultiValuedField('subject', 'Keyword', '', 'subject', true)}
+            {renderMultiValuedField('subject_people', 'People', '', 'subject_person', true)}
+            {renderMultiValuedField('genre', 'Genre', '', 'genre', true)}
 
-          <dl>
-            <dt>Extent</dt>
-            <dd>{data.extent}</dd>
-          </dl>
+            <dl>
+              <dt>Extent</dt>
+              <dd>{data.extent}</dd>
+            </dl>
 
-          {renderMultiValuedField('creator', 'Creator')}
-          {renderMultiValuedField('collector', 'Collector')}
+            {renderMultiValuedField('creator', 'Creator')}
+            {renderMultiValuedField('collector', 'Collector')}
 
-          <dl>
-            <dt>Call Number</dt>
-            <dd>{data.archival_reference_number}</dd>
-          </dl>
+            <dl>
+              <dt>Call Number</dt>
+              <dd>{data.archival_reference_number}</dd>
+            </dl>
 
-          <dl>
-            <dt>Part of collection</dt>
-            <dd>
-              <a href={data.collection.catalog_url}>
-                {data.collection.title} ({data.collection.archival_reference_code})
-              </a>
-            </dd>
-          </dl>
+            <dl>
+              <dt>Part of collection</dt>
+              <dd>
+                <a href={data.collection.catalog_url}>
+                  {data.collection.title} ({data.collection.archival_reference_code})
+                </a>
+              </dd>
+            </dl>
 
-          <dl>
-            <dt>Description Level</dt>
-            <dd>
-              {data.description_level === 'F' ? 'Folder' : 'Item'}
-            </dd>
-          </dl>
-        </Col>
-        <Col xs={2}/>
-      </Row>
-    </div>
+            <dl>
+              <dt>Description Level</dt>
+              <dd>
+                {data.description_level === 'F' ? 'Folder' : 'Item'}
+              </dd>
+            </dl>
+          </Col>
+          <Col xs={2}/>
+        </Row>
+      </div>
+    </React.Fragment>
   )
 };
 

@@ -15,7 +15,7 @@ const EmptyFacet = () => {
       <Spin>
         <Skeleton paragraph={{rows: 4, width: ['100%', '100%', '100%', '100%']}}/>
       </Spin>
-    </div> : <div style={{padding: '10px', color: '#CCC'}}>
+    </div> : <div style={{padding: '10px', color: '#FFF'}}>
         No facets are available with the defined search criteria.
     </div>
   )

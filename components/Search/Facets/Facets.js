@@ -31,7 +31,7 @@ const Facets = ({query, selectedFacets, facetData}) => {
     }
 
     router.push({
-      pathname: '/search-v2', query: {
+      pathname: '/search', query: {
         query: query,
         ...selectedFacets
       }
@@ -42,7 +42,7 @@ const Facets = ({query, selectedFacets, facetData}) => {
     const newFacets = {...selectedFacets, ...dateRangeValues};
 
     router.push({
-      pathname: '/search-v2', query: {
+      pathname: '/search', query: {
         query: query,
         ...newFacets
       }
@@ -63,7 +63,7 @@ const Facets = ({query, selectedFacets, facetData}) => {
     }
 
     router.push({
-      pathname: '/search-v2', query: {
+      pathname: '/search', query: {
         query: query,
         ...selectedFacets
       }
@@ -75,7 +75,7 @@ const Facets = ({query, selectedFacets, facetData}) => {
     delete selectedFacets[dateEndField];
 
     router.push({
-      pathname: '/search-v2', query: {
+      pathname: '/search', query: {
         query: query,
         ...selectedFacets
       }
@@ -84,11 +84,6 @@ const Facets = ({query, selectedFacets, facetData}) => {
 
   return (
     <div className={style.Facets}>
-      <SelectedFacets
-        selectedFacets={selectedFacets}
-        onFacetRemove={handleFacetRemove}
-        onDateRangeFacetRemove={handleDateRangeFacetRemove}
-      />
       <ResultPageFacetsDesktop
         selectedFacets={selectedFacets}
         onFacetSelect={handleFacetSelect}

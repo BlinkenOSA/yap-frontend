@@ -97,7 +97,7 @@ const ResultPageMapMarkers = ({params, selectedEntry, onMarkerClick}) => {
         {html: md['count'], className: getConfig()['style']}
       );
 
-      return (
+      const getMarker = () => (
         <Marker
           key={md['city']}
           position={md['geo']}
@@ -108,7 +108,21 @@ const ResultPageMapMarkers = ({params, selectedEntry, onMarkerClick}) => {
             {md['city']}
           </Tooltip>
         </Marker>
-      )
+      );
+
+      if (markedCities.includes(md['city'])) {
+        if (selectedEntry !== 0) {
+          return getMarker();
+        } else {
+          return getMarker();
+        }
+      } else {
+        if (selectedEntry !== 0) {
+          return ''
+        } else {
+          return getMarker();
+        }
+      }
     }
   ))
 };
