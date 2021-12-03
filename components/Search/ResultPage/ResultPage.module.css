@@ -35,6 +35,7 @@
 }
 
 .Drawer :global .ant-drawer-content-wrapper .ant-drawer-body {
+    height: 500px;
     color: #FFFFFF;
     background-color: #F45844;
     padding: 20px;

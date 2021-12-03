@@ -4,6 +4,10 @@
 
 @media screen and (max-width: 768px) {
     .RecordsPerPageWrapper {
+        padding: 2px;
+    }
+
+    .RecordsPerPageWrapper {
         margin-top: 5px;
     }
 }

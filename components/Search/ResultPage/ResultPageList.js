@@ -5,6 +5,10 @@ import Image from "next/image";
 import Highlight from "../Highlight/Highlight";
 import ResultPagination from "../ResultPagination/ResultPagination";
 import {useRouter} from "next/router";
+import ResultPageMobile from "./ResultPageMobile";
+import {Media} from "../../Media/Media";
+import ResultPage from "./ResultPage";
+import ResultPaginationMobile from "../ResultPagination/ResultPaginationMobile";
 
 const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) => {
   const router = useRouter();
@@ -196,7 +200,12 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
           </Col>
         </Row>
       </div>
-      <ResultPagination count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
+      <Media lessThan="md">
+        <ResultPaginationMobile count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
+      </Media>
+      <Media greaterThan="sm">
+        <ResultPagination count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
+      </Media>
     </React.Fragment>
   )
 };

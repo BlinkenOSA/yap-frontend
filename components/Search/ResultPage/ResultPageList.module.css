@@ -43,6 +43,7 @@
     color: #F45844;
     transition: border-bottom-color 0.3s;
     border-bottom: 1px dotted transparent;
+    padding-right: 20px;
 }
 
 .CatalogLink a:hover {

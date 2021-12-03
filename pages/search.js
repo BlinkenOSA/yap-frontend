@@ -3,7 +3,9 @@ import React from "react";
 import {useRouter} from "next/router";
 import {Col, Row} from "antd";
 import ResultPage from "../components/Search/ResultPage/ResultPage";
+import {Media} from "../components/Media/Media";
 import Head from "next/head";
+import ResultPageMobile from "../components/Search/ResultPage/ResultPageMobile";
 
 const Search = () => {
   const router = useRouter();
@@ -16,7 +18,8 @@ const Search = () => {
       </Head>
       <Row>
         <Col xs={24}>
-          <ResultPage {...params} />
+          <Media lessThan="md"><ResultPageMobile {...params} /></Media>
+          <Media greaterThan="sm"><ResultPage {...params} /></Media>
         </Col>
       </Row>
     </AppLayout>
