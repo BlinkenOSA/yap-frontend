@@ -150,6 +150,14 @@
     height: calc(100vh - 104px);
 }
 
+.MapContainer :global .leaflet-control-layers-list {
+    overflow: hidden;
+}
+
+.MapContainerMobile {
+    height: 97%;
+}
+
 .FullScreen {
     background-color: #F9F9F9;
 }

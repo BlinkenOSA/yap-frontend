@@ -1,5 +1,5 @@
 import {Col, Pagination, Row} from "antd";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import style from "./ResultPaginationMobile.module.css";
 
 const ResultPagination = ({count, limit=10, offset=0, onPageChange}) => {

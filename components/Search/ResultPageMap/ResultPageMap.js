@@ -11,7 +11,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import {useDeepCompareEffect} from 'react-use';
 import {useRouter} from "next/router";
 
-const ResultPageMap = ({query, selectedFacets, selectedEntry}) => {
+const ResultPageMap = ({query, selectedFacets, selectedEntry, view='desktop'}) => {
   const router = useRouter();
   const handle = useFullScreenHandle();
 
@@ -87,12 +87,11 @@ const ResultPageMap = ({query, selectedFacets, selectedEntry}) => {
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"/>
       </Head>
-      <FullScreen handle={handle} className={handle.active ? style.FullScreen : ''}>
-        <Row>
+        <Row style={{flex: 1}}>
           <Col xs={24}>
             <div style={{height: '100%'}}>
               <Map
-                className={`markercluster-map ${style.MapContainer}`}
+                className={`markercluster-map ${view === 'mobile' ? style.MapContainerMobile : style.MapContainer}`}
                 center={[44.53842, 18.66709]}
                 zoom={7}
                 onBaselayerchange={({name}) => {setSelectedLayer(name)}}
@@ -120,7 +119,6 @@ const ResultPageMap = ({query, selectedFacets, selectedEntry}) => {
             </div>
           </Col>
         </Row>
-      </FullScreen>
     </React.Fragment>
   )
 };

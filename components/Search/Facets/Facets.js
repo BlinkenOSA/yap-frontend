@@ -1,9 +1,9 @@
-import SelectedFacets from "./SelectedFacets";
 import React, {useState} from "react";
-import ResultPageFacetsDesktop from "../ResultPageFacets/ResultPageFacetsDesktop";
+import ResultPageFacets from "../ResultPageFacets/ResultPageFacets";
 import {useRouter} from "next/router";
 import style from "../ResultPageFacets/ResultPageFacets.module.css";
 import {useDeepCompareEffect} from "react-use";
+
 
 const Facets = ({query, selectedFacets, facetData}) => {
   const router = useRouter();
@@ -84,7 +84,7 @@ const Facets = ({query, selectedFacets, facetData}) => {
 
   return (
     <div className={style.Facets}>
-      <ResultPageFacetsDesktop
+      <ResultPageFacets
         selectedFacets={selectedFacets}
         onFacetSelect={handleFacetSelect}
         onDateRangeFacetSelect={handleDateRangeFacetSelect}

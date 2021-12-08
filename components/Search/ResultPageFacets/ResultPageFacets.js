@@ -5,7 +5,7 @@ import globalStyle from "../../../styles/global.module.css";
 import DateRangeFacet from "./facets/DateRangeFacet";
 import LongTextFacet from "./facets/LongTextFacet";
 
-const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDateRangeFacetSelect,
+const ResultPageFacets = ({ facets, selectedFacets, onFacetSelect, onDateRangeFacetSelect,
                             onFacetRemove, onDateRangeFacetRemove }) => {
 
   const [selectedFacetType, setSelectedFacetType] = useState('creator');
@@ -139,4 +139,4 @@ const ResultPageFacetsDesktop = ({ facets, selectedFacets, onFacetSelect, onDate
   )
 };
 
-export default ResultPageFacetsDesktop;
+export default ResultPageFacets;

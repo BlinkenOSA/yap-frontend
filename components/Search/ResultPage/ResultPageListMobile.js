@@ -10,7 +10,7 @@ import {Media} from "../../Media/Media";
 import ResultPage from "./ResultPage";
 import ResultPaginationMobile from "../ResultPagination/ResultPaginationMobile";
 
-const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) => {
+const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) => {
   const router = useRouter();
 
   const [dataLength, setDataLength] = useState(0);
@@ -43,49 +43,6 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
       }
     } else {
       return `(${startDate})`
-    }
-  };
-
-  const renderThumbnail = (d) => {
-    if (d.hasOwnProperty('thumbnails')) {
-      if (d.length > 1) {
-        return (
-          <a href={`/record/${d.id}`} target={'_blank'}>
-            <Image
-              layout={'fill'}
-              objectFit={'contain'}
-              objectPosition={'right top'}
-              src={d.thumbnails[0]}/>
-          </a>
-        )
-      } else {
-        return (
-          <a key={d.id} href={`/record/${d.id}`} target={'_blank'}>
-            <Carousel dots={false} effect={'fade'} autoplay>
-              {d.thumbnails.map(thmb =>
-                <div key={thmb}>
-                  <Image
-                    width={180}
-                    height={150}
-                    objectFit={'contain'}
-                    objectPosition={'center center'}
-                    src={thmb}/>
-                </div>
-              )}
-            </Carousel>
-          </a>
-        )
-      }
-    } else {
-      return (
-        <a href={`/record/${d.id}`} target={'_blank'}>
-          <Image
-            layout={'fill'}
-            objectFit={'cover'}
-            objectPosition={'top right'}
-            src='/images/recordEmpty.png'/>
-        </a>
-      )
     }
   };
 
@@ -130,11 +87,8 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
     const {results} = data;
     return results.map((d, idx) => (
       <Row style={{marginBottom: '20px'}} key={idx}>
-        <Col xs={4}>
-          {renderThumbnail(d)}
-        </Col>
-        <Col xs={20}>
-          <div className={style.ResultItemData}>
+        <Col xs={24}>
+          <div className={style.ResultItemDataMobile}>
             <div className={style.Title}>
               <a href={`/record/${d.id}`} target={'_blank'}>
                 {renderTitle(d)}
@@ -194,15 +148,15 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
       <div className={style.ResultsToScroll}>
         <Row>
           <Col xs={24}>
-            <div style={{paddingLeft: '20px'}}>
+            <div style={{paddingLeft: '10px'}}>
               {data ? results() : loading()}
             </div>
           </Col>
         </Row>
       </div>
-      <ResultPagination count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
+      <ResultPaginationMobile count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
     </React.Fragment>
   )
 };
 
-export default ResultPageList;
+export default ResultPageListMobile;

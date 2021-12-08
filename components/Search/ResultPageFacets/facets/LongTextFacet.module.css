@@ -91,6 +91,7 @@
     height: 28px;
     padding-left: 10px;
     padding-right: 10px;
+    box-shadow: none;
 }
 
 .Search :global .ant-input-group-addon button:hover {

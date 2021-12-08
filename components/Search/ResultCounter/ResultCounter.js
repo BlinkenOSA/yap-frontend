@@ -10,12 +10,12 @@ const ResultCounter = ({count, limit, offset}) => {
 
   return (
     <React.Fragment>
-      <Media at="xs">
+      <Media lessThan="lg">
         <div>
           {`${recordsStart} - ${recordsEnd} / ${count}`}
         </div>
       </Media>
-      <Media greaterThan="xs">
+      <Media greaterThanOrEqual="lg">
         <div>
           {`${recordsStart} - ${recordsEnd} results of ${count}`}
         </div>

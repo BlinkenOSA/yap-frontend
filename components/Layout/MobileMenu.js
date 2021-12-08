@@ -29,7 +29,7 @@ const MobileMenu = () => {
         <Col flex={4}>
           <Popup
             modal
-            overlayStyle={{ background: "rgba(249,249,249,0.95)", zIndex: 999 }}
+            overlayStyle={{ background: "rgba(249,249,249,0.95)", zIndex: 9998 }}
             contentStyle={contentStyle}
             closeOnDocumentClick={false}
             trigger={open => (

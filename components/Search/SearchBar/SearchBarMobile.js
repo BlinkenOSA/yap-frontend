@@ -74,7 +74,7 @@ const SearchBarMobile = ({onSearch, onFilter, filterOpen, urlParams}) => {
   };
 
   return (
-    <div style={{paddingLeft: 15, paddingRight: 8}}>
+    <div style={{paddingLeft: 15, paddingRight: 2}}>
       <Formik
         onSubmit={handleSearch}
         enableReinitialize={true}

@@ -11,8 +11,8 @@ const {Content, Footer} = Layout;
 export default function AppLayout({ withBackground = false, children }) {
   return (
     <Layout className={style.Layout}>
-      <Media at="xs"><MobileMenu/></Media>
-      <Media greaterThan="xs"><DesktopMenu/></Media>
+      <Media lessThan="lg"><MobileMenu/></Media>
+      <Media greaterThanOrEqual="lg"><DesktopMenu/></Media>
       <Content
         style={withBackground ? {background: 'url(/images/homepage-map.png) no-repeat center top scroll'} : undefined}
         className={style.Content}

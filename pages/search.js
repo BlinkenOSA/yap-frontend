@@ -18,8 +18,8 @@ const Search = () => {
       </Head>
       <Row>
         <Col xs={24}>
-          <Media lessThan="md"><ResultPageMobile {...params} /></Media>
-          <Media greaterThan="sm"><ResultPage {...params} /></Media>
+          <Media lessThan="lg"><ResultPageMobile {...params} /></Media>
+          <Media greaterThanOrEqual="lg"><ResultPage {...params} /></Media>
         </Col>
       </Row>
     </AppLayout>

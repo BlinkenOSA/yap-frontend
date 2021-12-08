@@ -9,7 +9,7 @@
 */
 
 .Results {
-    height: calc(100vh - 106px);
+    height: calc(100vh - 104px);
     display: flex;
     flex-direction: column;
 }
