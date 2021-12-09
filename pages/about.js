@@ -6,7 +6,7 @@ import style from "../styles/global.module.css";
 import Head from "next/head";
 import About from "../components/AboutPage/About";
 import ArchivalMethodology from "../components/AboutPage/ArchivalMethodology";
-import People from "../components/AboutPage/People";
+import PeopleV2 from "../components/AboutPage/PeopleV2";
 import Chronology from "../components/AboutPage/Chronology";
 import Presentation from "../components/AboutPage/Presentation";
 import Publication from "../components/AboutPage/Publication";
@@ -21,7 +21,7 @@ const AboutPage = () => {
       case 'methodology':
         return <ArchivalMethodology/>;
       case 'people':
-        return <People/>;
+        return <PeopleV2/>;
       case 'chronology':
         return <Chronology/>;
       case 'presentations':

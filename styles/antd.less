@@ -54,8 +54,15 @@ button.ant-btn {
 }
 
 .staticpage {
-  margin: 100px 20px 40px 20px;
+  margin: 100px auto 40px auto;
   min-height: calc(100vh - 130px);
+}
+
+@media (max-width: @screen-md) {
+  .staticpage {
+    margin: 100px 20px 40px 20px;
+    min-height: calc(100vh - 130px);
+  }
 }
 
 .ant-btn-circle.ant-btn-lg {
