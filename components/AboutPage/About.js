@@ -30,7 +30,7 @@ const About = () => {
                 controls={true}
                 width='95%'
                 height='300px'
-                style={{margin: '30 auto'}}
+                style={{margin: '30px auto'}}
                 url='https://www.youtube.com/watch?v=Bk7f4mGl6e8'
               />
             </div>
