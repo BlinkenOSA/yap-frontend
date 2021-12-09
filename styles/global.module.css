@@ -49,7 +49,11 @@
     text-transform: uppercase;
 }
 
-.NavButtons button {
+.MobileViewButtons {
+    padding-bottom: 10px;
+}
+
+.NavButtons button, .MobileViewButtons button {
     font-weight: 700;
     font-size: 14px;
     color: #647B9E;

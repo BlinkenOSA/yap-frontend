@@ -74,7 +74,7 @@ const SearchBarMobile = ({onSearch, onFilter, filterOpen, urlParams}) => {
   };
 
   return (
-    <div style={{paddingLeft: 15, paddingRight: 2}}>
+    <div>
       <Formik
         onSubmit={handleSearch}
         enableReinitialize={true}
@@ -82,17 +82,17 @@ const SearchBarMobile = ({onSearch, onFilter, filterOpen, urlParams}) => {
       >
         {(props) => (
           <Form layout="inline" onSubmit={props.handleSubmit}>
-            <Row gutter={[8, 8]} style={{width: '100%'}}>
+            <Row gutter={[8]} style={{width: '100%'}}>
               <Col flex={'auto'}>
                 <Input
                   className={style.SearchInput}
                   name={'query'}
                   size="large"
-                  style={{width: "100%"}}
+                  style={{width: "90%", marginLeft: '15px'}}
                   allowClear={true}
                 />
               </Col>
-              <Col flex={'40px'}>
+              <Col flex={'none'} style={{textAlign: 'right'}}>
                 <Button
                   htmlType="submit"
                   shape="circle"
@@ -101,7 +101,7 @@ const SearchBarMobile = ({onSearch, onFilter, filterOpen, urlParams}) => {
                   className={style.SearchButton}
                 />
               </Col>
-              <Col flex={'40px'}>
+              <Col flex={'none'} style={{textAlign: 'right'}}>
                 <Button
                   shape="circle"
                   size={'large'}

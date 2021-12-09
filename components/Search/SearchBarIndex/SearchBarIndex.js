@@ -5,7 +5,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import style from "./SearchBarIndex.module.css";
 import {Formik} from "formik";
 
-const SearchBar = ({initialValues={}}, onSearch) => {
+const SearchBarIndex = ({initialValues={}, onSearch}) => {
   return (
     <Formik
       onSubmit={onSearch}
@@ -43,4 +43,4 @@ const SearchBar = ({initialValues={}}, onSearch) => {
   )
 };
 
-export default SearchBar;
+export default SearchBarIndex;

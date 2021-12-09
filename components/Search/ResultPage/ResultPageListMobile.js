@@ -153,8 +153,13 @@ const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlPar
             </div>
           </Col>
         </Row>
+        <ResultPaginationMobile
+          count={dataLength}
+          limit={limit}
+          offset={offset}
+          onPageChange={handlePageChange}
+        />
       </div>
-      <ResultPaginationMobile count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
     </React.Fragment>
   )
 };

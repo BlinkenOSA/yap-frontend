@@ -84,7 +84,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
         {(props) => (
           <Form layout="inline" onSubmit={props.handleSubmit}>
             <Row gutter={[16, 8]} style={{width: '100%'}}>
-              <Col xl={18} xxl={20}>
+              <Col flex={'auto'}>
                 <Input
                   className={style.SearchInput}
                   name={'query'}
@@ -93,7 +93,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
                   allowClear={true}
                 />
               </Col>
-              <Col xl={3} xxl={2} style={{textAlign: 'right'}}>
+              <Col flex={'60px'} style={{textAlign: 'right'}}>
                 <Button
                   htmlType="submit"
                   shape="circle"
@@ -102,7 +102,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
                   className={style.SearchButton}
                 />
               </Col>
-              <Col xl={3} xxl={2} style={{textAlign: 'right'}}>
+              <Col flex={'60px'} style={{textAlign: 'right'}}>
                 <Button
                   shape="circle"
                   size={'large'}

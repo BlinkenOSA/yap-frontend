@@ -5,10 +5,6 @@ import Image from "next/image";
 import Highlight from "../Highlight/Highlight";
 import ResultPagination from "../ResultPagination/ResultPagination";
 import {useRouter} from "next/router";
-import ResultPageMobile from "./ResultPageMobile";
-import {Media} from "../../Media/Media";
-import ResultPage from "./ResultPage";
-import ResultPaginationMobile from "../ResultPagination/ResultPaginationMobile";
 
 const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) => {
   const router = useRouter();

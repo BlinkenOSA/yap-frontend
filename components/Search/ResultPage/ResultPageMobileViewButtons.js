@@ -10,7 +10,7 @@ const ResultPageMobileViewButtons = ({selectedDisplay, selectedEntry, onViewChan
   }, [count]);
 
   return (
-    <div className={globalStyle.NavButtons} style={{textAlign: 'center'}}>
+    <div className={globalStyle.MobileViewButtons} style={{textAlign: 'center'}}>
       <Badge
         style={{backgroundColor: '#2E80EC'}}
         count={total}

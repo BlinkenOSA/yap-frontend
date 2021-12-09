@@ -21,7 +21,9 @@ export default function Home() {
         <title>Yugoslavia Archive Project</title>
       </Head>
       <div className="container">
-        <SearchBarIndex onSearch={onSearch}/>
+        <SearchBarIndex
+          onSearch={onSearch}
+        />
       </div>
       <div className={style.FrontPageImage}>
         <span className={style.FrontPageTitle}>

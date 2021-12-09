@@ -40,7 +40,7 @@ const ResultPageMobile = (params) => {
     <div className={style.ResultsWrap}>
       <Row>
         <Col xs={24}>
-          <div className={style.Results}>
+          <div className={style.ResultsMobile}>
             <SearchBarMobile
               urlParams={params}
               filterOpen={filterOpen}

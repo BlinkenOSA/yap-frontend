@@ -14,6 +14,13 @@
     flex-direction: column;
 }
 
+.ResultsMobile {
+    height: calc(100vh - 104px);
+    max-height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+}
+
 .Results :global .ant-tabs-tab-active {
     background-color: #F3F3F3;
 }
