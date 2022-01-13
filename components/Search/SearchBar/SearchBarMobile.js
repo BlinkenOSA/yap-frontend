@@ -1,125 +1,73 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Badge, Button, Col, Row} from "antd";
-import { Form, Input } from 'formik-antd'
 import { SearchOutlined } from '@ant-design/icons';
 import style from "./SearchBarMobile.module.css";
-import {Formik} from "formik";
-import {useRouter} from "next/router";
-import SelectedFacets from "./SelectedFacets";
+import globalStyle from "../../../styles/global.module.css";
 
-const SearchBarMobile = ({onSearch, onFilter, filterOpen, urlParams}) => {
-  const router = useRouter();
-
+const SearchBarMobile = ({onFilter, filterOpen, selectedDisplay, setSelectedDisplay, data, urlParams}) => {
   const {query, limit, offset, ...selectedFacets} = urlParams;
 
-  const getCount = () => {
-    let count = 0;
-
-    if (selectedFacets) {
-      Object.keys(selectedFacets).forEach(key => {
-        if (Array.isArray(selectedFacets[key])) {
-          count += selectedFacets[key].length
-        } else {
-          if (key !== 'year_coverage_end') {
-            count += 1;
-          }
-        }
-      })
-    }
-    return count;
-  };
-
-  const handleSearch = (values) => {
-    const {query} = values;
-    onSearch(values);
-    router.push({
-      pathname: '/search',
-      query: {
-        query: query,
-      }
-    })
-  };
-
-  const handleFacetRemove = (field, value) => {
-    if (selectedFacets.hasOwnProperty(field)) {
-      if (Array.isArray(selectedFacets[field])) {
-        if (selectedFacets[field].includes(value)) {
-          selectedFacets[field] = selectedFacets[field].filter(facet => facet !== value);
-        }
-      } else {
-        if (selectedFacets[field] === value) {
-          delete selectedFacets[field]
-        }
-      }
-    }
-
-    router.push({
-      pathname: '/search', query: {
-        query: query,
-        ...selectedFacets
-      }
-    })
-  };
-
-  const handleDateRangeFacetRemove = (dateStartField, dateEndField) => {
-    delete selectedFacets[dateStartField];
-    delete selectedFacets[dateEndField];
-
-    router.push({
-      pathname: '/search', query: {
-        query: query,
-        ...selectedFacets
-      }
-    })
+  const getSearchCount = () => {
+    const queryCount = query && query !== '' ? 1 : 0;
+    console.log(selectedFacets);
+    return queryCount;
   };
 
   return (
-    <div>
-      <Formik
-        onSubmit={handleSearch}
-        enableReinitialize={true}
-        initialValues={{query: query}}
-      >
-        {(props) => (
-          <Form layout="inline" onSubmit={props.handleSubmit}>
-            <Row gutter={[8]} style={{width: '100%'}}>
-              <Col flex={'auto'}>
-                <Input
-                  className={style.SearchInput}
-                  name={'query'}
-                  size="large"
-                  style={{width: "90%", marginLeft: '15px'}}
-                  allowClear={true}
-                />
-              </Col>
-              <Col flex={'none'} style={{textAlign: 'right'}}>
-                <Button
-                  htmlType="submit"
-                  shape="circle"
-                  icon={<SearchOutlined style={{fontSize: '22px', fontWeight: 'bold'}} />}
-                  size={'large'}
-                  className={style.SearchButton}
-                />
-              </Col>
-              <Col flex={'none'} style={{textAlign: 'right'}}>
-                <Button
-                  shape="circle"
-                  size={'large'}
-                  onClick={onFilter}
-                  className={filterOpen ? style.FilterButtonActive : style.FilterButton}
-                >
-                  <span className={style.FilterButtonImage} />
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-        )}
-      </Formik>
-      <SelectedFacets
-        selectedFacets={selectedFacets}
-        onFacetRemove={handleFacetRemove}
-        onDateRangeFacetRemove={handleDateRangeFacetRemove}
-      />
+    <div className={style.SearchBar}>
+      <Row style={{width: '100%'}}>
+        <Col flex={'50px'}>
+          <Badge
+            style={{backgroundColor: '#2E80EC', zIndex: 500}}
+            count={getSearchCount()}
+            offset={[0, 38]}
+            overflowCount={9999}
+          >
+            <Button
+              htmlType="submit"
+              shape="circle"
+              icon={<SearchOutlined style={{fontSize: '22px', fontWeight: 'bold'}} />}
+              size={'large'}
+              className={style.SearchButton}
+            />
+          </Badge>
+        </Col>
+        <Col flex={'50px'}>
+          <Button
+            shape="circle"
+            size={'large'}
+            onClick={onFilter}
+            className={filterOpen ? style.FilterButtonActive : style.FilterButton}
+          >
+            <span className={style.FilterButtonImage} />
+          </Button>
+        </Col>
+        <Col flex={'auto'}>
+          <div className={globalStyle.MobileViewButtons} style={{textAlign: 'right'}}>
+            <Badge
+              style={{backgroundColor: '#2E80EC', zIndex: 500}}
+              count={data ? data['count'] : 0}
+              showZero
+              offset={[-80, 38]}
+              overflowCount={9999}
+            >
+              <Button
+                style={{marginRight: '10px'}}
+                onClick={() => setSelectedDisplay('results')}
+                className={selectedDisplay === 'results' ? globalStyle.ActiveButton : ''}
+              >
+                Results
+              </Button>
+            </Badge>
+            <Button
+              onClick={() => setSelectedDisplay('maps')}
+              className={selectedDisplay === 'results' ? '' : globalStyle.ActiveButton}
+            >
+              Map
+            </Button>
+          </div>
+        </Col>
+      </Row>
     </div>
   )
 };

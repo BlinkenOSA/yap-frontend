@@ -1,19 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import Head from "next/head";
-import {ImageOverlay, LayersControl, Map, Marker, TileLayer, Tooltip} from "react-leaflet";
+import {ImageOverlay, LayersControl, Map, TileLayer} from "react-leaflet";
 import style from "./ResultPageMap.module.css";
 import L from "leaflet";
 import Control from "react-leaflet-control";
 import Legend from "./Legend";
 import {Col, Row} from 'antd';
 import ResultPageMapMarkers from "./ResultPageMapMarkers";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import {useDeepCompareEffect} from 'react-use';
 import {useRouter} from "next/router";
 
 const ResultPageMap = ({query, selectedFacets, selectedEntry, view='desktop'}) => {
   const router = useRouter();
-  const handle = useFullScreenHandle();
 
   const [mapParams, setMapParams] = useState({});
   const [selectedLayer, setSelectedLayer] = useState('');
@@ -106,12 +104,21 @@ const ResultPageMap = ({query, selectedFacets, selectedEntry, view='desktop'}) =
                   onMarkerClick={onClick}
                   selectedEntry={selectedEntry}
                 />
-                <LayersControl
-                  position="topright"
-                  collapsed={false}
-                >
-                  {renderLayers()}
-                </LayersControl>
+                {
+                  view === 'mobile' ?
+                  <LayersControl
+                    position="topright"
+                  >
+                    {renderLayers()}
+                  </LayersControl>
+                  :
+                  <LayersControl
+                    position="topright"
+                    collapsed={false}
+                  >
+                    {renderLayers()}
+                  </LayersControl>
+                }
                 <Control position={'bottomleft'}>
                   <Legend selectedLayer={selectedLayer}/>
                 </Control>

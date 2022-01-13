@@ -7,7 +7,6 @@ import useSWR from "swr";
 import {API, fetcher} from "../../../utils/api";
 import SearchBarMobile from "../SearchBar/SearchBarMobile";
 import ResultPageListMobile from "./ResultPageListMobile";
-import ResultPageMobileViewButtons from "./ResultPageMobileViewButtons";
 
 const ResultPageMap = dynamic(
   () => import('../ResultPageMap/ResultPageMap'),
@@ -46,6 +45,10 @@ const ResultPageMobile = (params) => {
               filterOpen={filterOpen}
               onFilter={onFilter}
               onSearch={onSearch}
+              selectedDisplay={selectedDisplay}
+              setSelectedDisplay={setSelectedDisplay}
+              selectedEntry={displayOnMapID}
+              data={data}
             />
             {
               selectedDisplay === 'results' ?
@@ -63,12 +66,6 @@ const ResultPageMobile = (params) => {
                   view={'mobile'}
                 />
             }
-            <ResultPageMobileViewButtons
-              selectedDisplay={selectedDisplay}
-              selectedEntry={displayOnMapID}
-              onViewChange={setSelectedDisplay}
-              count={data ? data['count'] : 0}
-            />
             <Drawer
               mask={false}
               placement={'top'}

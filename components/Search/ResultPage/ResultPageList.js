@@ -135,7 +135,7 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
               <a href={`/record/${d.id}`} target={'_blank'}>
                 {renderTitle(d)}
               </a>
-              <span style={{float: 'right', marginRight: '10px'}}>
+              <span style={{float: 'right'}}>
                 <Button
                   shape="circle"
                   size={'large'}

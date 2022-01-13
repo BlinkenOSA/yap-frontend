@@ -75,15 +75,15 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
   };
 
   return (
-    <div style={{marginLeft: 20, marginRight: 10}}>
+    <div style={{marginLeft: 20, marginRight: 15, marginBottom: 10}}>
       <Formik
         onSubmit={handleSearch}
         enableReinitialize={true}
         initialValues={{query: query}}
       >
         {(props) => (
-          <Form layout="inline" onSubmit={props.handleSubmit}>
-            <Row gutter={[16, 8]} style={{width: '100%'}}>
+          <Form onSubmit={props.handleSubmit}>
+            <Row style={{width: '100%'}}>
               <Col flex={'auto'}>
                 <Input
                   className={style.SearchInput}
@@ -93,7 +93,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
                   allowClear={true}
                 />
               </Col>
-              <Col flex={'60px'} style={{textAlign: 'right'}}>
+              <Col flex={'50px'} style={{textAlign: 'right'}}>
                 <Button
                   htmlType="submit"
                   shape="circle"
@@ -102,7 +102,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
                   className={style.SearchButton}
                 />
               </Col>
-              <Col flex={'60px'} style={{textAlign: 'right'}}>
+              <Col flex={'50px'} style={{textAlign: 'right'}}>
                 <Button
                   shape="circle"
                   size={'large'}

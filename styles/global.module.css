@@ -49,11 +49,7 @@
     text-transform: uppercase;
 }
 
-.MobileViewButtons {
-    padding-bottom: 10px;
-}
-
-.NavButtons button, .MobileViewButtons button {
+.NavButtons button {
     font-weight: 700;
     font-size: 14px;
     color: #647B9E;
@@ -65,10 +61,23 @@
     margin-bottom: 10px;
 }
 
-.NavButtons button:focus {
+.MobileViewButtons button {
+    font-weight: 700;
+    font-size: 14px;
+    color: #647B9E;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 5px;
+}
+
+
+
+.MobileViewButtons button:focus, .NavButtons button:focus {
     color: #F45844;
 }
 
-.NavButtons .ActiveButton {
+.MobileViewButtons .ActiveButton, .NavButtons .ActiveButton {
     color: #F45844;
 }

@@ -1,3 +1,7 @@
+.SearchBar {
+    margin: 0 15px;
+}
+
 .SearchInput {
     border: none;
     height: 40px;

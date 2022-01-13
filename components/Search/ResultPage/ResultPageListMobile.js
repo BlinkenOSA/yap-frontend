@@ -1,13 +1,8 @@
 import React, {useState, useEffect} from "react";
-import {Button, Carousel, Col, Row, Spin} from "antd";
+import {Button, Col, Row, Spin} from "antd";
 import style from "./ResultPageList.module.css"
-import Image from "next/image";
 import Highlight from "../Highlight/Highlight";
-import ResultPagination from "../ResultPagination/ResultPagination";
 import {useRouter} from "next/router";
-import ResultPageMobile from "./ResultPageMobile";
-import {Media} from "../../Media/Media";
-import ResultPage from "./ResultPage";
 import ResultPaginationMobile from "../ResultPagination/ResultPaginationMobile";
 
 const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) => {
@@ -93,7 +88,7 @@ const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlPar
               <a href={`/record/${d.id}`} target={'_blank'}>
                 {renderTitle(d)}
               </a>
-              <span style={{float: 'right', marginRight: '10px'}}>
+              <span style={{float: 'right'}}>
                 <Button
                   shape="circle"
                   size={'large'}
@@ -148,7 +143,7 @@ const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlPar
       <div className={style.ResultsToScroll}>
         <Row>
           <Col xs={24}>
-            <div style={{paddingLeft: '10px'}}>
+            <div style={{padding: '0 15px'}}>
               {data ? results() : loading()}
             </div>
           </Col>
