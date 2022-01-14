@@ -7,6 +7,7 @@ import useSWR from "swr";
 import {API, fetcher} from "../../../utils/api";
 import SearchBarMobile from "../SearchBar/SearchBarMobile";
 import ResultPageListMobile from "./ResultPageListMobile";
+import SearchDrawer from "../SearchDrawer/SearchDrawer";
 
 const ResultPageMap = dynamic(
   () => import('../ResultPageMap/ResultPageMap'),
@@ -15,7 +16,10 @@ const ResultPageMap = dynamic(
 
 const ResultPageMobile = (params) => {
   const {query, limit, offset, ...selectedFacets} = params;
+
   const [filterOpen, setFilterOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
   const [displayOnMapID, setDisplayOnMapID] = useState(0);
 
   const [selectedDisplay, setSelectedDisplay] = useState('results');
@@ -27,12 +31,13 @@ const ResultPageMobile = (params) => {
   };
 
   const onSearch = () => {
-    setDisplayOnMapID(0);
+    setSearchOpen(!searchOpen);
   };
 
   const onClickDisplayOnMap = (id) => {
     setFilterOpen(false);
     setDisplayOnMapID(id);
+    id !== 0 && setSelectedDisplay('maps');
   };
 
   return (
@@ -42,12 +47,14 @@ const ResultPageMobile = (params) => {
           <div className={style.ResultsMobile}>
             <SearchBarMobile
               urlParams={params}
-              filterOpen={filterOpen}
               onFilter={onFilter}
+              filterOpen={filterOpen}
               onSearch={onSearch}
+              searchOpen={searchOpen}
               selectedDisplay={selectedDisplay}
               setSelectedDisplay={setSelectedDisplay}
               selectedEntry={displayOnMapID}
+              onClickDisplayOnMap={onClickDisplayOnMap}
               data={data}
             />
             {
@@ -82,6 +89,23 @@ const ResultPageMobile = (params) => {
                 query={query}
                 selectedFacets={selectedFacets}
                 facetData={data ? data.facets : {}}
+              />
+            </Drawer>
+            <Drawer
+              mask={false}
+              placement={'top'}
+              width={'100%'}
+              height={'calc(100vh - 104px)'}
+              visible={searchOpen}
+              closable={true}
+              getContainer={false}
+              className={style.Drawer}
+              onClose={() => setSearchOpen(false)}
+              style={{ position: 'absolute' }}
+            >
+              <SearchDrawer
+                onSearch={onSearch}
+                urlParams={params}
               />
             </Drawer>
           </div>

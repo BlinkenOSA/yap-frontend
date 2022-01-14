@@ -1,0 +1,62 @@
+.SearchLabel {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.FilterLabel {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.Search {
+    margin: 5px 0;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.Search :global .ant-input-affix-wrapper {
+    background-color: unset;
+    padding: 0 10px 0 0;
+    border: 0;
+}
+
+.Search :global .ant-input {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: unset;
+    border-bottom: 2px;
+}
+
+.Search :global .ant-input::selection {
+    background-color: #2E80EC;
+}
+
+.Search :global .ant-input::-moz-selection {
+    background-color: #2E80EC;
+}
+
+.Search :global .ant-input-suffix .ant-input-clear-icon {
+    color: #FFF;
+}
+
+.Search :global .ant-input-group-addon {
+    border-radius: 0;
+}
+
+.Search :global .ant-input-group-addon button {
+    border-radius: 0 !important;
+    height: 28px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: none;
+}
+
+.Search :global .ant-input-group-addon button:hover {
+    border-color: #F45844;
+    background-color: #F45844;
+}

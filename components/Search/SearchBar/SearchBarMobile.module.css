@@ -36,6 +36,12 @@
     border: none;
 }
 
+.SearchButtonActive, .SearchButtonActive:hover, .SearchButtonActive:focus {
+    color: #FFF;
+    background-color: #F45844;
+    border: none;
+}
+
 .FilterButton .FilterButtonImage {
     background: url('/images/filterIcon.svg') no-repeat center center;
     width: 100%;
