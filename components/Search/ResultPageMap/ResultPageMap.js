@@ -85,47 +85,43 @@ const ResultPageMap = ({query, selectedFacets, selectedEntry, view='desktop'}) =
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"/>
       </Head>
-        <Row style={{flex: 1}}>
-          <Col xs={24}>
-            <div style={{height: '100%'}}>
-              <Map
-                className={`markercluster-map ${view === 'mobile' ? style.MapContainerMobile : style.MapContainer}`}
-                center={[44.53842, 18.66709]}
-                zoom={7}
-                onBaselayerchange={({name}) => {setSelectedLayer(name)}}
-              >
-                <TileLayer
-                  noWrap={true}
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-                  url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-                />
-                <ResultPageMapMarkers
-                  params={mapParams}
-                  onMarkerClick={onClick}
-                  selectedEntry={selectedEntry}
-                />
-                {
-                  view === 'mobile' ?
-                  <LayersControl
-                    position="topright"
-                  >
-                    {renderLayers()}
-                  </LayersControl>
-                  :
-                  <LayersControl
-                    position="topright"
-                    collapsed={false}
-                  >
-                    {renderLayers()}
-                  </LayersControl>
-                }
-                <Control position={'bottomleft'}>
-                  <Legend selectedLayer={selectedLayer}/>
-                </Control>
-              </Map>
-            </div>
-          </Col>
-        </Row>
+      <div className={style.MapWrapper}>
+        <Map
+          className={`markercluster-map ${view === 'mobile' ? style.MapContainerMobile : style.MapContainer}`}
+          center={[44.53842, 18.66709]}
+          zoom={7}
+          onBaselayerchange={({name}) => {setSelectedLayer(name)}}
+        >
+          <TileLayer
+            noWrap={true}
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+            url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+          />
+          <ResultPageMapMarkers
+            params={mapParams}
+            onMarkerClick={onClick}
+            selectedEntry={selectedEntry}
+          />
+          {
+            view === 'mobile' ?
+            <LayersControl
+              position="topright"
+            >
+              {renderLayers()}
+            </LayersControl>
+            :
+            <LayersControl
+              position="topright"
+              collapsed={false}
+            >
+              {renderLayers()}
+            </LayersControl>
+          }
+          <Control position={'bottomleft'}>
+            <Legend selectedLayer={selectedLayer}/>
+          </Control>
+        </Map>
+      </div>
     </React.Fragment>
   )
 };

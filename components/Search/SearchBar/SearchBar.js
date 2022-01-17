@@ -75,7 +75,7 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
   };
 
   return (
-    <div style={{marginLeft: 20, marginRight: 15, marginBottom: 10}}>
+    <div className={style.SearchBar}>
       <Formik
         onSubmit={handleSearch}
         enableReinitialize={true}

@@ -1,3 +1,10 @@
+.MapWrapper {
+    position: fixed !important;
+    top: 70px;
+    width: 50%;
+    z-index: 9999;
+}
+
 .MapIconExtraSmallBlue {
     width: 20px !important;
     height: 20px !important;

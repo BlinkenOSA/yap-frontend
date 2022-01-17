@@ -187,16 +187,21 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
 
   return (
     <React.Fragment>
-      <div className={style.ResultsToScroll}>
-        <Row>
-          <Col xs={24}>
-            <div style={{paddingLeft: '20px'}}>
-              {data ? results() : loading()}
-            </div>
-          </Col>
-        </Row>
+      <Row>
+        <Col xs={24}>
+          <div className={style.ResultPageListWrapper}>
+            {data ? results() : loading()}
+          </div>
+        </Col>
+      </Row>
+      <div className={style.PaginationWrapper}>
+        <ResultPagination
+          count={dataLength}
+          limit={limit}
+          offset={offset}
+          onPageChange={handlePageChange}
+        />
       </div>
-      <ResultPagination count={dataLength} limit={limit} offset={offset} onPageChange={handlePageChange}/>
     </React.Fragment>
   )
 };
