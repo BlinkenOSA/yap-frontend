@@ -13,23 +13,6 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
 
   const {query, limit, offset, ...selectedFacets} = urlParams;
 
-  const getCount = () => {
-    let count = 0;
-
-    if (selectedFacets) {
-      Object.keys(selectedFacets).forEach(key => {
-        if (Array.isArray(selectedFacets[key])) {
-          count += selectedFacets[key].length
-        } else {
-          if (key !== 'year_coverage_end') {
-            count += 1;
-          }
-        }
-      })
-    }
-    return count;
-  };
-
   const handleSearch = (values) => {
     const {query} = values;
     onSearch(values);

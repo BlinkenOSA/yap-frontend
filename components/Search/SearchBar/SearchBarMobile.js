@@ -4,13 +4,22 @@ import { SearchOutlined } from '@ant-design/icons';
 import style from "./SearchBarMobile.module.css";
 import globalStyle from "../../../styles/global.module.css";
 
-const SearchBarMobile = ({onFilter, filterOpen, selectedDisplay, setSelectedDisplay, data, urlParams}) => {
+const SearchBarMobile = ({onFilter, filterOpen, onSearch, selectedDisplay, setSelectedDisplay, onClickDisplayOnMap, data, urlParams}) => {
   const {query, limit, offset, ...selectedFacets} = urlParams;
 
   const getSearchCount = () => {
     const queryCount = query && query !== '' ? 1 : 0;
-    console.log(selectedFacets);
-    return queryCount;
+    let facetCount = 0;
+
+    for (const [key, value] of Object.entries(selectedFacets)) {
+      if (Array.isArray(value)) {
+        facetCount += value.length;
+      } else {
+        facetCount += 1;
+      }
+    }
+
+    return queryCount + facetCount;
   };
 
   return (
@@ -27,8 +36,9 @@ const SearchBarMobile = ({onFilter, filterOpen, selectedDisplay, setSelectedDisp
               htmlType="submit"
               shape="circle"
               icon={<SearchOutlined style={{fontSize: '22px', fontWeight: 'bold'}} />}
+              onClick={onSearch}
               size={'large'}
-              className={style.SearchButton}
+              className={filterOpen ? style.SearchButtonActive : style.SearchButton}
             />
           </Badge>
         </Col>
@@ -53,7 +63,10 @@ const SearchBarMobile = ({onFilter, filterOpen, selectedDisplay, setSelectedDisp
             >
               <Button
                 style={{marginRight: '10px'}}
-                onClick={() => setSelectedDisplay('results')}
+                onClick={() => {
+                  setSelectedDisplay('results');
+                  onClickDisplayOnMap(0);
+                }}
                 className={selectedDisplay === 'results' ? globalStyle.ActiveButton : ''}
               >
                 Results
