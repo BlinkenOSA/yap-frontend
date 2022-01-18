@@ -1,5 +1,10 @@
 .SearchBar {
-    margin: 0 15px;
+    position: fixed !important;
+    background-color: #F9F9F9 !important;
+    top: 70px;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 2000;
 }
 
 .SearchInput {

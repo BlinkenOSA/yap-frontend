@@ -1,5 +1,4 @@
 .ResultsMobile {
-    height: calc(100vh - 104px);
     max-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
@@ -29,11 +28,17 @@
     height: calc(100vh - 104px);
 }
 
-.Drawer :global .ant-drawer-content-wrapper {
+.DrawerMobile {
+    margin-top: 70px;
+}
+
+.Drawer :global .ant-drawer-content-wrapper,
+.DrawerMobile :global .ant-drawer-content-wrapper {
     box-shadow: none !important;
 }
 
-.Drawer :global .ant-drawer-content-wrapper .ant-drawer-body {
+.Drawer :global .ant-drawer-content-wrapper .ant-drawer-body,
+.DrawerMobile :global .ant-drawer-content-wrapper .ant-drawer-body {
     height: 500px;
     color: #FFFFFF;
     background-color: #F45844;

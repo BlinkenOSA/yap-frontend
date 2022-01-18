@@ -40,78 +40,53 @@ const ResultPageMobile = (params) => {
     id !== 0 && setSelectedDisplay('maps');
   };
 
+  const renderComponent = () => {
+    if (searchOpen) {
+      return <SearchDrawer onSearch={onSearch} urlParams={params} />
+    }
+
+    if (filterOpen) {
+      return <Facets query={query} selectedFacets={selectedFacets} facetData={data ? data.facets : {}} />
+    }
+
+    return (
+      selectedDisplay === 'results' ?
+        <ResultPageListMobile
+          urlParams={params}
+          displayOnMapID={displayOnMapID}
+          onClickDisplayOnMap={onClickDisplayOnMap}
+          data={data}
+        /> :
+        <ResultPageMap
+          query={query}
+          selectedFacets={selectedFacets}
+          selectedEntry={displayOnMapID}
+          filterOpen={filterOpen}
+          view={'mobile'}
+        />
+    )
+  };
+
   return (
-    <div className={style.ResultsWrap}>
-      <Row>
-        <Col xs={24}>
-          <div className={style.ResultsMobile}>
-            <SearchBarMobile
-              urlParams={params}
-              onFilter={onFilter}
-              filterOpen={filterOpen}
-              onSearch={onSearch}
-              searchOpen={searchOpen}
-              selectedDisplay={selectedDisplay}
-              setSelectedDisplay={setSelectedDisplay}
-              selectedEntry={displayOnMapID}
-              onClickDisplayOnMap={onClickDisplayOnMap}
-              data={data}
-            />
-            {
-              selectedDisplay === 'results' ?
-                <ResultPageListMobile
-                  urlParams={params}
-                  displayOnMapID={displayOnMapID}
-                  onClickDisplayOnMap={onClickDisplayOnMap}
-                  data={data}
-                /> :
-                <ResultPageMap
-                  query={query}
-                  selectedFacets={selectedFacets}
-                  selectedEntry={displayOnMapID}
-                  filterOpen={filterOpen}
-                  view={'mobile'}
-                />
-            }
-            <Drawer
-              mask={false}
-              placement={'top'}
-              width={'100%'}
-              height={'calc(100vh - 104px)'}
-              visible={filterOpen}
-              closable={true}
-              getContainer={false}
-              className={style.Drawer}
-              onClose={() => setFilterOpen(false)}
-              style={{ position: 'absolute' }}
-            >
-              <Facets
-                query={query}
-                selectedFacets={selectedFacets}
-                facetData={data ? data.facets : {}}
-              />
-            </Drawer>
-            <Drawer
-              mask={false}
-              placement={'top'}
-              width={'100%'}
-              height={'calc(100vh - 104px)'}
-              visible={searchOpen}
-              closable={true}
-              getContainer={false}
-              className={style.Drawer}
-              onClose={() => setSearchOpen(false)}
-              style={{ position: 'absolute' }}
-            >
-              <SearchDrawer
-                onSearch={onSearch}
-                urlParams={params}
-              />
-            </Drawer>
-          </div>
-        </Col>
-      </Row>
-    </div>
+    <Row>
+      <Col xs={24}>
+        <div className={style.ResultsMobile}>
+          <SearchBarMobile
+            urlParams={params}
+            onFilter={onFilter}
+            filterOpen={filterOpen}
+            onSearch={onSearch}
+            searchOpen={searchOpen}
+            selectedDisplay={selectedDisplay}
+            setSelectedDisplay={setSelectedDisplay}
+            selectedEntry={displayOnMapID}
+            onClickDisplayOnMap={onClickDisplayOnMap}
+            data={data}
+          />
+          {renderComponent()}
+        </div>
+      </Col>
+    </Row>
   )
 };
 

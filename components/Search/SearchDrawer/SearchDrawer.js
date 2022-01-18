@@ -55,7 +55,7 @@ const SearchDrawer = ({urlParams, onSearch}) => {
   };
 
   return (
-    <div>
+    <div className={style.SearchDrawer}>
       <Row gutter={12}>
         <Col xs={24}>
           <div className={style.SearchLabel}>Search:</div>

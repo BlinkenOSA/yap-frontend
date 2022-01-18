@@ -140,14 +140,14 @@ const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlPar
 
   return (
     <React.Fragment>
-      <div className={style.ResultsToScroll}>
-        <Row>
-          <Col xs={24}>
-            <div style={{padding: '0 15px'}}>
-              {data ? results() : loading()}
-            </div>
-          </Col>
-        </Row>
+      <Row>
+        <Col xs={24}>
+          <div className={style.ResultPageListMobileWrapper}>
+            {data ? results() : loading()}
+          </div>
+        </Col>
+      </Row>
+      <div className={style.PaginationWrapperMobile}>
         <ResultPaginationMobile
           count={dataLength}
           limit={limit}

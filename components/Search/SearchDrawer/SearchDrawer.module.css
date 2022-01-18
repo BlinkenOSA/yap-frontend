@@ -1,8 +1,17 @@
+.SearchDrawer {
+    height: calc(100vh - 104px);
+    color: #FFFFFF;
+    background-color: #F45844;
+    padding: 20px;
+    margin-top: 120px;
+}
+
 .SearchLabel {
     color: #FFFFFF;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
+    margin-top: 50px;
 }
 
 .FilterLabel {

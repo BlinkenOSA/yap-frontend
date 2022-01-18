@@ -2,7 +2,7 @@ import {Col, Pagination, Row} from "antd";
 import React, {useState, useEffect} from "react";
 import style from "./ResultPaginationMobile.module.css";
 
-const ResultPagination = ({count, limit=10, offset=0, onPageChange}) => {
+const ResultPaginationMobile = ({count, limit=10, offset=0, onPageChange}) => {
   return (
     <Row>
       <Col xs={24}>
@@ -23,4 +23,4 @@ const ResultPagination = ({count, limit=10, offset=0, onPageChange}) => {
   )
 };
 
-export default ResultPagination;
+export default ResultPaginationMobile;

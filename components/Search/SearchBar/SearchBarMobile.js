@@ -4,7 +4,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import style from "./SearchBarMobile.module.css";
 import globalStyle from "../../../styles/global.module.css";
 
-const SearchBarMobile = ({onFilter, filterOpen, onSearch, selectedDisplay, setSelectedDisplay, onClickDisplayOnMap, data, urlParams}) => {
+const SearchBarMobile = ({onFilter, filterOpen, onSearch, searchOpen, selectedDisplay, setSelectedDisplay, onClickDisplayOnMap, data, urlParams}) => {
   const {query, limit, offset, ...selectedFacets} = urlParams;
 
   const getSearchCount = () => {
@@ -38,7 +38,7 @@ const SearchBarMobile = ({onFilter, filterOpen, onSearch, selectedDisplay, setSe
               icon={<SearchOutlined style={{fontSize: '22px', fontWeight: 'bold'}} />}
               onClick={onSearch}
               size={'large'}
-              className={filterOpen ? style.SearchButtonActive : style.SearchButton}
+              className={searchOpen ? style.SearchButtonActive : style.SearchButton}
             />
           </Badge>
         </Col>
