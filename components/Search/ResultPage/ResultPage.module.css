@@ -29,7 +29,11 @@
 }
 
 .DrawerMobile {
-    margin-top: 70px;
+    height: calc(100vh - 140px);
+    color: #FFFFFF;
+    background-color: #F45844;
+    padding: 20px;
+    margin-top: 115px;
 }
 
 .Drawer :global .ant-drawer-content-wrapper,

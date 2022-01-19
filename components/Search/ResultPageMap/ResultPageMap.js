@@ -5,7 +5,6 @@ import style from "./ResultPageMap.module.css";
 import L from "leaflet";
 import Control from "react-leaflet-control";
 import Legend from "./Legend";
-import {Col, Row} from 'antd';
 import ResultPageMapMarkers from "./ResultPageMapMarkers";
 import {useDeepCompareEffect} from 'react-use';
 import {useRouter} from "next/router";
@@ -85,7 +84,7 @@ const ResultPageMap = ({query, selectedFacets, selectedEntry, view='desktop'}) =
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"/>
       </Head>
-      <div className={style.MapWrapper}>
+      <div className={`${view === 'mobile' ? style.MapWrapperMobile : style.MapWrapper}`}>
         <Map
           className={`markercluster-map ${view === 'mobile' ? style.MapContainerMobile : style.MapContainer}`}
           center={[44.53842, 18.66709]}

@@ -28,10 +28,18 @@ const ResultPageMobile = (params) => {
 
   const onFilter = () => {
     setFilterOpen(!filterOpen);
+    setSearchOpen(false);
   };
 
   const onSearch = () => {
     setSearchOpen(!searchOpen);
+    setFilterOpen(false);
+  };
+
+  const onViewChange = (view) => {
+    setSelectedDisplay(view);
+    setSearchOpen(false);
+    setFilterOpen(false);
   };
 
   const onClickDisplayOnMap = (id) => {
@@ -46,7 +54,11 @@ const ResultPageMobile = (params) => {
     }
 
     if (filterOpen) {
-      return <Facets query={query} selectedFacets={selectedFacets} facetData={data ? data.facets : {}} />
+      return (
+        <div className={style.DrawerMobile}>
+          <Facets query={query} selectedFacets={selectedFacets} facetData={data ? data.facets : {}} />
+        </div>
+      )
     }
 
     return (
@@ -78,7 +90,7 @@ const ResultPageMobile = (params) => {
             onSearch={onSearch}
             searchOpen={searchOpen}
             selectedDisplay={selectedDisplay}
-            setSelectedDisplay={setSelectedDisplay}
+            onViewChange={onViewChange}
             selectedEntry={displayOnMapID}
             onClickDisplayOnMap={onClickDisplayOnMap}
             data={data}

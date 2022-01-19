@@ -4,7 +4,15 @@ import { SearchOutlined } from '@ant-design/icons';
 import style from "./SearchBarMobile.module.css";
 import globalStyle from "../../../styles/global.module.css";
 
-const SearchBarMobile = ({onFilter, filterOpen, onSearch, searchOpen, selectedDisplay, setSelectedDisplay, onClickDisplayOnMap, data, urlParams}) => {
+const SearchBarMobile = ({onFilter, filterOpen, onSearch, searchOpen, selectedDisplay, onViewChange, onClickDisplayOnMap, data, urlParams}) => {
+  const [resultsCount, setResultsCount] = useState(0);
+
+  useEffect(() => {
+    if(data) {
+      setResultsCount(data['count'])
+    }
+  }, data);
+
   const {query, limit, offset, ...selectedFacets} = urlParams;
 
   const getSearchCount = () => {
@@ -56,7 +64,7 @@ const SearchBarMobile = ({onFilter, filterOpen, onSearch, searchOpen, selectedDi
           <div className={globalStyle.MobileViewButtons} style={{textAlign: 'right'}}>
             <Badge
               style={{backgroundColor: '#2E80EC', zIndex: 500}}
-              count={data ? data['count'] : 0}
+              count={resultsCount}
               showZero
               offset={[-80, 38]}
               overflowCount={9999}
@@ -64,7 +72,7 @@ const SearchBarMobile = ({onFilter, filterOpen, onSearch, searchOpen, selectedDi
               <Button
                 style={{marginRight: '10px'}}
                 onClick={() => {
-                  setSelectedDisplay('results');
+                  onViewChange('results');
                   onClickDisplayOnMap(0);
                 }}
                 className={selectedDisplay === 'results' ? globalStyle.ActiveButton : ''}
@@ -73,7 +81,7 @@ const SearchBarMobile = ({onFilter, filterOpen, onSearch, searchOpen, selectedDi
               </Button>
             </Badge>
             <Button
-              onClick={() => setSelectedDisplay('maps')}
+              onClick={() => onViewChange('maps')}
               className={selectedDisplay === 'results' ? '' : globalStyle.ActiveButton}
             >
               Map

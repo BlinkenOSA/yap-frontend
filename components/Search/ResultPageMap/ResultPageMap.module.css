@@ -5,6 +5,10 @@
     z-index: 9999;
 }
 
+.MapWrapperMobile {
+    margin-top: 115px;
+}
+
 .MapIconExtraSmallBlue {
     width: 20px !important;
     height: 20px !important;
@@ -162,7 +166,7 @@
 }
 
 .MapContainerMobile {
-    height: 100%;
+    height: calc(100vh - 149px);
 }
 
 .FullScreen {
