@@ -67,6 +67,11 @@ const SearchDrawer = ({urlParams, onSearch}) => {
               onSearch={handleSearch}
               style={{width: '100%'}}
               enterButton
+              onChange={(e) => {
+                if (e.target.value === '' && e.type === 'click') {
+                  handleSearch('')
+                }
+              }}
               allowClear={true}
             />
           </div>

@@ -73,6 +73,11 @@ const SearchBar = ({onSearch, onFilter, filterOpen, urlParams}) => {
                   name={'query'}
                   size="large"
                   style={{width: "100%"}}
+                  onChange={(e) => {
+                    if (e.target.value === '' && e.type === 'click') {
+                      props.submitForm()
+                    }
+                  }}
                   allowClear={true}
                 />
               </Col>
