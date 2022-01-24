@@ -18,7 +18,7 @@ const PeopleV2 = () => {
             <h3 key={'people'} className={style.Title}>People</h3>
           </FadeIn>
           <FadeIn delay={200}>
-            <Timeline key={'timeline'} mode={'left'} className={style.Timeline}>
+            <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
               <Timeline.Item label={yearLabel('Csaba Szilagyi')}>
                 Project Leader<br/>
                 Head of Human Rights Program
@@ -41,7 +41,7 @@ const PeopleV2 = () => {
             <h3 key={'former_contributors'} className={style.Title}>Former contributors</h3>
           </FadeIn>
           <FadeIn delay={600}>
-            <Timeline key={'timeline'} mode={'left'} className={style.Timeline}>
+            <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
               <Timeline.Item label={yearLabel('Connor Kusilek')}>
                 MA Student in International Relations, CEU
                 <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
@@ -74,9 +74,13 @@ const PeopleV2 = () => {
               </Timeline.Item>
               <Timeline.Item label={yearLabel('Kathryn Marie Metz')}>
                 MA Student in Legal Studies, CEU, Budapest, 2015
+                <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+                Intern
               </Timeline.Item>
               <Timeline.Item label={yearLabel('Dragana Koljenik')}>
-                MA Student in Library and Information Science, J.J. Strossmayer University, Osijek, Croatia, 2013
+                MA Student in Library and Information Science, J.J. Strossmayer University, Osijek, 2013
+                <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+                Erasmus Intern
               </Timeline.Item>
             </Timeline>
           </FadeIn>
@@ -88,7 +92,7 @@ const PeopleV2 = () => {
             <h3 key={'design_and_dev'} className={style.Title}>Design and development</h3>
           </FadeIn>
           <FadeIn delay={1000}>
-            <Timeline key={'timeline'} mode={'left'} className={style.Timeline}>
+            <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
               <Timeline.Item label={yearLabel('József Gábor Bóné')}>
                 Web Development<br/>
                 Head of IT, Blinken OSA

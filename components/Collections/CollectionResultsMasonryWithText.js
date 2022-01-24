@@ -89,10 +89,10 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
 
                 {
                   selectedRecord.record_count === 0 ?
-                    <div className={style.NoRecordCount}>No items</div> :
+                    <div className={style.NoRecordCount}>No items in YAP yet</div> :
                     <div className={style.RecordCount}>
                       <a href={`/search?collection=${selectedRecord.title}`}>
-                        {`${selectedRecord.record_count} items`}
+                        {`${selectedRecord.record_count} items currently in YAP`}
                       </a>
                     </div>
                 }

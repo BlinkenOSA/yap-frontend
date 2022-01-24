@@ -4,6 +4,10 @@
     margin-bottom: 30px
 }
 
+.RecordCount {
+    margin-top: 20px;
+}
+
 .RecordCount a {
     margin-top: 20px;
     color: #F45844;
