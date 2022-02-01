@@ -1,0 +1,38 @@
+.Title {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.FacetsOff {
+    display: none;
+}
+
+.Facets {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.FilterText {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    color: #F45844;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}
+
+.FilterTextMobile {
+    font-weight: 700;
+    border: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+}
+
+.FilterTextMobile:hover {
+    cursor: pointer;
+}

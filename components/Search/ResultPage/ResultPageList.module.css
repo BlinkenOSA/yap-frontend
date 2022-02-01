@@ -1,0 +1,123 @@
+.ResultPageListWrapper {
+    margin: 80px 0 90px 20px;
+}
+
+.ResultPageListMobileWrapper {
+    margin: 120px 15px 0 15px;
+}
+
+.ResultItem {
+    margin-bottom: 20px;
+}
+
+.ResultItemData {
+    margin-left: 20px;
+    margin-right: 15px;
+    font-weight: 300;
+}
+
+.ResultItemDataMobile {
+    font-weight: 300;
+}
+
+.Loading {
+    margin: 0;
+    padding-top: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.Title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.Title em {
+    font-style: normal;
+    background-color: #FFD911;
+}
+
+.Genre {
+}
+
+.Label {
+    font-weight: 400;
+}
+
+.CatalogLink a {
+    color: #F45844;
+    transition: border-bottom-color 0.3s;
+    border-bottom: 1px dotted transparent;
+    padding-right: 20px;
+}
+
+.CatalogLink a:hover {
+    border-bottom: 1px dotted #F45844;
+}
+
+.MapButtonPopover {
+    font-size: 12px;
+}
+
+.MapButton, .MapButton:focus {
+    margin-left: 10px;
+    color: #F45844;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.ActiveMapButton, .ActiveMapButton:focus, .ActiveMapButton:hover {
+    margin-left: 10px;
+    color: #FFF;
+    background-color: #417fdf;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.MapButton:hover {
+    background-color: #F45844;
+    color: #F9F9F9;
+}
+
+.MapButton .FilterMapButtonImage {
+    background: url('/images/mapView.svg') no-repeat center center;
+    width: 100%;
+    height: 100%;
+    background-size: 20px 20px;
+}
+
+.MapButton:hover .FilterMapButtonImage {
+    background: url('/images/mapView_hover.svg') no-repeat center center;
+    width: 100%;
+    height: 100%;
+    background-size: 20px 20px;
+}
+
+.ActiveMapButton .FilterMapButtonImage {
+    background: url('/images/mapView_hover.svg') no-repeat center center;
+    width: 100%;
+    height: 100%;
+    background-size: 20px 20px;
+}
+
+.PaginationWrapper {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    bottom: 34px;
+}
+
+.PaginationWrapperMobile {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    bottom: 26px;
+}

@@ -1,0 +1,55 @@
+.Title {
+    color: #647B9E;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.Text {
+    font-weight: 400;
+}
+
+.Name {
+    font-weight: 600;
+}
+
+.Text a {
+    font-weight: 600;
+}
+
+.Text a:hover {
+    color: #F45844;
+}
+
+.Presentation {
+    display: block;
+}
+
+.Timeline {
+    
+}
+
+.Timeline :global li.ant-timeline-item {
+    padding-bottom: 50px;
+}
+
+.Timeline :global div.ant-timeline-item-content {
+    top: -8px !important;
+}
+
+.Timeline :global div.ant-timeline-item-label {
+    top: -8px !important;
+}
+
+.YearLabel {
+    font-weight: 700;
+    color: #F45844;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.Video:focus {
+    outline :none;
+}

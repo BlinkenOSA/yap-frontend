@@ -1,0 +1,83 @@
+.Title {
+    color: #647B9E;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.Text {
+    font-weight: 400;
+}
+
+.Section {
+    margin-bottom: 50px;
+}
+
+.Background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.FrontPageImage {
+    width: 100%;
+    height: calc(100vh - 190px);
+    position: relative;
+    flex-grow: 1;
+    margin-top: 20px;
+    background-size: cover;
+    background-image: url('/images/frontpage-map.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    line-height: calc(100vh - 240px);
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .FrontPageImage {
+        height: calc(100vh - 190px);
+    }
+}
+
+.FrontPageTitle {
+    color: #F9F9F9;
+    font-size: 3vw;
+    background: rgba(244, 88, 68, 0.9);
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.NavButtons button {
+    font-weight: 700;
+    font-size: 14px;
+    color: #647B9E;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.MobileViewButtons button {
+    font-weight: 700;
+    font-size: 14px;
+    color: #647B9E;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 5px;
+}
+
+
+
+.MobileViewButtons button:focus, .NavButtons button:focus {
+    color: #F45844;
+}
+
+.MobileViewButtons .ActiveButton, .NavButtons .ActiveButton {
+    color: #F45844;
+}

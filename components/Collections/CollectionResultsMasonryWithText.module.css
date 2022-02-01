@@ -1,0 +1,191 @@
+.Title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px
+}
+
+.RecordCount {
+    margin-top: 20px;
+}
+
+.RecordCount a {
+    margin-top: 20px;
+    color: #F45844;
+}
+
+.NoRecordCount {
+    margin-top: 20px;
+}
+
+.ItemCount {
+    margin-top: 20px;
+    font-weight: 400;
+    color: #F45844;
+}
+
+.TextWrap {
+    display: flex;
+    align-items: center;
+}
+
+.Text {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.Text a {
+    display: inline-block;
+}
+
+.CatalogLink {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.CatalogLink a {
+    font-weight: 700;
+    color: #F45844;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.CatalogLink span {
+    margin: 0 10px;
+}
+
+.Container {
+    margin-bottom: 0;
+}
+
+.ImageWrapperLarge .HoverBox{
+    min-height: 150px;
+    height: calc(100vh - 400px);
+}
+
+.ImageWrapperSmall .HoverBox {
+    min-height: 150px;
+    height: calc(100vh - 500px);
+}
+
+.HoverBox {
+    display: block;
+    overflow: hidden;
+    background-color: grey;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.ImageWrapperLarge .HoverBoxThumbnailWrap {
+    min-height: 150px;
+    height: calc(100vh - 400px);
+}
+
+.ImageWrapperSmall .HoverBoxThumbnailWrap {
+    min-height: 150px;
+    height: calc(100vh - 500px);
+}
+
+.HoverBoxThumbnail {
+    max-width: 100%;
+    object-position: center;
+}
+
+.HoverBoxTopLayer {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.HoverBoxTopLayer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.ImageWrapperLarge .HoverBoxTopLayer {
+    min-height: 150px;
+    height: calc(100vh - 400px);
+}
+
+.ImageWrapperSmall .HoverBoxTopLayer {
+    min-height: 150px;
+    height: calc(100vh - 500px);
+}
+
+.HoverBox:hover .HoverBoxTopLayer,
+.HoverBox.active .HoverBoxTopLayer {
+    opacity: 1;
+}
+
+.HoverBoxText {
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.HoverBox .HoverBoxEffect {
+    -moz-transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+.HoverBox:hover .HoverBoxEffect,
+.HoverBox.active .HoverBoxEffect {
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.PopupContentWrap {
+    background-color: #F9F9F9 !important;
+    margin-left: 5px !important;
+    padding: 30px 20px !important;
+    min-height: 400px !important;
+}
+
+.PopupContentWrapMobile {
+    background-color: #F9F9F9 !important;
+    padding: 30px 20px !important;
+}
+
+:global .ant-modal-body {
+    border: 1px solid black !important;
+    background-color: #F9F9F9 !important;
+    padding: 5px !important;
+}
+
+:global .ant-modal-close {
+    top: 10px !important;
+    right: 10px !important;
+}
+
+:global .ant-modal-close-x {
+    background-color: transparent !important;
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    color: #F45844 !important;
+    font-weight: 800 !important;
+    font-size: 20px !important;
+    border: none !important;
+}
+
+:global .ant-modal-close-x:hover {
+    color: #F45844 !important;
+}
+
+:global .ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+

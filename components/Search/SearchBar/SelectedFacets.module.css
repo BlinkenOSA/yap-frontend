@@ -1,0 +1,32 @@
+.Title {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.RecordsPerPageWrapper {
+    padding: 20px;
+}
+
+.Button {
+    font-weight: 700;
+    font-size: 14px;
+    color: #647B9E;
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    white-space: pre;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 10%)
+}
+
+.RemoveIcon {
+    color: #F45844;
+    padding-left: 10px;
+}
+
+.RemoveIcon:hover {
+    color: #050505 !important;
+}

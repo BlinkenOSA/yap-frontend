@@ -1,0 +1,35 @@
+.Info {
+    display: flex;
+    flex-direction: column;
+    margin: -5px 0;
+    padding: 3px 4px;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.Info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.Badge {
+    margin: 2px 0;
+    display: flex;
+    height: 30px;
+    width: 150px;
+}
+
+.Badge img {
+    padding: 5px;
+}
+
+.Badge div {
+    font-size: 10px;
+    line-height: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-self: center;
+    width: 100%;
+}

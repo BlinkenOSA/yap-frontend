@@ -1,0 +1,91 @@
+@import "~antd/dist/antd.less";
+
+@primary-color: #F45844; // primary color for all components
+@font-family: 'Open Sans', sans-serif;
+@body-background: #F9F9F9;
+@layout-body-background: #F9F9F9;
+@link-color: #647B9E;
+@text-color: #647B9E;
+@font-size-base: 16px;
+@line-height-base: 150%;
+
+/* Menu */
+@menu-item-font-size: 18px;
+@menu-item-color: @primary-color;
+
+/* Collapse */
+@collapse-panel-border-radius: 0;
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #F9F9F9;
+}
+
+button.ant-btn {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.ant-layout {
+  word-break: break-word;
+}
+
+/* Container concept */
+.container {
+  width: 100%;
+  align-self: center;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fresnel-container {
+  width: 100%;
+}
+
+@media (max-width: @screen-md) {
+  .container {
+    margin-top: 90px;
+  }
+}
+
+.make-container(@minWidth, @breakpoint) {
+  @media (min-width: @minWidth) {
+    .container {
+      max-width: @breakpoint - 50;
+    }
+  }
+}
+
+.staticpage {
+  margin: 100px auto 40px auto;
+  min-height: calc(100vh - 130px);
+}
+
+@media (max-width: @screen-md) {
+  .staticpage {
+    margin: 100px 20px 40px 20px;
+    min-height: calc(100vh - 130px);
+  }
+}
+
+.ant-btn-circle.ant-btn-lg {
+  min-width: 40px;
+  border-radius: 50%;
+}
+
+.ant-menu-submenu {
+  z-index: 9999;
+}
+
+.leaflet-tile-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.make-container(@screen-xs-min, @screen-xs);
+.make-container(@screen-sm-min, @screen-sm);
+.make-container(@screen-md-min, @screen-md);
+.make-container(@screen-lg-min, @screen-lg);
+.make-container(@screen-xl-min, @screen-xl);
+.make-container(@screen-xxl-min, @screen-xxl); // Optional

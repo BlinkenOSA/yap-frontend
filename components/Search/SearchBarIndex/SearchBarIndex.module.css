@@ -1,0 +1,27 @@
+.SearchInput {
+    border: none;
+    height: 40px;
+    font-size: 24px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.SearchInput :global .ant-input-clear-icon {
+    font-size: 24px;
+}
+
+.SearchInput:focus {
+    box-shadow: none;
+}
+
+.SearchButton {
+    color: #F45844;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.SearchButton:hover {
+    background-color: #F45844;
+    color: #F9F9F9;
+}
