@@ -19,7 +19,7 @@ const Chronology = () => {
           </FadeIn>
           <FadeIn delay={200}>
             <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
-              <Timeline.Item label={yearLabel('2021')}>
+              <Timeline.Item label={yearLabel('2022')}>
                 The YAP website was launched.
               </Timeline.Item>
               <Timeline.Item label={yearLabel('2019')}>
