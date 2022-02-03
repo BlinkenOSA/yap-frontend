@@ -101,7 +101,7 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
         }/>
       }
     }
-    return `${d.title_original}`
+    return `${d.title_english}`
   };
 
   const renderSearchHit = (d) => {

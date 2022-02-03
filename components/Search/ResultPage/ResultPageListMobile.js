@@ -57,7 +57,7 @@ const ResultPageListMobile = ({data, displayOnMapID, onClickDisplayOnMap, urlPar
         }/>
       }
     }
-    return `${d.title_original}`
+    return `${d.title_english}`
   };
 
   const renderSearchHit = (d) => {
