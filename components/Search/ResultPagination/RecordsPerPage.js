@@ -27,7 +27,7 @@ const RecordsPerPage = ({recordsPerPage, onChange}) => {
 
   return (
     <div className={style.RecordsPerPageWrapper}>
-      <Dropdown overlay={menu} trigger={['click']}>
+      <Dropdown overlay={menu} placement="topCenter" trigger={['click']}>
         <a onClick={e => e.preventDefault()} className={style.Button}>
           Per page: {recordsPerPage ? recordsPerPage : 10}
         </a>
