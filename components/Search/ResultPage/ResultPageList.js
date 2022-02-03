@@ -90,18 +90,18 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
 
     if (highlights.hasOwnProperty(d.id)) {
       const h = highlights[d.id];
-      if (h.hasOwnProperty('title_original_search')) {
-        return <div dangerouslySetInnerHTML={
-          {__html: `${h.title_original_search}`}
-        }/>
-      }
       if (h.hasOwnProperty('title_english_search')) {
         return <div dangerouslySetInnerHTML={
           {__html: `${h.title_english_search}`}
         }/>
       }
+      if (h.hasOwnProperty('title_original_search')) {
+        return <div dangerouslySetInnerHTML={
+          {__html: `${h.title_original_search}`}
+        }/>
+      }
     }
-    return `${d.title_english}`
+    return `${d.title_english !== undefined ? d.title_english : d.title_original}`
   };
 
   const renderSearchHit = (d) => {
