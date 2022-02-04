@@ -10,6 +10,7 @@ import EmptyFacet from "./EmptyFacet";
 const { Search } = Input;
 
 const LongTextFacet = ({facets, selectedFacets, search=false, onSelect, onRemove}) => {
+  const [filterSearchValue, setFilterSearchValue] = useState('');
   const [filterValue, setFilterValue] = useState('');
   const [facetOriginalData, setFacetOriginalData] = useState([]);
   const [facetData, setFacetData] = useState([]);
@@ -21,6 +22,7 @@ const LongTextFacet = ({facets, selectedFacets, search=false, onSelect, onRemove
   });
 
   useEffect(() => {
+    setFilterSearchValue('');
     facetInit();
   }, [facets]);
 
@@ -114,10 +116,12 @@ const LongTextFacet = ({facets, selectedFacets, search=false, onSelect, onRemove
         {search &&
           <div className={facetStyle.Search}>
             <Search
+              onChange={(e) => setFilterSearchValue(e.target.value)}
               onSearch={onSearch}
               style={{ width: '100%' }}
               allowClear={true}
               enterButton
+              value={filterSearchValue}
             />
           </div>
         }
