@@ -19,8 +19,8 @@ const ArchivalMethodology = () => {
             <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '10px', textAlign: 'center'}}>
               <video
                 className={style.Video}
-                width="95%"
-                height="300px"
+                width="100%"
+                height="420px"
                 controls
                 poster='https://storage.osaarchivum.org/yap/thumbnail/YAPTrailer.png'>
                 <source
