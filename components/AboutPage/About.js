@@ -1,7 +1,7 @@
 import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player/file'
 import FadeIn from 'react-fade-in';
 
 

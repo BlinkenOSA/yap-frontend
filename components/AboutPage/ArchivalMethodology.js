@@ -2,7 +2,7 @@ import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
 import FadeIn from 'react-fade-in';
-import ReactPlayer from "react-player/youtube";
+import ReactPlayer from "react-player/file";
 
 const ArchivalMethodology = () => {
   return (
