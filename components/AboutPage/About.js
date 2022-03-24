@@ -31,7 +31,7 @@ const About = () => {
                 width='95%'
                 height='300px'
                 style={{margin: '30px auto'}}
-                url='https://storage.osaarchivum.org/yap/video/A_Room_Without_a_View/A_Room_Without_a_View.m3u8'
+                url='https://storage.osaarchivum.org/yap/video/Room_Without_a_View/Room_Without_a_View.m3u8'
               />
             </div>
           </FadeIn>
