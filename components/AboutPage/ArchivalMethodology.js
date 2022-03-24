@@ -2,6 +2,7 @@ import {Col, Row} from "antd";
 import style from "./style.module.css";
 import React from "react";
 import FadeIn from 'react-fade-in';
+import ReactPlayer from "react-player/youtube";
 
 const ArchivalMethodology = () => {
   return (
@@ -17,17 +18,13 @@ const ArchivalMethodology = () => {
               throughout it.
             </div>
             <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '10px', textAlign: 'center'}}>
-              <video
-                className={style.Video}
-                width="100%"
-                height="420px"
-                controls
-                poster='https://storage.osaarchivum.org/yap/thumbnail/YAPTrailer.png'>
-                <source
-                  src="https://storage.osaarchivum.org/yap/video/YAPTrailer.mp4"
-                  type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <ReactPlayer
+                  controls={true}
+                  width='95%'
+                  height='300px'
+                  style={{margin: '30px auto'}}
+                  url='https://storage.osaarchivum.org/yap/video/YAPTrailer/YAPTrailer.m3u8'
+              />
             </div>
           </FadeIn>
         </Col>
