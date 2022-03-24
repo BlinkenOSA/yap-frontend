@@ -17,12 +17,13 @@ const ArchivalMethodology = () => {
               critical-reflective approach to the process of archival intervention and the agency of the archivist
               throughout it.
             </div>
-            <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '10px', textAlign: 'center'}}>
+            <div className={style.ReactPlayer4_3Wrapper}>
               <ReactPlayer
+                  className={style.ReactPlayer}
                   controls={true}
-                  width='95%'
-                  height='300px'
-                  style={{margin: '30px auto'}}
+                  width='100%'
+                  height='100%'
+                  light='https://storage.osaarchivum.org/yap/thumbnail/YAPTrailer.png'
                   url='https://storage.osaarchivum.org/yap/video/YAPTrailer/YAPTrailer.m3u8'
               />
             </div>

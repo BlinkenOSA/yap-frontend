@@ -25,12 +25,13 @@ const About = () => {
               text, still and moving image and sound records in multiple languages in analog and digital format from
               across the archives.
             </div>
-            <div style={{width: '100%', minHeight: '300px', marginTop: '30px', marginBottom: '60px', textAlign: 'center'}}>
+            <div className={style.ReactPlayer16_9Wrapper}>
               <ReactPlayer
+                className={style.ReactPlayer}
                 controls={true}
-                width='95%'
-                height='300px'
-                style={{margin: '30px auto'}}
+                width='100%'
+                height='100%'
+                light='https://storage.osaarchivum.org/yap/thumbnail/Room_Without_a_View.png'
                 url='https://storage.osaarchivum.org/yap/video/Room_Without_a_View/Room_Without_a_View.m3u8'
               />
             </div>
