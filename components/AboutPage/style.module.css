@@ -61,7 +61,7 @@
 }
 
 .ReactPlayer4_3Wrapper {
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
     position: relative;
     padding-top: 75%;
 }
