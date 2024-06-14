@@ -166,7 +166,8 @@
 }
 
 .MapContainerMobile {
-    height: calc(100vh - 149px);
+    flex: auto;
+    height: 100%;
 }
 
 .FullScreen {

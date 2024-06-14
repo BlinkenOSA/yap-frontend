@@ -35,8 +35,8 @@ const DesktopMenu = () => {
         </Col>
         <Col flex={2}>
           <div className={style.OSALogo}>
-            <a href={'https://www.osaarchivum.org'} target={'_blank'}>
-              <Image width={123} height={40} src='/images/osa-logo.png'/>
+            <a href={'https://www.archivum.org'} target={'_blank'}>
+              <Image width={200} height={40} src='/images/archivum-logo-blue.svg'/>
             </a>
           </div>
         </Col>

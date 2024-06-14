@@ -54,8 +54,8 @@ const MobileMenu = () => {
                   </li>
                 </ul>
                 <div className={style.OSALogo}>
-                  <a href={'https://www.osaarchivum.org'} target={'_blank'}>
-                    <Image width={123} height={40} src='/images/osa-logo.png'/>
+                  <a href={'https://www.archivum.org'} target={'_blank'}>
+                    <Image width={400} height={40} src='/images/archivum-logo-blue.svg'/>
                   </a>
                 </div>
               </div>
