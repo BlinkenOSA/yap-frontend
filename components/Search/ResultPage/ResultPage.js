@@ -2,11 +2,11 @@ import React, {useState, useEffect} from "react";
 import {Col, Drawer, Row} from "antd";
 import style from "./ResultPage.module.css"
 import ResultPageList from "./ResultPageList";
-import dynamic from "next/dist/next-server/lib/dynamic";
 import SearchBar from "../SearchBar/SearchBar";
 import Facets from "../Facets/Facets";
 import useSWR from "swr";
 import {API, fetcher} from "../../../utils/api";
+import dynamic from "next/dynamic";
 
 const ResultPageMap = dynamic(
   () => import('../ResultPageMap/ResultPageMap'),
