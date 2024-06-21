@@ -75,11 +75,7 @@ const ResultPageList = ({data, displayOnMapID, onClickDisplayOnMap, urlParams}) 
     } else {
       return (
         <a href={`/record/${d.id}`} target={'_blank'}>
-          <Image
-            layout={'fill'}
-            objectFit={'cover'}
-            objectPosition={'top right'}
-            src='/images/recordEmpty.png'/>
+          <img alt="thumbnail" src='/images/recordEmpty.png'/>
         </a>
       )
     }
