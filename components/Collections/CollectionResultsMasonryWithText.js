@@ -72,7 +72,11 @@ const CollectionResultsMasonryWithText = ({data, isMobile=false}) => {
         >
           <Row>
             <Col xs={isMobile ? 24 : 12} style={isMobile ? {height: '200px'} : undefined}>
-              <img alt="thumbnail" src={selectedRecord['thumbnail'] ? selectedRecord['thumbnail'] : '/images/recordEmpty.svg'} />
+              <Image
+                layout={'fill'}
+                objectFit={'contain'}
+                src={selectedRecord['thumbnail'] ? selectedRecord['thumbnail'] : '/images/recordEmpty.svg'}
+              />
             </Col>
             <Col xs={isMobile ? 24 : 12}>
               <div className={isMobile ? style.PopupContentWrapMobile : style.PopupContentWrap} >
