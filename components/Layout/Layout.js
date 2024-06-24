@@ -22,9 +22,9 @@ export default function AppLayout({ withBackground = false, children }) {
       <Footer className={style.Footer}>
         <Col flex={'25%'}> </Col>
         <Col flex={'50%'} className={style.FooterContact}>
-          <Link href={'/contact'}><a className={style.FooterLink}>Contact</a></Link>
+          <Link href={'#'}><a className={style.FooterLink}>Contact</a></Link>
           <span style={{margin: '0 10px'}}>|</span>
-          <Link href={'/terms'} className={style.FooterLink}><a className={style.FooterLink}>Terms</a></Link>
+          <Link href={'#'} className={style.FooterLink}><a className={style.FooterLink}>Terms</a></Link>
         </Col>
         <Col flex={'25%'}> </Col>
       </Footer>
