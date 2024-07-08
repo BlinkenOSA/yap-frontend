@@ -21,9 +21,9 @@ const PeopleV2 = () => {
             <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
               <Timeline.Item label={yearLabel('Csaba Szilagyi')}>
                 Project Leader<br/>
-                Head of Human Rights Program
+                Chief Archivist
                 <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
-                Acting Chief Archivist<br/>
+                Head of Human Rights Program<br/>
                 Blinken OSA, 2013-present
               </Timeline.Item>
               <Timeline.Item label={yearLabel('Perica Jovchevski')}>
@@ -42,6 +42,18 @@ const PeopleV2 = () => {
           </FadeIn>
           <FadeIn delay={600}>
             <Timeline key={'timeline'} mode={'alternate'} className={style.Timeline}>
+              <Timeline.Item label={yearLabel('Cory Dudka')}>
+                MA Student in Nationalism Studies, CEU
+                <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+                Assistant Archivist<br/>
+                Blinken OSA, Budapest, 2024
+              </Timeline.Item>
+              <Timeline.Item label={yearLabel('Gentian Doci')}>
+                MA Student in Nationalism Studies, CEU
+                <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
+                Assistant Archivist<br/>
+                Blinken OSA, Budapest, 2024
+              </Timeline.Item>
               <Timeline.Item label={yearLabel('Connor Kusilek')}>
                 MA Student in International Relations, CEU
                 <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
