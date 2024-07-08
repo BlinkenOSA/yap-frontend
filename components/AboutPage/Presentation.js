@@ -24,7 +24,27 @@ const Presentation = () => {
                   <a href={'https://iuc.hr/programme/1065'} target={'_blank'} className={style.Presentation}>
                     Divided Societies XXIII: Myths and the Media
                   </a>
-                  Inter-University Center, Dubrovnik, 2020 (postponed for 2022)
+                  Inter-University Center, Dubrovnik, 2020 (postponed from 2020 due to the Covid-19 pandemic))
+                </div>
+                <div className={style.Text} style={{marginTop: '20px'}}>
+                  <div style={{fontWeight: 600}}>UnSettled: Redefining Archival Power</div>
+                  Vancouver (online)
+                </div>
+              </Timeline.Item>
+              <Timeline.Item label={yearLabel('2021')}>
+                <div className={style.Text} style={{marginTop: '20px'}}>
+                  <div style={{fontWeight: 600}}>Memory in Public Places</div>
+                  MA course, Central European University, Budapest/Vienna
+                </div>
+                <div className={style.Text} style={{marginTop: '20px'}}>
+                  <div style={{fontWeight: 600}}>Methodologies of Working in Cold-War Archives: Facts, Values and Archival Ecologies</div>
+                  Blinken OSA Archivum/Central European University, Budapest/Vienna (online)
+                </div>
+              </Timeline.Item>
+              <Timeline.Item label={yearLabel('2020')}>
+                <div className={style.Text} style={{marginTop: '20px'}}>
+                  <div style={{fontWeight: 600}}>International Criminal Justice and Tribunals course</div>
+                  Al-Quds Bard College for Arts & Sciences, Al-Quds University, Jerusalem (online)
                 </div>
               </Timeline.Item>
               <Timeline.Item label={yearLabel('2019')}>

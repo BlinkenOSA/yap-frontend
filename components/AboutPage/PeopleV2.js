@@ -27,7 +27,7 @@ const PeopleV2 = () => {
                 Blinken OSA, 2013-present
               </Timeline.Item>
               <Timeline.Item label={yearLabel('Perica Jovchevski')}>
-                PhD Student in Political Theory, CEU
+                Project Coordinator
                 <span style={{margin: '0 5px', color: '#CCC'}}>|</span>
                 Assistant Archivist<br/>Blinken OSA, Budapest, 2015-present
               </Timeline.Item>

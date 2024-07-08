@@ -10,6 +10,7 @@ import PeopleV2 from "../components/AboutPage/PeopleV2";
 import Chronology from "../components/AboutPage/Chronology";
 import Presentation from "../components/AboutPage/Presentation";
 import Publication from "../components/AboutPage/Publication";
+import Exploring from "../components/AboutPage/Exploring";
 
 const AboutPage = () => {
   const [selectedPage, setSelectedPage] = useState('about');
@@ -28,6 +29,8 @@ const AboutPage = () => {
         return <Presentation/>;
       case 'publications':
         return <Publication/>;
+      case 'exploring':
+        return <Exploring/>;
       default:
         return <About/>;
     }
@@ -70,6 +73,11 @@ const AboutPage = () => {
                 onClick={() => setSelectedPage('publications')}
                 className={selectedPage === 'publications' ? style.ActiveButton : ''}>
                 Publications
+              </Button>
+              <Button
+                  onClick={() => setSelectedPage('exploring')}
+                  className={selectedPage === 'exploring' ? style.ActiveButton : ''}>
+                Exploring the collections
               </Button>
             </div>
           </Col>
